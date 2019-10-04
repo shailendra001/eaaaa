@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="112" id="KGk-i7-Jjw" customClass="ArtDetailViewCell2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="109.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJW-D1-lK0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuu-QQ-sWa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                                <color key="backgroundColor" red="0.68627450980392157" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="AMy-k3-urP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Emotional Creation #80" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngn-Wz-8zD">
+                                <rect key="frame" x="8" y="5" width="304" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="kaH-th-l7r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.10588235294117647" green="0.082352941176470587" blue="0.086274509803921567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acrylic painting by Carla Sa Fernandes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpQ-NF-3f6" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="8" y="24" width="304" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="dEp-FO-rKi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
+                                <color key="textColor" red="0.36470588235294116" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29.742 cm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5z-dS-twN">
+                                <rect key="frame" x="8" y="38" width="304" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="aZu-87-RtR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
+                                <color key="textColor" red="0.36470588240000001" green="0.35686274509999999" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$3,674.88" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5f-kX-dKD">
+                                <rect key="frame" x="8" y="57" width="304" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="3vO-IH-ZOT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" red="0.20784313725490197" green="0.49019607843137253" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share this product on" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zs5-cV-c77">
+                                <rect key="frame" x="8" y="88" width="90" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="WN7-Vz-Gft"/>
+                                    <constraint firstAttribute="width" constant="90" id="nyK-0K-cnl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
+                                <color key="textColor" red="0.36470588240000001" green="0.35686274509999999" blue="0.35686274509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3v-pS-k7P">
+                                <rect key="frame" x="121" y="71" width="30" height="30"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facebook_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="bxs-a8-dhF">
+                                        <rect key="frame" x="2" y="2" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iT7-e8-ZFc" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="QAN-GO-9zm"/>
+                                    <constraint firstAttribute="height" constant="30" id="nTN-LV-s3G"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfZ-pO-REF">
+                                <rect key="frame" x="159" y="71" width="30" height="30"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="twitter_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="pk7-zR-LU7">
+                                        <rect key="frame" x="3" y="2" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sge-wG-oNq" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="iw8-Eh-Gdd"/>
+                                    <constraint firstAttribute="height" constant="30" id="wtX-4e-hdr"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0k-iT-5TS">
+                                <rect key="frame" x="197" y="71" width="30" height="30"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="google_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Wq-XP-uWw">
+                                        <rect key="frame" x="3" y="2" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTv-mQ-Doo" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-1" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="7BS-Ao-2A1"/>
+                                    <constraint firstAttribute="height" constant="30" id="bdt-QF-2Vi"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Utp-R4-ilE">
+                                <rect key="frame" x="235" y="71" width="30" height="30"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="instagram_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="3P6-4X-BiG">
+                                        <rect key="frame" x="2" y="2" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MjO-eb-Qwk" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="F25-cB-XQb"/>
+                                    <constraint firstAttribute="width" constant="30" id="ijL-Sq-CuP"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QUM-pm-Jdg">
+                                <rect key="frame" x="273" y="71" width="30" height="30"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email_share.png" translatesAutoresizingMaskIntoConstraints="NO" id="sSV-8D-mzF">
+                                        <rect key="frame" x="2" y="2" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ts3-md-Wut" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="aKX-wH-OXT"/>
+                                    <constraint firstAttribute="height" constant="30" id="bgB-oY-bnd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="109" id="9mc-JW-oGl"/>
+                            <constraint firstItem="c3v-pS-k7P" firstAttribute="leading" secondItem="zs5-cV-c77" secondAttribute="trailing" constant="23" id="AgS-9N-dds"/>
+                            <constraint firstAttribute="trailing" secondItem="rpQ-NF-3f6" secondAttribute="trailing" constant="8" id="BXb-iQ-QPV"/>
+                            <constraint firstItem="k5f-kX-dKD" firstAttribute="top" secondItem="H5z-dS-twN" secondAttribute="bottom" constant="4" id="Cjy-nS-Wmh"/>
+                            <constraint firstAttribute="trailing" secondItem="H5z-dS-twN" secondAttribute="trailing" constant="8" id="EIb-5U-2g9"/>
+                            <constraint firstItem="zs5-cV-c77" firstAttribute="leading" secondItem="bJW-D1-lK0" secondAttribute="leading" constant="8" id="J6O-vV-KYl"/>
+                            <constraint firstItem="rpQ-NF-3f6" firstAttribute="top" secondItem="Ngn-Wz-8zD" secondAttribute="bottom" constant="2" id="JLG-Rb-MtP"/>
+                            <constraint firstItem="Ngn-Wz-8zD" firstAttribute="leading" secondItem="bJW-D1-lK0" secondAttribute="leading" constant="8" id="KQ8-67-A2z"/>
+                            <constraint firstItem="rpQ-NF-3f6" firstAttribute="leading" secondItem="bJW-D1-lK0" secondAttribute="leading" constant="8" id="Kpv-Xx-O5H"/>
+                            <constraint firstItem="U0k-iT-5TS" firstAttribute="leading" secondItem="wfZ-pO-REF" secondAttribute="trailing" constant="8" id="Mhj-c1-9Y4"/>
+                            <constraint firstItem="Ngn-Wz-8zD" firstAttribute="top" secondItem="yuu-QQ-sWa" secondAttribute="bottom" constant="3" id="PRQ-Tf-V9y"/>
+                            <constraint firstAttribute="bottom" secondItem="c3v-pS-k7P" secondAttribute="bottom" constant="8" id="T6W-mH-K3d"/>
+                            <constraint firstItem="k5f-kX-dKD" firstAttribute="leading" secondItem="bJW-D1-lK0" secondAttribute="leading" constant="8" id="Uoa-7O-SgF"/>
+                            <constraint firstItem="zs5-cV-c77" firstAttribute="top" secondItem="k5f-kX-dKD" secondAttribute="bottom" constant="8" id="X5j-1l-ZHG"/>
+                            <constraint firstItem="H5z-dS-twN" firstAttribute="leading" secondItem="bJW-D1-lK0" secondAttribute="leading" constant="8" id="XB7-yU-U2i"/>
+                            <constraint firstAttribute="bottom" secondItem="Utp-R4-ilE" secondAttribute="bottom" constant="8" id="XLL-hi-cVD"/>
+                            <constraint firstAttribute="trailing" secondItem="yuu-QQ-sWa" secondAttribute="trailing" id="ZMa-Lc-q3z"/>
+                            <constraint firstItem="yuu-QQ-sWa" firstAttribute="leading" secondItem="bJW-D1-lK0" secondAttribute="leading" id="dQ9-vW-yko"/>
+                            <constraint firstAttribute="bottom" secondItem="QUM-pm-Jdg" secondAttribute="bottom" constant="8" id="lhS-Fq-eso"/>
+                            <constraint firstItem="Utp-R4-ilE" firstAttribute="leading" secondItem="U0k-iT-5TS" secondAttribute="trailing" constant="8" id="ltT-de-Cr5"/>
+                            <constraint firstItem="QUM-pm-Jdg" firstAttribute="leading" secondItem="Utp-R4-ilE" secondAttribute="trailing" constant="8" id="mnT-09-x3T"/>
+                            <constraint firstItem="H5z-dS-twN" firstAttribute="top" secondItem="rpQ-NF-3f6" secondAttribute="bottom" constant="1" id="o4X-t2-c8R"/>
+                            <constraint firstAttribute="bottom" secondItem="wfZ-pO-REF" secondAttribute="bottom" constant="8" id="oZU-q5-lzs"/>
+                            <constraint firstAttribute="trailing" secondItem="k5f-kX-dKD" secondAttribute="trailing" constant="8" id="osb-NV-Dd6"/>
+                            <constraint firstItem="yuu-QQ-sWa" firstAttribute="top" secondItem="bJW-D1-lK0" secondAttribute="top" id="rnc-Jz-i3B"/>
+                            <constraint firstItem="wfZ-pO-REF" firstAttribute="leading" secondItem="c3v-pS-k7P" secondAttribute="trailing" constant="8" id="tOA-52-2TL"/>
+                            <constraint firstAttribute="trailing" secondItem="Ngn-Wz-8zD" secondAttribute="trailing" constant="8" id="uIf-9u-Nsl"/>
+                            <constraint firstAttribute="bottom" secondItem="U0k-iT-5TS" secondAttribute="bottom" constant="8" id="yQp-fB-Owj"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="bJW-D1-lK0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="36W-0p-e9m"/>
+                    <constraint firstItem="bJW-D1-lK0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bkC-U8-c2m"/>
+                    <constraint firstAttribute="trailing" secondItem="bJW-D1-lK0" secondAttribute="trailing" id="dJL-P2-XPY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnEmail" destination="Ts3-md-Wut" id="gLs-vW-9Lc"/>
+                <outlet property="btnFB" destination="iT7-e8-ZFc" id="7av-Tw-YdZ"/>
+                <outlet property="btnGooglePlus" destination="qTv-mQ-Doo" id="egz-pH-TSq"/>
+                <outlet property="btnInstagram" destination="MjO-eb-Qwk" id="RxY-b4-TaV"/>
+                <outlet property="btnTW" destination="Sge-wG-oNq" id="ZAr-o7-upf"/>
+                <outlet property="lblAutherName" destination="rpQ-NF-3f6" id="COh-5Z-iCL"/>
+                <outlet property="lblName" destination="Ngn-Wz-8zD" id="duh-UX-zsb"/>
+                <outlet property="lblPrice" destination="k5f-kX-dKD" id="8vz-7S-FMz"/>
+                <outlet property="lblSeparatorLine" destination="yuu-QQ-sWa" id="f0r-Yx-UHu"/>
+                <outlet property="lblSize" destination="H5z-dS-twN" id="81G-ID-B4c"/>
+                <outlet property="viContainerDetail" destination="bJW-D1-lK0" id="gIQ-3g-JdM"/>
+                <outlet property="viContainerEmail" destination="QUM-pm-Jdg" id="tet-IK-UZn"/>
+                <outlet property="viContainerFB" destination="c3v-pS-k7P" id="bH4-wD-dE6"/>
+                <outlet property="viContainerGooglePlus" destination="U0k-iT-5TS" id="lWy-nj-4C9"/>
+                <outlet property="viContainerInstagram" destination="Utp-R4-ilE" id="ZIX-HK-Y7R"/>
+                <outlet property="viContainerTW" destination="wfZ-pO-REF" id="MkQ-dX-Ciz"/>
+            </connections>
+            <point key="canvasLocation" x="191" y="153"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="email_share.png" width="57" height="57"/>
+        <image name="facebook_icon.png" width="57" height="57"/>
+        <image name="google_icon.png" width="56" height="56"/>
+        <image name="instagram_icon.png" width="58" height="58"/>
+        <image name="twitter_icon.png" width="56" height="56"/>
+    </resources>
+</document>

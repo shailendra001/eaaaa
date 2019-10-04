@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Dosis-Light.otf">
+            <string>Dosis-Light</string>
+        </mutableArray>
+        <mutableArray key="Dosis-Regular.otf">
+            <string>Dosis-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AddArtViewCell4">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iP7-b8-xH2">
+                        <rect key="frame" x="8" y="6" width="196" height="27"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dRh-7S-J0P">
+                                <rect key="frame" x="8" y="0.0" width="180" height="27"/>
+                                <fontDescription key="fontDescription" name="Dosis-Light" family="Dosis" pointSize="13"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="B8V-fF-tG7"/>
+                            <constraint firstAttribute="trailing" secondItem="dRh-7S-J0P" secondAttribute="trailing" constant="8" id="TTM-g3-x3s"/>
+                            <constraint firstAttribute="bottom" secondItem="dRh-7S-J0P" secondAttribute="bottom" id="bS4-cj-alr"/>
+                            <constraint firstItem="dRh-7S-J0P" firstAttribute="leading" secondItem="iP7-b8-xH2" secondAttribute="leading" constant="8" id="gU4-Er-IgL"/>
+                            <constraint firstItem="dRh-7S-J0P" firstAttribute="top" secondItem="iP7-b8-xH2" secondAttribute="top" id="w4H-wL-xjx"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy5-xJ-ZAT">
+                        <rect key="frame" x="8" y="38" width="304" height="1"/>
+                        <color key="backgroundColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="egz-3V-Rie"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24H-tm-Xme">
+                        <rect key="frame" x="212" y="6" width="100" height="27"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ADD MORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Fd-Ve-rf9">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="27"/>
+                                <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="13"/>
+                                <color key="textColor" red="0.14901960780000001" green="0.1450980392" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mbq-1w-BnT" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="27"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="5tD-6D-Dbi"/>
+                            <constraint firstAttribute="height" constant="27" id="9GD-5m-zSR"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="24H-tm-Xme" secondAttribute="trailing" constant="8" id="3zi-6d-f05"/>
+                    <constraint firstItem="Iy5-xJ-ZAT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="6ED-Ds-mSr"/>
+                    <constraint firstItem="iP7-b8-xH2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="6UJ-DH-GeU"/>
+                    <constraint firstAttribute="bottom" secondItem="Iy5-xJ-ZAT" secondAttribute="bottom" id="For-2O-b12"/>
+                    <constraint firstItem="iP7-b8-xH2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="H9X-wB-zBE"/>
+                    <constraint firstAttribute="trailing" secondItem="Iy5-xJ-ZAT" secondAttribute="trailing" constant="8" id="ctF-vN-sQe"/>
+                    <constraint firstItem="24H-tm-Xme" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hEa-j6-PiC"/>
+                    <constraint firstItem="24H-tm-Xme" firstAttribute="leading" secondItem="iP7-b8-xH2" secondAttribute="trailing" constant="8" id="tZt-br-HVa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnAddMore" destination="Mbq-1w-BnT" id="3sP-Ve-5jd"/>
+                <outlet property="lblAddMore" destination="3Fd-Ve-rf9" id="vgP-sc-wFa"/>
+                <outlet property="lblSeparatorLine" destination="Iy5-xJ-ZAT" id="0ws-Xb-Ihe"/>
+                <outlet property="txtField" destination="dRh-7S-J0P" id="hnJ-Ve-Kyb"/>
+                <outlet property="viContainerAddMore" destination="24H-tm-Xme" id="Jze-yU-adv"/>
+                <outlet property="viContainerField" destination="iP7-b8-xH2" id="ZL7-kz-fQk"/>
+            </connections>
+            <point key="canvasLocation" x="173" y="-48"/>
+        </tableViewCell>
+    </objects>
+</document>

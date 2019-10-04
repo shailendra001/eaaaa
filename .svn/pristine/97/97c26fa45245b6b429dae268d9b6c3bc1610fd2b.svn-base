@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "377e86bd-d0a2-4513-9ae7-739dd4a463d7++6404",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "377e86bd-d0a2-4513-9ae7-739dd4a463d7++6404" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "377e86bd-d0a2-4513-9ae7-739dd4a463d7++6404" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F9F789A7-408C-4E50-A426-323EDB6489F9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "377e86bd-d0a2-4513-9ae7-739dd4a463d7++6404" : "EastonArtGalleries_Project\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "EastonArtGalleries",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "EastonArtGalleries.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/xp-dev.com\/svn\/inoicon_ios_dev",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "377e86bd-d0a2-4513-9ae7-739dd4a463d7++6404"
+    }
+  ]
+}

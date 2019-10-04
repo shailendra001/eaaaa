@@ -1,0 +1,293 @@
+//
+//  QMImagePicker.m
+//  Q-municate
+//
+//  Created by Andrey Ivanov on 11.08.14.
+//  Copyright (c) 2014 Quickblox. All rights reserved.
+//
+
+#import "QMImagePicker.h"
+#import "REActionSheet.h"
+#import "AppDelegate.h"
+
+
+
+typedef enum
+{
+    MediaTypeCamera = 0,
+    MediaTypePhoto,
+    MediaTypeVideo
+} MediaType;
+
+MediaType mediaType;
+
+@interface QMImagePicker()
+
+<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
+@property (copy, nonatomic) QMImagePickerResult result;
+
+
+@end
+
+@implementation QMImagePicker
+
+- (void)dealloc {
+    ILog(@"%@ - %@",  NSStringFromSelector(_cmd), self);
+}
+
++ (void)presentIn:(UIViewController *)vc
+        configure:(void (^)(UIImagePickerController *picker))configure
+           result:(QMImagePickerResult)result {
+    
+    QMImagePicker *picker = [[QMImagePicker alloc] init];
+    picker.result = result;
+    configure(picker);
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+//
+//        [UINavigationBar appearance].tintColor = [UIColor blackColor];
+        
+    [vc presentViewController:picker animated:YES completion:nil];
+}
+
+- (instancetype)init {
+    
+    self = [super init];
+    if (self) {
+        self.delegate = self;
+    }
+    return self;
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    NSString *key = picker.allowsEditing ? UIImagePickerControllerEditedImage: UIImagePickerControllerOriginalImage;
+    UIImage *image = info[key];
+    NSURL *videoURL;
+    NSURL* localUrl;
+    if(mediaType==MediaTypeVideo){
+        videoURL  = [info valueForKey:UIImagePickerControllerMediaURL];
+        UIImage *videoThumbnail=[Alert thumbnailFromVideoAtURL:videoURL];
+        
+        image = videoThumbnail;
+            
+//            UISaveVideoAtPathToSavedPhotosAlbum(videoURL.absoluteString,nil,nil,nil);
+    }
+    else{
+        
+        localUrl = (NSURL *)[info valueForKey:UIImagePickerControllerReferenceURL];
+    }
+    
+//    NSString *path = [videoURL path];
+//    
+//    if([videoURL isFileURL]){
+//        NSData *data = [[NSFileManager defaultManager] contentsAtPath:path];
+//        
+//    }
+//    else{
+//        NSLog(@"Error ! File Location is wrong");
+//    }
+    
+    __weak __typeof(self)weakSelf = self;
+    [picker dismissViewControllerAnimated:YES completion:^{
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+            [UINavigationBar appearance].tintColor = [UIColor blackColor];
+//            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+//            weakSelf.edgesForExtendedLayout = UIRectEdgeNone;
+        
+        if(mediaType==MediaTypeVideo)
+            weakSelf.result(image,videoURL);
+        else
+            weakSelf.result(image,localUrl);
+        weakSelf.result = nil;
+        mediaType=MediaTypeCamera;
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    __weak __typeof(self)weakSelf = self;
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        [UINavigationBar appearance].tintColor = [UIColor blackColor];
+//        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+//        weakSelf.edgesForExtendedLayout = UIRectEdgeTop;
+            
+        weakSelf.result = nil;
+    }];
+}
+
++ (void)chooseSourceTypeInVC:(id)vc allowsEditing:(BOOL)allowsEditing result:(QMImagePickerResult)result {
+    
+    UIViewController *viewController = vc;
+        
+    
+    void (^showImagePicker)(UIImagePickerControllerSourceType,int) = ^(UIImagePickerControllerSourceType type,int mType) {
+            
+        
+            
+        mediaType=mType;
+        if(mediaType==MediaTypeCamera || mediaType==MediaTypePhoto){
+        //Check Camera is available ?
+            if(type==UIImagePickerControllerSourceTypeCamera){
+                if ( [QMImagePicker isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+                    [QMImagePicker presentIn:viewController configure:^(UIImagePickerController *picker) {
+                        
+                        picker.sourceType = type;
+                        picker.allowsEditing = allowsEditing;
+                        
+                    } result:result];
+                }
+                else{
+                    NSLog(@"Camera is not available !");
+                }
+            }
+            else{
+                [QMImagePicker presentIn:viewController configure:^(UIImagePickerController *picker) {
+                    
+                    picker.sourceType = type;
+                    picker.allowsEditing = allowsEditing;
+                    
+                } result:result];
+            }
+            
+        }
+        else if(mediaType==MediaTypeVideo)
+        {
+            
+            [QMImagePicker presentIn:viewController configure:^(UIImagePickerController *picker) {
+                
+                picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                picker.allowsEditing = allowsEditing;
+                
+                picker.mediaTypes = @[(NSString*)kUTTypeMovie, (NSString*)kUTTypeAVIMovie, (NSString*)kUTTypeVideo, (NSString*)kUTTypeMPEG4];
+                picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
+                
+            } result:result];
+            
+        }
+    };
+    
+    
+    [REActionSheet presentActionSheetInView:viewController.view configuration:^(REActionSheet *actionSheet) {
+        
+        [actionSheet addButtonWithTitle:@"Take New Photo"
+                         andActionBlock:^{
+                             showImagePicker(UIImagePickerControllerSourceTypeCamera,0);
+                         }];
+        
+        [actionSheet addButtonWithTitle:@"Choose photo from Library"
+                         andActionBlock:^{
+                             showImagePicker(UIImagePickerControllerSourceTypePhotoLibrary,1);
+                         }];
+        
+        [actionSheet addButtonWithTitle:@"Choose video from Library"
+                         andActionBlock:^{
+                             showImagePicker(UIImagePickerControllerSourceTypePhotoLibrary,2);
+                         }];
+        
+        [actionSheet addCancelButtonWihtTitle:@"Cancel"
+                               andActionBlock:^{}];
+    }];
+}
+
++ (void)chooseSourceTypeInVC:(id)vc
+               allowsEditing:(BOOL)allowsEditing
+                     isVideo:(BOOL)isVideo
+                      result:(QMImagePickerResult)result {
+        
+        UIViewController *viewController = vc;
+        
+        
+        void (^showImagePicker)(UIImagePickerControllerSourceType,int) = ^(UIImagePickerControllerSourceType type,int mType) {
+                
+                
+                
+                mediaType=mType;
+                if(mediaType==MediaTypeCamera || mediaType==MediaTypePhoto){
+                        //Check Camera is available ?
+                        if(type==UIImagePickerControllerSourceTypeCamera){
+                                if ( [QMImagePicker isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+                                        [QMImagePicker presentIn:viewController configure:^(UIImagePickerController *picker) {
+                                                
+                                                picker.sourceType = type;
+                                                picker.allowsEditing = allowsEditing;
+                                                
+                                        } result:result];
+                                }
+                                else{
+                                        NSLog(@"Camera is not available !");
+                                }
+                        }
+                        else{
+                                [QMImagePicker presentIn:viewController configure:^(UIImagePickerController *picker) {
+                                        
+                                        picker.sourceType = type;
+                                        picker.allowsEditing = allowsEditing;
+                                        
+                                } result:result];
+                        }
+                        
+                }
+                else if(mediaType==MediaTypeVideo)
+                {
+                        
+                        [QMImagePicker presentIn:viewController configure:^(UIImagePickerController *picker) {
+                                
+                                picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                picker.allowsEditing = allowsEditing;
+                                
+                                picker.mediaTypes = @[(NSString*)kUTTypeMovie, (NSString*)kUTTypeAVIMovie, (NSString*)kUTTypeVideo, (NSString*)kUTTypeMPEG4];
+                                picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
+                                
+                        } result:result];
+                        
+                }
+        };
+        
+        
+        [REActionSheet presentActionSheetInView:viewController.view configuration:^(REActionSheet *actionSheet) {
+                
+                [actionSheet addButtonWithTitle:@"Take New Photo"
+                                 andActionBlock:^{
+                                         showImagePicker(UIImagePickerControllerSourceTypeCamera,0);
+                                 }];
+                
+                [actionSheet addButtonWithTitle:@"Choose photo from Library"
+                                 andActionBlock:^{
+                                         showImagePicker(UIImagePickerControllerSourceTypePhotoLibrary,1);
+                                 }];
+                
+                if(isVideo)
+                [actionSheet addButtonWithTitle:@"Choose video from Library"
+                                 andActionBlock:^{
+                                         showImagePicker(UIImagePickerControllerSourceTypePhotoLibrary,2);
+                                 }];
+                
+                [actionSheet addCancelButtonWihtTitle:@"Cancel"
+                                       andActionBlock:^{}];
+        }];
+}
+
+
+//-(void)navigationController:(UINavigationController *)navigationController
+//willShowViewController:(UIViewController *)viewController
+//animated:(BOOL)animated
+//{
+////        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+//
+////        [UINavigationBar appearance].tintColor = [UIColor blackColor];
+////        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+////        [viewController prefersStatusBarHidden];
+////        [viewController performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+//}
+////
+//-(BOOL)prefersStatusBarHidden   // iOS8 definitely needs this one. checked.
+//{
+//        return YES;
+//}
+////
+//-(UIViewController *)childViewControllerForStatusBarHidden
+//{
+//        return nil;
+//}
+@end

@@ -1,0 +1,19 @@
+//
+//  ArtDetailViewController.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 27/05/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ArtDetailViewController : UIViewController
+
+@property (strong, nonatomic) NSString* artID;
+@property (strong, nonatomic) NSString* from;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+- (IBAction)addToCard:(id)sender;
+- (IBAction)buy:(id)sender;
+@end

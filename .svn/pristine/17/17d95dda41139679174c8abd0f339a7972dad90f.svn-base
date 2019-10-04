@@ -1,0 +1,30 @@
+//
+//  ArtDetailViewController.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 27/05/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ArtDetailViewController : UIViewController
+
+@property (strong, nonatomic) NSString* artID;
+@property (strong, nonatomic) NSString* from;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnAddToCard;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnWishlist;
+
+@property (strong, nonatomic) IBOutlet UIImageView *imgWishlist;
+@property (strong, nonatomic) IBOutlet UILabel *lblAddToCard;
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerAddToCart;
+@property (strong, nonatomic) IBOutlet UIView *viContainerBuyNow;
+@property (strong, nonatomic) IBOutlet UILabel *lblSeparatorLineVirtical;
+
+
+- (IBAction)addToCard:(id)sender;
+- (IBAction)wishlist:(id)sender;
+@end

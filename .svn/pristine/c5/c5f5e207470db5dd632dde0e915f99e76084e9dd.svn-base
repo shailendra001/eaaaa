@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Dosis-Regular.otf">
+            <string>Dosis-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="AddArtViewCell2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ud9-Kw-wf8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENB-rY-qoF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdJ-6c-D4x" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.28235294119999998" green="0.47058823529999999" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="WdJ-6c-D4x" secondAttribute="bottom" id="1oF-Pe-vpv"/>
+                            <constraint firstItem="WdJ-6c-D4x" firstAttribute="leading" secondItem="ud9-Kw-wf8" secondAttribute="leading" id="3DS-uY-7GP"/>
+                            <constraint firstAttribute="bottom" secondItem="ENB-rY-qoF" secondAttribute="bottom" id="C4q-Si-kca"/>
+                            <constraint firstAttribute="trailing" secondItem="ENB-rY-qoF" secondAttribute="trailing" id="G5e-UE-tKo"/>
+                            <constraint firstItem="WdJ-6c-D4x" firstAttribute="top" secondItem="ud9-Kw-wf8" secondAttribute="top" id="Szg-zc-2nH"/>
+                            <constraint firstItem="ENB-rY-qoF" firstAttribute="leading" secondItem="ud9-Kw-wf8" secondAttribute="leading" id="eH9-Xo-pch"/>
+                            <constraint firstAttribute="trailing" secondItem="WdJ-6c-D4x" secondAttribute="trailing" id="lw9-Qu-Q6j"/>
+                            <constraint firstItem="ENB-rY-qoF" firstAttribute="top" secondItem="ud9-Kw-wf8" secondAttribute="top" id="y39-Bv-sGl"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ud9-Kw-wf8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MKL-GM-v9I"/>
+                    <constraint firstAttribute="bottom" secondItem="ud9-Kw-wf8" secondAttribute="bottom" id="QNp-cu-XeY"/>
+                    <constraint firstItem="ud9-Kw-wf8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="U5E-AE-i8g"/>
+                    <constraint firstAttribute="trailing" secondItem="ud9-Kw-wf8" secondAttribute="trailing" id="spq-rq-Opz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnClick" destination="WdJ-6c-D4x" id="lRo-xO-82G"/>
+                <outlet property="lblTitle" destination="ENB-rY-qoF" id="8UI-bW-v7p"/>
+                <outlet property="viContainerButton" destination="ud9-Kw-wf8" id="U1m-kQ-jxy"/>
+            </connections>
+            <point key="canvasLocation" x="344" y="78"/>
+        </tableViewCell>
+    </objects>
+</document>

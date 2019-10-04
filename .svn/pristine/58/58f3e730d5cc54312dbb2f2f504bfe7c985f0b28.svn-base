@@ -1,0 +1,882 @@
+//
+//  AddAmountViewController.m
+//  Talk2Good
+//
+//  Created by Sandeep Kumar on 15/09/15.
+//  Copyright (c) 2015 InfoiconTechnologies. All rights reserved.
+//
+
+#import "AddAmountViewController.h"
+
+// Set the environment:
+// - For live charges, use PayPalEnvironmentProduction (default).
+// - To use the PayPal sandbox, use PayPalEnvironmentSandbox.
+// - For testing, use PayPalEnvironmentNoNetwork.
+#define kPayPalEnvironment PayPalEnvironmentNoNetwork
+
+#define PAYPAL_TRANSACTION_MEMBER_ID            @"member"
+#define PAYPAL_TRANSACTION_CURRENCY             @"currency"
+#define PAYPAL_TRANSACTION_ID                   @"transaction_id"
+#define PAYPAL_TRANSACTION_TYPE                 @"transaction_type"
+#define PAYPAL_TRANSACTION_AMOUNT               @"transaction_amount"
+#define PAYPAL_TRANSACTION_STATUS               @"transaction_status"
+#define PAYPAL_TRANSACTION_CARD                 @"transaction_card"
+#define PAYPAL_TRANSACTION_BILLING_FIRST_NAME   @"billing_firstName"
+#define PAYPAL_TRANSACTION_BILLING_LAST_NAME    @"billing_lastName"
+#define PAYPAL_TRANSACTION_BILLING_ADDRESS      @"billing_address"
+#define PAYPAL_TRANSACTION_BILLING_CITY         @"billing_city"
+#define PAYPAL_TRANSACTION_BILLING_STATE        @"billing_state"
+#define PAYPAL_TRANSACTION_BILLING_POST_CODE    @"billing_post_code"
+#define PAYPAL_TRANSACTION_BILLING_COUNTRY      @"billing_country"
+#define PAYPAL_TRANSACTION_DESCRIPTION          @"description"
+#define PAYPAL_TRANSACTION_TIME                 @"added_on"
+#define PAYPAL_TRANSACTION_METHOD               @"transaction_method"
+
+#define COLOR_DEFAULT_BUTTON    @"#67F226"
+
+@interface AddAmountViewController ()<UITextFieldDelegate,TransactionDeletgate>
+{
+        BOOL isUpdate;
+        
+}
+
+@property(nonatomic, strong, readwrite) PayPalConfiguration *payPalConfig;
+@property(nonatomic, strong, readwrite) IBOutlet UIView *successView;
+
+@property(nonatomic, strong) AppDelegate* appDelegate;
+
+@end
+
+@implementation AddAmountViewController
+
+#pragma mark  App delegate
+
+- (AppDelegate *)appDelegate {
+        return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+#pragma mark - View Controller
+
+- (void)viewDidLoad {
+        
+        [super viewDidLoad];
+        
+        [self configure];
+        
+        [self configPayPal];
+        
+        [self setKeyboardForAmount];
+        
+        [self setLogoImage];
+        
+//        [self rightNavBarConfiguration];
+        
+        if([self.from isEqualToString:@"back"]) [self setNav];
+    
+        
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+        [super viewWillAppear:YES];
+        
+        //[self configure];
+        
+        // Preconnect to PayPal early
+        [self setPayPalEnvironment:self.environment];
+        
+        
+//        //Set Transaction detail on Local server
+//        [self updateAmountFromPayPalToServer];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+        [super viewDidAppear:animated];
+        
+        [self configure];
+        
+        //Set Transaction detail on Local server
+        //[self updateAmountFromPayPalToServer];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Custom Methods
+
+-(void)configure {
+        self.tableView.tableFooterView = [[UIView alloc]init];
+        
+        self.appDelegate.transactionDelegate=self;
+        
+        self.txtAmount.text=@"";
+        
+        self.txtAmount.delegate=self;
+        
+        self.txtAmount.keyboardType = UIKeyboardTypeNumberPad;
+        
+        [self.txtAmount addTarget:self
+                           action:@selector(textFieldDidChange:)
+                 forControlEvents:UIControlEventEditingChanged];
+        
+        BOOL isHistory = [[NSUserDefaults standardUserDefaults] boolForKey:isTRANSACTION];
+        //BOOL isHistory=[[[NSUserDefaults standardUserDefaults] objectForKey:isTRANSACTION] isEqualToString:isYES];
+        
+        if(isHistory){
+                self.txtAmount.enabled=
+                self.btnPayPal.enabled=NO;
+                [self.btnPayPal setBackgroundColor:[UIColor lightGrayColor]];
+        }
+        else{
+                self.txtAmount.enabled=
+                self.btnPayPal.enabled=YES;
+                [self.btnPayPal setBackgroundColor:[Alert colorFromHexString:@"#67F226"]];
+                
+        }
+        
+        [self.tableView reloadData];
+        
+        [self setData];
+        
+        
+                
+}
+
+- (BOOL)validateForAmount{
+        
+        BOOL isNumber = [Alert validateNumber:self.txtAmount.text];
+        
+        return isNumber;
+        
+}
+
+-(void)setData{
+        if(isUpdate)
+//                [self.btnWithdrawal setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+                self.btnPayPal.backgroundColor=[UIColor orangeColor];
+        else
+                self.btnPayPal.backgroundColor=[Alert colorFromHexString:COLOR_DEFAULT_BUTTON];
+        
+        
+        [self.btnPayPal setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+}
+
+-(void)reloadViewAnited{
+        dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [UIView transitionWithView:self.view
+                                  duration:0.3
+                                   options:UIViewAnimationOptionTransitionCrossDissolve
+                                animations:^{
+                                        
+                                        
+                                }
+                                completion:^(BOOL finish){
+                                        [[SharedClass sharedObject] hudeHide];
+                                        
+                                        isUpdate=NO;
+                                        
+                                        [self configure];
+                                        [self.tableView reloadData];
+                                        
+                                        [self.navigationController popViewControllerAnimated:YES];
+
+                                        
+                                }];
+        });
+        
+}
+
+-(void)setKeyboardForAmount{
+        UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+        numberToolbar.barStyle = UIBarStyleDefault;
+        numberToolbar.items = @[[[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                                [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                                [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)]];
+        [numberToolbar sizeToFit];
+        self.txtAmount.inputAccessoryView = numberToolbar;
+}
+
+-(void)doneWithNumberPad{
+        NSLog(@"Done Clicked.");
+        [self.txtAmount resignFirstResponder];
+        [self setData];
+}
+
+-(void)cancelNumberPad{
+        NSLog(@"Cancel Clicked.");
+        self.txtAmount.text = @"";
+        isUpdate=NO;
+        
+        //[self setData];
+        
+        [self.txtAmount resignFirstResponder];
+        
+        [self setData];
+}
+
+-(void)setLogoImage{
+        UIImage* logoImage = [UIImage imageNamed:LOGO_IMAGE];
+        UIImageView* imgLogo=[[UIImageView alloc] initWithImage:logoImage];
+        imgLogo.frame=CGRectMake(0, 0, 49, 44);
+        
+        UIView* logoView=[[UIView alloc]initWithFrame:imgLogo.frame];
+        [logoView addSubview:imgLogo];
+        
+        self.navigationItem.titleView =logoView;
+}
+
+-(void)setNav{
+        
+        self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+        [self.navigationController.navigationBar
+         setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+        self.navigationController.navigationBar.translucent = NO;
+}
+
+-(void)rightNavBarConfiguration{
+        
+        //Search icon
+        UIImageView*searchImageView=[[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 20, 20)];
+        searchImageView.image=[UIImage imageNamed:@"search_icon.png"];
+        
+        UIButton*searchButton  = [ZFRippleButton buttonWithType:UIButtonTypeSystem];
+        searchButton.frame = CGRectMake(0, 0, 30, 30);
+        searchButton.layer.cornerRadius=searchButton.frame.size.width/2;
+        [searchButton addTarget:self action:@selector(search:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIView* searchView=[[UIView alloc]initWithFrame:CGRectMake(0, 5, 30, 30)];
+        searchView.backgroundColor=[UIColor clearColor];
+        [searchView addSubview:searchImageView];
+        [searchView addSubview:searchButton];
+        
+        //User icon
+        
+        UIImageView* userImageView=[[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 20, 20)];
+        userImageView.image=[UIImage imageNamed:@"user_icon.png"];
+        
+        
+        UIButton * userButton  = [ZFRippleButton buttonWithType:UIButtonTypeSystem];
+        userButton.frame = CGRectMake(0, 0, 30, 30);
+        userButton.layer.cornerRadius=userButton.frame.size.width/2;
+        [userButton addTarget:self action:@selector(user:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIView* userView=[[UIView alloc]initWithFrame:CGRectMake(30, 5, 30, 30)];
+        userView.backgroundColor=[UIColor clearColor];
+        [userView addSubview:userImageView];
+        [userView addSubview:userButton];
+        
+        //Card icon
+        UIImageView* cardImageView=[[UIImageView alloc]initWithFrame:CGRectMake(5, 5, 20, 20)];
+        cardImageView.image=[UIImage imageNamed:@"cart_icon.png"];
+        
+        
+        UIButton * cardButton  = [ZFRippleButton buttonWithType:UIButtonTypeSystem];
+        cardButton.frame = CGRectMake(0, 0, 30, 30);
+        cardButton.layer.cornerRadius=cardButton.frame.size.width/2;
+        [cardButton addTarget:self action:@selector(card:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIView* cardView=[[UIView alloc]initWithFrame:CGRectMake(60, 5, 30, 30)];
+        cardView.backgroundColor=[UIColor clearColor];
+        [cardView addSubview:cardImageView];
+        [cardView addSubview:cardButton];
+        
+        
+        //Card icon
+        UIImageView* dotImageView=[[UIImageView alloc]initWithFrame:CGRectMake(13, 6, 3, 20)];
+        dotImageView.image=[UIImage imageNamed:@"dotted_menu_icon.png"];
+        
+        
+        UIButton * dotButton  = [ZFRippleButton buttonWithType:UIButtonTypeSystem];
+        dotButton.frame = CGRectMake(0, 0, 30, 30);
+        dotButton.layer.cornerRadius=cardButton.frame.size.width/2;
+        [dotButton addTarget:self action:@selector(dot:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIView* dotView=[[UIView alloc]initWithFrame:CGRectMake(90, 5, 30, 30)];
+        dotView.backgroundColor=[UIColor clearColor];
+        [dotView addSubview:dotImageView];
+        [dotView addSubview:dotButton];
+        
+        
+        
+        UIView* rightView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 120, 40)];
+        rightView.backgroundColor=[UIColor clearColor];
+        
+        [rightView addSubview:searchView];
+        [rightView addSubview:userView];
+        [rightView addSubview:cardView];
+        [rightView addSubview:dotView];
+        
+        UIBarButtonItem *rightBarItem = [[UIBarButtonItem alloc] initWithCustomView:rightView];
+        
+        [rightView alignmentRectInsets];
+        
+        
+        //        UIBarButtonItem *closeBarItem = [[UIBarButtonItem alloc] initWithCustomView:closeButton];
+        //
+        //        UIBarButtonItem *sortBarItem = [[UIBarButtonItem alloc] initWithCustomView:sortButton];
+        
+        
+        self.navigationItem.rightBarButtonItem = rightBarItem;//@[closeBarItem,sortBarItem];
+}
+
+#pragma mark -Get Action from right nav buttons
+
+-(IBAction)search:(id)sender{
+        
+        NSString *urlString = JOIN_STRING(kPrefixUrl, kURL_Artist);
+        NSMutableDictionary* data=[NSMutableDictionary dictionary];
+        [data setObject:@"artist" forKey:@"page"];
+        
+        BestSellingArtistsViewController* vc=GET_VIEW_CONTROLLER(kBestSellingArtistsViewController);
+        vc.urlString=urlString;
+        vc.urlData=[data mutableCopy];
+        vc.dataAccesskey=@"Artist";
+        vc.titleString=@"Search Your Favorite Artist";
+        vc.isSearchArtist=YES;
+        vc.from=@"back";
+        [self.viewDeckController rightViewPushViewControllerOverCenterController:vc];
+        
+}
+
+-(IBAction)user:(id)sender{
+        
+        if([[EAGallery sharedClass]isLogin]){
+                if([self.navigationController.visibleViewController isKindOfClass:[DashboardViewController class]]) return;
+                
+                DashboardViewController*vc=GET_VIEW_CONTROLLER(kDashboardViewController);
+                vc.titleString=@"Dashboard";
+                
+                [self.viewDeckController rightViewPushViewControllerOverCenterController:vc];
+                
+        }
+        else{
+                if([self.navigationController.visibleViewController isKindOfClass:[LoginViewController class]]) return;
+                
+                LoginViewController*vc=GET_VIEW_CONTROLLER(kLoginViewController);
+                vc.titleString=@"Login";
+                
+                [self.viewDeckController rightViewPushViewControllerOverCenterController:vc];
+        }
+        
+}
+
+-(IBAction)card:(id)sender{
+        
+        
+        if([self.navigationController.visibleViewController isKindOfClass:[CardDetailViewController class]]) return;
+        
+        CardDetailViewController*vc=GET_VIEW_CONTROLLER(kCardDetailViewController);
+        vc.titleString=@"Your Cart";
+        vc.from=@"back";
+        MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+        
+}
+
+-(IBAction)dot:(id)sender{
+        
+        UIButton* button=(UIButton*)sender;
+        
+        [[EAGallery sharedClass]popover:button vc:self];
+        
+}
+
+
+#pragma mark -Custom Transaction Delgate
+
+-(void)transactionUpdate:(BOOL)status{
+        
+        [self reloadViewAnited];
+        
+        
+}
+
+#pragma mark - Update Transaction Details
+
+-(void)updateTransactionDetails{
+        dispatch_async(dispatch_get_main_queue(), ^{
+//                [[SharedClass sharedObject] hudeHide];
+                
+                //[[NSUserDefaults standardUserDefaults] setObject:isNO   forKey:isTRANSACTION];
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:isTRANSACTION];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+        });
+}
+
+
+
+#pragma mark PayPal Payment gateway
+
+-(void)updateAmountFromPayPalToServer{
+        self.transactionDetails=nil;
+        
+        //    [self resetTransactionDetail];
+        
+        BOOL tran = [[NSUserDefaults standardUserDefaults] boolForKey:isTRANSACTION];
+        
+        if( tran)
+        {
+                self.transactionDetails=[[NSUserDefaults standardUserDefaults] objectForKey:TRANSACTION_DETAIL];
+                self.transactionDetails=self.transactionDetails ? self.transactionDetails :nil;
+                
+                
+        }
+        
+        if(self.transactionDetails!=nil)
+        {
+//                dispatch_async(dispatch_get_main_queue(), ^{
+                
+                        [[SharedClass sharedObject] addProgressHud:self.navigationController.view];
+                        
+                        [[self appDelegate] callUpdateTransactionDetailWS];
+//                });
+                
+        }
+        else{
+//                dispatch_async(dispatch_get_main_queue(), ^{
+        
+                        [[SharedClass sharedObject] hudeHide];
+//                });
+        }
+}
+
+- (void)delayedDidFinish:(PayPalPayment *)completedPayment {
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+//                {
+//                        client =     {
+//                                environment = sandbox;
+//                                "paypal_sdk_version" = "2.12.7";
+//                                platform = iOS;
+//                                "product_name" = "PayPal iOS SDK";
+//                        };
+//                        response =     {
+//                                "create_time" = "2015-12-05T10:05:56Z";
+//                                id = "PAY-6NJ65006RK451445LKZRLN7I";
+//                                intent = sale;
+//                                state = approved;
+//                        };
+//                        "response_type" = payment;
+//                }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+//                NSMutableDictionary* userData=[[NSUserDefaults standardUserDefaults] objectForKey:@"info"];
+                
+                //PayPalItem *item1=completedPayment.items[0];
+                
+                NSDictionary* paymentDescription=[completedPayment.confirmation mutableCopy];
+                
+                NSMutableDictionary *mutDictTransactionDetails = [[NSMutableDictionary alloc] init];
+                [mutDictTransactionDetails setObject:[EAGallery sharedClass].memberID
+                                              forKey:PAYPAL_TRANSACTION_MEMBER_ID];
+                
+                [mutDictTransactionDetails setObject:completedPayment.currencyCode
+                                              forKey:PAYPAL_TRANSACTION_CURRENCY];
+                
+                [mutDictTransactionDetails setObject:[[paymentDescription objectForKey:@"response"] objectForKey:@"id"]
+                                              forKey:PAYPAL_TRANSACTION_ID];
+                
+                [mutDictTransactionDetails setObject:@"credit"
+                                              forKey:PAYPAL_TRANSACTION_TYPE];
+                
+                [mutDictTransactionDetails setObject:[completedPayment.amount stringValue]
+                                              forKey:PAYPAL_TRANSACTION_AMOUNT];
+                
+                [mutDictTransactionDetails setObject:@"completed"
+                                              forKey:PAYPAL_TRANSACTION_STATUS];
+                
+                [mutDictTransactionDetails setObject:@""        forKey:PAYPAL_TRANSACTION_CARD];
+                
+                [mutDictTransactionDetails setObject:[EAGallery sharedClass].name
+                                              forKey:PAYPAL_TRANSACTION_BILLING_FIRST_NAME];
+                
+                [mutDictTransactionDetails setObject:@""        forKey:PAYPAL_TRANSACTION_BILLING_LAST_NAME];
+                
+                [mutDictTransactionDetails setObject:@""        forKey:PAYPAL_TRANSACTION_BILLING_ADDRESS];
+                
+                [mutDictTransactionDetails setObject:@""
+                                              forKey:PAYPAL_TRANSACTION_BILLING_CITY];
+                
+                [mutDictTransactionDetails setObject:@""
+                                              forKey:PAYPAL_TRANSACTION_BILLING_STATE];
+                
+                [mutDictTransactionDetails setObject:@""
+                                              forKey:PAYPAL_TRANSACTION_BILLING_POST_CODE];
+                
+                [mutDictTransactionDetails setObject:[EAGallery sharedClass].country
+                                              forKey:PAYPAL_TRANSACTION_BILLING_COUNTRY];
+                
+                [mutDictTransactionDetails setObject:[@"Credit Money" lowercaseString]
+                                              forKey:PAYPAL_TRANSACTION_DESCRIPTION];
+                
+                [mutDictTransactionDetails setObject:[[paymentDescription objectForKey:@"response"] objectForKey:@"create_time"]
+                                              forKey:PAYPAL_TRANSACTION_TIME];
+        
+                [mutDictTransactionDetails setObject:@"credit_card"
+                                      forKey:PAYPAL_TRANSACTION_METHOD];
+
+        
+                //[mutDictTransactionDetails setObject:@""        forKey:@""];
+                [self navigateToPaymentStatusScreen:mutDictTransactionDetails];
+        });
+}
+
+- (void)navigateToPaymentStatusScreen: (NSMutableDictionary *)mutDictTransactionDetails {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+        
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:isTRANSACTION ];//:isYES                      forKey:isTRANSACTION];
+                
+                
+                
+                [[NSUserDefaults standardUserDefaults] setObject:mutDictTransactionDetails  forKey:TRANSACTION_DETAIL];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                //[self.navigationController popViewControllerAnimated:YES];
+                
+//        });
+}
+
+
+
+
+#pragma mark -PayPal
+
+-(void)configPayPal{
+        self.title = @"PayPal";
+        
+        // Set up payPalConfig
+        _payPalConfig = [[PayPalConfiguration alloc] init];
+#if HAS_CARDIO
+        _payPalConfig.acceptCreditCards = YES;
+#else
+        _payPalConfig.acceptCreditCards = YES;
+#endif
+        _payPalConfig.merchantName = @"Awesome Shirts, Inc.";
+        _payPalConfig.merchantPrivacyPolicyURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/privacy-full"];
+        _payPalConfig.merchantUserAgreementURL = [NSURL URLWithString:@"https://www.paypal.com/webapps/mpp/ua/useragreement-full"];
+        
+        // Setting the languageOrLocale property is optional.
+        //
+        // If you do not set languageOrLocale, then the PayPalPaymentViewController will present
+        // its user interface according to the device's current language setting.
+        //
+        // Setting languageOrLocale to a particular language (e.g., @"es" for Spanish) or
+        // locale (e.g., @"es_MX" for Mexican Spanish) forces the PayPalPaymentViewController
+        // to use that language/locale.
+        //
+        // For full details, including a list of available languages and locales, see PayPalPaymentViewController.h.
+        
+        _payPalConfig.languageOrLocale = [NSLocale preferredLanguages][0];
+        
+        
+        // Setting the payPalShippingAddressOption property is optional.
+        //
+        // See PayPalConfiguration.h for details.
+        
+        _payPalConfig.payPalShippingAddressOption = PayPalShippingAddressOptionPayPal;
+        
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.successView.hidden = YES;
+        
+        // use default environment, should be Production in real life
+        self.environment = kPayPalEnvironment;
+        
+        NSLog(@"PayPal iOS SDK version: %@", [PayPalMobile libraryVersion]);
+}
+
+- (BOOL)acceptCreditCards {
+        return self.payPalConfig.acceptCreditCards;
+}
+
+- (void)setAcceptCreditCards:(BOOL)acceptCreditCards {
+        self.payPalConfig.acceptCreditCards = acceptCreditCards;
+}
+
+- (void)setPayPalEnvironment:(NSString *)environment {
+        self.environment = environment;
+        [PayPalMobile preconnectWithEnvironment:environment];
+}
+
+#pragma mark -UITableView
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+        return  1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+        BOOL isHistory = [[NSUserDefaults standardUserDefaults] boolForKey:isTRANSACTION];
+       // BOOL isHistory=[[[NSUserDefaults standardUserDefaults] objectForKey:isTRANSACTION] isEqualToString:isYES];
+        
+        if(isHistory)
+                return 3;
+        else
+                return 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+        BOOL isHistory = [[NSUserDefaults standardUserDefaults] boolForKey:isTRANSACTION];
+         //BOOL isHistory=[[[NSUserDefaults standardUserDefaults] objectForKey:isTRANSACTION] isEqualToString:isYES];
+        if (isHistory && indexPath.row==3 ) {
+                return 0;
+        } else {
+                return 45;
+        }
+}
+
+
+#pragma Mark - UITextField Delegate Methods
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+        
+        
+        return YES;
+        
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+        
+        
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+        [textField resignFirstResponder];
+        
+//        if(textField==self.txtAmount)
+//                [self.txtAmount becomeFirstResponder];
+        
+        return YES;
+}
+
+-(void)textFieldDidChange:(id)sender{
+        BOOL isValid=NO;
+        UITextField* txt=(UITextField*)sender;
+        if(txt==self.txtAmount && self.txtAmount.text>0){
+                isValid=[self validateForAmount];
+                txt.textColor=(isValid && self.txtAmount.text.intValue>0) ?
+                [Alert colorFromHexString:@"#959598"] : [UIColor redColor];
+                
+                isUpdate=(isValid && self.txtAmount.text.intValue>0) ? YES : NO;
+                
+        }
+        else isUpdate=NO;
+
+        [self setData];
+}
+
+
+#pragma mark PayPalPaymentDelegate methods
+
+- (void)payPalPaymentViewController:(PayPalPaymentViewController *)paymentViewController didCompletePayment:(PayPalPayment *)completedPayment {
+        NSLog(@"PayPal Payment Success!");
+        
+//        [self performSelector:@selector(delayedDidFinish:) withObject:completedPayment afterDelay:0.0];
+        
+        [self delayedDidFinish:completedPayment];
+        
+        self.resultText = [completedPayment description];
+        
+        
+        
+        
+        [self showSuccess];
+        
+        [self sendCompletedPaymentToServer:completedPayment]; // Payment was processed successfully; send to server for verification and fulfillment
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+        //Set Transaction detail on Local server
+        [self updateAmountFromPayPalToServer];
+                
+        });
+}
+
+- (void)payPalPaymentDidCancel:(PayPalPaymentViewController *)paymentViewController {
+        NSLog(@"PayPal Payment Canceled");
+        self.resultText = nil;
+        self.successView.hidden = YES;
+        [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark Proof of payment validation
+
+- (void)sendCompletedPaymentToServer:(PayPalPayment *)completedPayment {
+        // TODO: Send completedPayment.confirmation to server
+        NSLog(@"Here is your proof of payment:\n\n%@\n\nSend this to your server for confirmation and fulfillment.", completedPayment.confirmation);
+}
+
+#pragma mark PayPalProfileSharingDelegate methods
+
+- (void)payPalProfileSharingViewController:(PayPalProfileSharingViewController *)profileSharingViewController
+             userDidLogInWithAuthorization:(NSDictionary *)profileSharingAuthorization {
+        NSLog(@"PayPal Profile Sharing Authorization Success!");
+        self.resultText = [profileSharingAuthorization description];
+        [self showSuccess];
+        
+        [self sendProfileSharingAuthorizationToServer:profileSharingAuthorization];
+        [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)userDidCancelPayPalProfileSharingViewController:(PayPalProfileSharingViewController *)profileSharingViewController {
+        NSLog(@"PayPal Profile Sharing Authorization Canceled");
+        self.successView.hidden = YES;
+        [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)sendProfileSharingAuthorizationToServer:(NSDictionary *)authorization {
+        // TODO: Send authorization to server
+        NSLog(@"Here is your authorization:\n\n%@\n\nSend this to your server to complete profile sharing setup.", authorization);
+}
+
+
+#pragma mark - Helpers
+
+- (void)showSuccess {
+        
+        self.successView.hidden = NO;
+        self.successView.alpha = 1.0f;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationDelay:2.0];
+        self.successView.alpha = 0.0f;
+        [UIView commitAnimations];
+}
+
+#pragma mark - Flipside View Controller
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+        if ([[segue identifier] isEqualToString:@"pushSettings"]) {
+                [[segue destinationViewController] setDelegate:(id)self];
+        }
+}
+
+
+
+
+#pragma mark- Open PayPal view
+-(void)openPayPalView{
+        // Remove our last completed payment, just for demo purposes.
+        self.resultText = nil;
+        
+        // Note: For purposes of illustration, this example shows a payment that includes
+        //       both payment details (subtotal, shipping, tax) and multiple items.
+        //       You would only specify these if appropriate to your situation.
+        //       Otherwise, you can leave payment.items and/or payment.paymentDetails nil,
+        //       and simply set payment.amount to your total charge.
+        
+        // Optional: include multiple items
+        
+        NSString* amountString=self.txtAmount.text;
+        
+        
+        PayPalItem *item1 = [PayPalItem itemWithName:@"Add Amount"
+                                        withQuantity:1
+                                           withPrice:[NSDecimalNumber decimalNumberWithString:amountString]
+                                        withCurrency:@"USD"
+                                             withSku:@"EastonArtGalleries-Sku"];
+        /*
+         PayPalItem *item2 = [PayPalItem itemWithName:@"Free rainbow patch"
+         withQuantity:1
+         withPrice:[NSDecimalNumber decimalNumberWithString:@"0.00"]
+         withCurrency:@"USD"
+         withSku:@"Hip-00066"];
+         PayPalItem *item3 = [PayPalItem itemWithName:@"Long-sleeve plaid shirt (mustache not included)"
+         withQuantity:1
+         withPrice:[NSDecimalNumber decimalNumberWithString:@"37.99"]
+         withCurrency:@"USD"
+         withSku:@"Hip-00291"];
+         NSArray *items = @[item1, item2, item3];
+         NSDecimalNumber *subtotal = [PayPalItem totalPriceForItems:items];
+         
+         // Optional: include payment details
+         NSDecimalNumber *shipping = [[NSDecimalNumber alloc] initWithString:@"5.99"];
+         NSDecimalNumber *tax = [[NSDecimalNumber alloc] initWithString:@"2.50"];
+         PayPalPaymentDetails *paymentDetails = [PayPalPaymentDetails paymentDetailsWithSubtotal:subtotal
+         withShipping:shipping
+         withTax:tax];
+         
+         NSDecimalNumber *total = [[subtotal decimalNumberByAdding:shipping] decimalNumberByAdding:tax];
+         */
+        
+        NSDecimalNumber *amount = [[NSDecimalNumber alloc] initWithString:amountString];
+        PayPalPayment *payment = [[PayPalPayment alloc] init];
+        payment.amount = amount;
+        payment.currencyCode = @"USD";
+        payment.shortDescription = @"Credit Money";
+        payment.items = @[item1];  // if not including multiple items, then leave payment.items as nil
+        payment.paymentDetails = nil; // if not including payment details, then leave payment.paymentDetails as nil
+        
+        if (!payment.processable) {
+                // This particular payment will always be processable. If, for
+                // example, the amount was negative or the shortDescription was
+                // empty, this payment wouldn't be processable, and you'd want
+                // to handle that here.
+        }
+        
+        // Update payPalConfig re accepting credit cards.
+        self.payPalConfig.acceptCreditCards = self.acceptCreditCards;
+        
+        PayPalPaymentViewController *paymentViewController = [[PayPalPaymentViewController alloc]
+                                                              initWithPayment:payment
+                                                              configuration:self.payPalConfig                                                              
+                                                              delegate:self];
+        [self presentViewController:paymentViewController animated:YES completion:nil];
+        amount=nil;
+        payment=nil;
+        item1=nil;
+        amountString=nil;
+}
+
+
+- (IBAction)paypal:(id)sender {
+        
+        
+        
+        //NSMutableDictionary* userData=[[NSUserDefaults standardUserDefaults] objectForKey:@"info"];
+        //NSString* balance=[userData valueForKey:USER_DATA_CREDIT_BALANCE];
+        
+        if(isUpdate ){
+                
+                [self openPayPalView];
+        }
+        else{
+                [Alert alertWithMessage:@"Please enter amount first !"
+                             navigation:self.navigationController
+                               gotoBack:NO animation:YES second:3.0];
+        }
+}
+
+- (IBAction)updateTransaction:(id)sender {
+        
+        //Set Transaction detail on Local server
+        [self updateAmountFromPayPalToServer];
+        
+        //[self updateTransactionDetails];
+        
+        /*
+        [UIView transitionWithView:self.view
+                          duration:0.3
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                                
+                        
+                        }
+                        completion:^(BOOL finish){
+                                [[SharedClass sharedObject] hudeHide];
+                                
+                                [self configure];
+                                [self.tableView reloadData];
+                        
+                        }];
+        */
+        
+        
+}
+
+
+@end

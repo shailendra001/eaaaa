@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Dosis-Light.otf">
+            <string>Dosis-Light</string>
+            <string>Dosis-Light</string>
+            <string>Dosis-Light</string>
+            <string>Dosis-Light</string>
+            <string>Dosis-Light</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="112" id="KGk-i7-Jjw" customClass="ArtDetailViewCell2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJW-D1-lK0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="109"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuu-QQ-sWa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="2"/>
+                                <color key="backgroundColor" red="0.68627450980392157" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="AMy-k3-urP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Emotional Creation #80" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngn-Wz-8zD">
+                                <rect key="frame" x="8" y="5" width="304" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="kaH-th-l7r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Light" family="Dosis" pointSize="12"/>
+                                <color key="textColor" red="0.10588235294117647" green="0.082352941176470587" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acrylic painting by Carla Sa Fernandes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpQ-NF-3f6">
+                                <rect key="frame" x="8" y="24" width="304" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="dEp-FO-rKi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Light" family="Dosis" pointSize="10"/>
+                                <color key="textColor" red="0.36470588235294116" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29.742 cm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5z-dS-twN">
+                                <rect key="frame" x="8" y="38" width="304" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="aZu-87-RtR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Light" family="Dosis" pointSize="10"/>
+                                <color key="textColor" red="0.36470588240000001" green="0.35686274509999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$3,674.88" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5f-kX-dKD">
+                                <rect key="frame" x="8" y="57" width="304" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="3vO-IH-ZOT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Light" family="Dosis" pointSize="12"/>
+                                <color key="textColor" red="0.20784313725490197" green="0.49019607843137253" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share this product on" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zs5-cV-c77">
+                                <rect key="frame" x="8" y="88" width="90" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="WN7-Vz-Gft"/>
+                                    <constraint firstAttribute="width" constant="90" id="nyK-0K-cnl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Light" family="Dosis" pointSize="10"/>
+                                <color key="textColor" red="0.36470588240000001" green="0.35686274509999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="109" id="9mc-JW-oGl"/>
+                            <constraint firstAttribute="trailing" secondItem="rpQ-NF-3f6" secondAttribute="trailing" constant="8" id="BXb-iQ-QPV"/>
+                            <constraint firstItem="k5f-kX-dKD" firstAttribute="top" secondItem="H5z-dS-twN" secondAttribute="bottom" constant="4" id="Cjy-nS-Wmh"/>
+                            <constraint firstAttribute="trailing" secondItem="H5z-dS-twN" secondAttribute="trailing" constant="8" id="EIb-5U-2g9"/>
+                            <constraint firstItem="zs5-cV-c77" firstAttribute="leading" secondItem="bJW-D1-lK0" secondAttribute="leading" constant="8" id="J6O-vV-KYl"/>
+                            <constraint firstItem="rpQ-NF-3f6" firstAttribute="top" secondItem="Ngn-Wz-8zD" secondAttribute="bottom" constant="2" id="JLG-Rb-MtP"/>
+                            <constraint firstItem="Ngn-Wz-8zD" firstAttribute="leading" secondItem="bJW-D1-lK0" secondAttribute="leading" constant="8" id="KQ8-67-A2z"/>
+                            <constraint firstItem="rpQ-NF-3f6" firstAttribute="leading" secondItem="bJW-D1-lK0" secondAttribute="leading" constant="8" id="Kpv-Xx-O5H"/>
+                            <constraint firstItem="Ngn-Wz-8zD" firstAttribute="top" secondItem="yuu-QQ-sWa" secondAttribute="bottom" constant="3" id="PRQ-Tf-V9y"/>
+                            <constraint firstItem="k5f-kX-dKD" firstAttribute="leading" secondItem="bJW-D1-lK0" secondAttribute="leading" constant="8" id="Uoa-7O-SgF"/>
+                            <constraint firstItem="zs5-cV-c77" firstAttribute="top" secondItem="k5f-kX-dKD" secondAttribute="bottom" constant="8" id="X5j-1l-ZHG"/>
+                            <constraint firstItem="H5z-dS-twN" firstAttribute="leading" secondItem="bJW-D1-lK0" secondAttribute="leading" constant="8" id="XB7-yU-U2i"/>
+                            <constraint firstAttribute="trailing" secondItem="yuu-QQ-sWa" secondAttribute="trailing" id="ZMa-Lc-q3z"/>
+                            <constraint firstItem="yuu-QQ-sWa" firstAttribute="leading" secondItem="bJW-D1-lK0" secondAttribute="leading" id="dQ9-vW-yko"/>
+                            <constraint firstItem="H5z-dS-twN" firstAttribute="top" secondItem="rpQ-NF-3f6" secondAttribute="bottom" constant="1" id="o4X-t2-c8R"/>
+                            <constraint firstAttribute="trailing" secondItem="k5f-kX-dKD" secondAttribute="trailing" constant="8" id="osb-NV-Dd6"/>
+                            <constraint firstItem="yuu-QQ-sWa" firstAttribute="top" secondItem="bJW-D1-lK0" secondAttribute="top" id="rnc-Jz-i3B"/>
+                            <constraint firstAttribute="trailing" secondItem="Ngn-Wz-8zD" secondAttribute="trailing" constant="8" id="uIf-9u-Nsl"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="bJW-D1-lK0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="36W-0p-e9m"/>
+                    <constraint firstItem="bJW-D1-lK0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bkC-U8-c2m"/>
+                    <constraint firstAttribute="trailing" secondItem="bJW-D1-lK0" secondAttribute="trailing" id="dJL-P2-XPY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblAutherName" destination="rpQ-NF-3f6" id="COh-5Z-iCL"/>
+                <outlet property="lblName" destination="Ngn-Wz-8zD" id="duh-UX-zsb"/>
+                <outlet property="lblPrice" destination="k5f-kX-dKD" id="8vz-7S-FMz"/>
+                <outlet property="lblSeparatorLine" destination="yuu-QQ-sWa" id="f0r-Yx-UHu"/>
+                <outlet property="lblSize" destination="H5z-dS-twN" id="81G-ID-B4c"/>
+                <outlet property="viContainerDetail" destination="bJW-D1-lK0" id="gIQ-3g-JdM"/>
+            </connections>
+            <point key="canvasLocation" x="191" y="153"/>
+        </tableViewCell>
+    </objects>
+</document>

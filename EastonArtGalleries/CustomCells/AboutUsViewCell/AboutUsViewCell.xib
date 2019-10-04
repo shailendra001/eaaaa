@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="169" id="oZa-IG-ZhK" customClass="AboutUsViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oZa-IG-ZhK" id="bim-oX-Ppf">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="95.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84Z-zH-mCs">
+                        <rect key="frame" x="8" y="8" width="304" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="B8Z-C9-CRS"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit amet, nulla apeirian theophrastus sea in, quo eu facilisi delicatissimi. Ludus praesent definiebas pri at, duo et illud delicata salutandi, ea mel nisl augue. At ius invenire intellegat definitiones, at pri purto evertitur, vix altera dissentiet et. Ne duo alii quodsi corpora, novum nonumy pertinacia vel ad. Usu ut assum solet accumsan.</string>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                        <color key="textColor" red="0.25490196079999999" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQg-mK-5Y9">
+                        <rect key="frame" x="0.0" y="29.5" width="320" height="64"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find us on" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oq-qi-b8t">
+                                <rect key="frame" x="120" y="0.0" width="80" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="VsY-bX-xmT"/>
+                                    <constraint firstAttribute="width" constant="80" id="cnw-al-jtJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" red="0.25490196079999999" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OrV-4Q-t7i">
+                                <rect key="frame" x="27" y="23" width="266" height="41"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRf-TW-6kN">
+                                        <rect key="frame" x="8" y="3" width="35" height="35"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="TPB-pd-UNW">
+                                                <rect key="frame" x="2.5" y="2.5" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="PJD-AW-pQ9"/>
+                                                    <constraint firstAttribute="width" constant="30" id="eRA-eg-2sa"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZQ-Xv-m36" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="TPB-pd-UNW" firstAttribute="centerX" secondItem="eRf-TW-6kN" secondAttribute="centerX" id="EM0-tp-d1i"/>
+                                            <constraint firstAttribute="trailing" secondItem="UZQ-Xv-m36" secondAttribute="trailing" id="R2P-Zn-6hV"/>
+                                            <constraint firstItem="UZQ-Xv-m36" firstAttribute="top" secondItem="eRf-TW-6kN" secondAttribute="top" id="SbU-TP-16m"/>
+                                            <constraint firstItem="UZQ-Xv-m36" firstAttribute="leading" secondItem="eRf-TW-6kN" secondAttribute="leading" id="UTG-BB-z7y"/>
+                                            <constraint firstItem="TPB-pd-UNW" firstAttribute="centerY" secondItem="eRf-TW-6kN" secondAttribute="centerY" id="Vyl-AA-EdZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="UZQ-Xv-m36" secondAttribute="bottom" id="atc-pc-bb0"/>
+                                            <constraint firstAttribute="width" constant="35" id="btE-JT-EaG"/>
+                                            <constraint firstAttribute="height" constant="35" id="qHE-9P-Ccq"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSS-Pr-Eeo">
+                                        <rect key="frame" x="51" y="3" width="35" height="35"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="twitter_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="qUw-sc-Pbv">
+                                                <rect key="frame" x="2.5" y="2.5" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="UJq-U0-zfN"/>
+                                                    <constraint firstAttribute="height" constant="30" id="lbw-yi-1Ey"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uJ-9n-3dT" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="qUw-sc-Pbv" firstAttribute="centerX" secondItem="WSS-Pr-Eeo" secondAttribute="centerX" id="LIm-xH-UGC"/>
+                                            <constraint firstItem="2uJ-9n-3dT" firstAttribute="top" secondItem="WSS-Pr-Eeo" secondAttribute="top" id="UQe-N6-3jf"/>
+                                            <constraint firstAttribute="width" constant="35" id="Vms-e7-56L"/>
+                                            <constraint firstItem="qUw-sc-Pbv" firstAttribute="centerY" secondItem="WSS-Pr-Eeo" secondAttribute="centerY" id="bKM-IS-Mdr"/>
+                                            <constraint firstAttribute="bottom" secondItem="2uJ-9n-3dT" secondAttribute="bottom" id="hGg-Sc-yeD"/>
+                                            <constraint firstAttribute="height" constant="35" id="mDM-23-KgC"/>
+                                            <constraint firstAttribute="trailing" secondItem="2uJ-9n-3dT" secondAttribute="trailing" id="ogF-hN-TxT"/>
+                                            <constraint firstItem="2uJ-9n-3dT" firstAttribute="leading" secondItem="WSS-Pr-Eeo" secondAttribute="leading" id="yMN-EH-nZx"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3m-Ah-ldA" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                        <rect key="frame" x="94" y="3" width="35" height="35"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="instagram_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="yH2-Ns-4E7">
+                                                <rect key="frame" x="2.5" y="2.5" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="8ks-5x-RhH"/>
+                                                    <constraint firstAttribute="height" constant="30" id="IMA-7e-rnX"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPE-LG-SNK" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="8qQ-Kl-Djk"/>
+                                            <constraint firstItem="yH2-Ns-4E7" firstAttribute="centerX" secondItem="J3m-Ah-ldA" secondAttribute="centerX" id="EPT-fI-MJm"/>
+                                            <constraint firstAttribute="bottom" secondItem="gPE-LG-SNK" secondAttribute="bottom" id="NjY-FD-0c0"/>
+                                            <constraint firstAttribute="height" constant="35" id="RzO-IU-mcn"/>
+                                            <constraint firstItem="gPE-LG-SNK" firstAttribute="top" secondItem="J3m-Ah-ldA" secondAttribute="top" id="Yky-mS-p8J"/>
+                                            <constraint firstItem="yH2-Ns-4E7" firstAttribute="centerY" secondItem="J3m-Ah-ldA" secondAttribute="centerY" id="edx-gp-bTK"/>
+                                            <constraint firstItem="gPE-LG-SNK" firstAttribute="leading" secondItem="J3m-Ah-ldA" secondAttribute="leading" id="hey-pK-0fg"/>
+                                            <constraint firstAttribute="trailing" secondItem="gPE-LG-SNK" secondAttribute="trailing" id="kDt-8U-Ote"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fde-pm-33a" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                        <rect key="frame" x="137" y="3" width="35" height="35"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinterest_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="KuO-ZK-bfu">
+                                                <rect key="frame" x="2.5" y="2.5" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="R3G-qh-7tf"/>
+                                                    <constraint firstAttribute="width" constant="30" id="vdr-0n-M73"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsf-dX-Dd9" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="8BS-ZH-KBe"/>
+                                            <constraint firstAttribute="height" constant="35" id="Ka4-tq-xOW"/>
+                                            <constraint firstAttribute="trailing" secondItem="zsf-dX-Dd9" secondAttribute="trailing" id="Rt1-GA-OxW"/>
+                                            <constraint firstItem="zsf-dX-Dd9" firstAttribute="leading" secondItem="fde-pm-33a" secondAttribute="leading" id="VMy-YL-fZA"/>
+                                            <constraint firstItem="KuO-ZK-bfu" firstAttribute="centerX" secondItem="fde-pm-33a" secondAttribute="centerX" id="VyG-ns-Tmx"/>
+                                            <constraint firstItem="zsf-dX-Dd9" firstAttribute="top" secondItem="fde-pm-33a" secondAttribute="top" id="Ya2-bl-8ha"/>
+                                            <constraint firstAttribute="bottom" secondItem="zsf-dX-Dd9" secondAttribute="bottom" id="tcX-YQ-pgk"/>
+                                            <constraint firstItem="KuO-ZK-bfu" firstAttribute="centerY" secondItem="fde-pm-33a" secondAttribute="centerY" id="wdy-69-GrO"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKN-ln-fha" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                        <rect key="frame" x="180" y="3" width="35" height="35"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youtube_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="ydC-02-yqM">
+                                                <rect key="frame" x="2.5" y="2.5" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="PTK-WW-PzR"/>
+                                                    <constraint firstAttribute="width" constant="30" id="T1j-HM-eNx"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fw7-Xn-VIg" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="0Hr-Kh-5eP"/>
+                                            <constraint firstItem="ydC-02-yqM" firstAttribute="centerY" secondItem="GKN-ln-fha" secondAttribute="centerY" id="9dB-ey-4Vt"/>
+                                            <constraint firstItem="fw7-Xn-VIg" firstAttribute="leading" secondItem="GKN-ln-fha" secondAttribute="leading" id="HUt-dc-nBz"/>
+                                            <constraint firstAttribute="trailing" secondItem="fw7-Xn-VIg" secondAttribute="trailing" id="Kh3-rs-FR1"/>
+                                            <constraint firstAttribute="bottom" secondItem="fw7-Xn-VIg" secondAttribute="bottom" id="N6C-DU-d7W"/>
+                                            <constraint firstItem="ydC-02-yqM" firstAttribute="centerX" secondItem="GKN-ln-fha" secondAttribute="centerX" id="NyL-fq-z1b"/>
+                                            <constraint firstItem="fw7-Xn-VIg" firstAttribute="top" secondItem="GKN-ln-fha" secondAttribute="top" id="fIh-7U-zd6"/>
+                                            <constraint firstAttribute="height" constant="35" id="ohV-VR-9kK"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhc-Da-K23">
+                                        <rect key="frame" x="223" y="3" width="35" height="35"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email_share.png" translatesAutoresizingMaskIntoConstraints="NO" id="GPy-vs-BZA">
+                                                <rect key="frame" x="2.5" y="2.5" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="CEK-fA-jFp"/>
+                                                    <constraint firstAttribute="height" constant="30" id="S8l-VF-i65"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wh6-0t-R9Q" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="GPy-vs-BZA" firstAttribute="centerY" secondItem="Dhc-Da-K23" secondAttribute="centerY" id="3jn-bM-RkA"/>
+                                            <constraint firstItem="Wh6-0t-R9Q" firstAttribute="top" secondItem="Dhc-Da-K23" secondAttribute="top" id="IvI-3n-dTe"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wh6-0t-R9Q" secondAttribute="bottom" id="VYN-SH-LFC"/>
+                                            <constraint firstItem="GPy-vs-BZA" firstAttribute="centerX" secondItem="Dhc-Da-K23" secondAttribute="centerX" id="ax3-lS-We6"/>
+                                            <constraint firstItem="Wh6-0t-R9Q" firstAttribute="leading" secondItem="Dhc-Da-K23" secondAttribute="leading" id="blR-yU-ygI"/>
+                                            <constraint firstAttribute="width" constant="35" id="rne-c9-h59"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wh6-0t-R9Q" secondAttribute="trailing" id="tvt-qK-xKz"/>
+                                            <constraint firstAttribute="height" constant="35" id="zIj-XW-LWu"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="eRf-TW-6kN" secondAttribute="bottom" constant="3" id="31o-pX-tcd"/>
+                                    <constraint firstAttribute="bottom" secondItem="fde-pm-33a" secondAttribute="bottom" constant="3" id="9Pu-aQ-lSF"/>
+                                    <constraint firstItem="eRf-TW-6kN" firstAttribute="leading" secondItem="OrV-4Q-t7i" secondAttribute="leading" constant="8" id="K6w-nn-fmQ"/>
+                                    <constraint firstItem="J3m-Ah-ldA" firstAttribute="leading" secondItem="WSS-Pr-Eeo" secondAttribute="trailing" constant="8" id="MTf-2p-Rfe"/>
+                                    <constraint firstAttribute="bottom" secondItem="GKN-ln-fha" secondAttribute="bottom" constant="3" id="PJO-qe-5bO"/>
+                                    <constraint firstItem="fde-pm-33a" firstAttribute="leading" secondItem="J3m-Ah-ldA" secondAttribute="trailing" constant="8" id="esC-Cu-em0"/>
+                                    <constraint firstAttribute="bottom" secondItem="Dhc-Da-K23" secondAttribute="bottom" constant="3" id="gTH-Fg-0yX"/>
+                                    <constraint firstAttribute="bottom" secondItem="J3m-Ah-ldA" secondAttribute="bottom" constant="3" id="j62-KU-VtD"/>
+                                    <constraint firstAttribute="bottom" secondItem="WSS-Pr-Eeo" secondAttribute="bottom" constant="3" id="kbH-Ht-3lj"/>
+                                    <constraint firstItem="Dhc-Da-K23" firstAttribute="leading" secondItem="GKN-ln-fha" secondAttribute="trailing" constant="8" id="ks7-LF-Lhh"/>
+                                    <constraint firstItem="WSS-Pr-Eeo" firstAttribute="leading" secondItem="eRf-TW-6kN" secondAttribute="trailing" constant="8" id="nmG-17-jbC"/>
+                                    <constraint firstAttribute="height" constant="41" id="pO0-Gd-71C"/>
+                                    <constraint firstAttribute="width" constant="266" id="uMq-Pi-8iF"/>
+                                    <constraint firstItem="GKN-ln-fha" firstAttribute="leading" secondItem="fde-pm-33a" secondAttribute="trailing" constant="8" id="vH8-zv-1f5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="OrV-4Q-t7i" secondAttribute="bottom" id="7JL-27-6pA"/>
+                            <constraint firstItem="OrV-4Q-t7i" firstAttribute="centerX" secondItem="SQg-mK-5Y9" secondAttribute="centerX" id="Mjn-qC-vyY"/>
+                            <constraint firstAttribute="height" constant="64" id="jHC-4E-4w8"/>
+                            <constraint firstItem="1oq-qi-b8t" firstAttribute="centerX" secondItem="SQg-mK-5Y9" secondAttribute="centerX" id="k2H-iT-Xyl"/>
+                            <constraint firstItem="1oq-qi-b8t" firstAttribute="top" secondItem="SQg-mK-5Y9" secondAttribute="top" id="xwB-PQ-3h9"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Dt-4D-jsO">
+                        <rect key="frame" x="0.0" y="93.5" width="320" height="2"/>
+                        <color key="backgroundColor" red="0.68627450980000004" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="4PA-CW-Jn7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="SQg-mK-5Y9" secondAttribute="trailing" id="1UH-gz-EDl"/>
+                    <constraint firstItem="SQg-mK-5Y9" firstAttribute="leading" secondItem="bim-oX-Ppf" secondAttribute="leading" id="2k0-A2-D7m"/>
+                    <constraint firstItem="84Z-zH-mCs" firstAttribute="leading" secondItem="bim-oX-Ppf" secondAttribute="leading" constant="8" id="5KC-6F-dU9"/>
+                    <constraint firstAttribute="trailing" secondItem="7Dt-4D-jsO" secondAttribute="trailing" id="8Q2-1f-Sxw"/>
+                    <constraint firstItem="84Z-zH-mCs" firstAttribute="top" secondItem="bim-oX-Ppf" secondAttribute="top" constant="8" id="95L-ce-Qyl"/>
+                    <constraint firstItem="7Dt-4D-jsO" firstAttribute="top" secondItem="SQg-mK-5Y9" secondAttribute="bottom" id="F1h-Kj-D7C"/>
+                    <constraint firstAttribute="trailing" secondItem="84Z-zH-mCs" secondAttribute="trailing" constant="8" id="HNU-Vy-K4a"/>
+                    <constraint firstAttribute="bottom" secondItem="7Dt-4D-jsO" secondAttribute="bottom" id="d1d-BO-2hi"/>
+                    <constraint firstItem="SQg-mK-5Y9" firstAttribute="centerX" secondItem="bim-oX-Ppf" secondAttribute="centerX" id="uFC-dh-02M"/>
+                    <constraint firstItem="7Dt-4D-jsO" firstAttribute="leading" secondItem="bim-oX-Ppf" secondAttribute="leading" id="x1m-6w-Hsn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnEmail" destination="Wh6-0t-R9Q" id="AMa-oq-UrX"/>
+                <outlet property="btnFb" destination="UZQ-Xv-m36" id="HEY-sc-QfZ"/>
+                <outlet property="btnInstagram" destination="gPE-LG-SNK" id="n5b-eJ-5G3"/>
+                <outlet property="btnPInterest" destination="zsf-dX-Dd9" id="Ab8-1e-amK"/>
+                <outlet property="btnTw" destination="2uJ-9n-3dT" id="9hn-c7-k8E"/>
+                <outlet property="btnYoutube" destination="fw7-Xn-VIg" id="m0G-Zy-HYR"/>
+                <outlet property="imgEmail" destination="GPy-vs-BZA" id="bmU-iV-4cU"/>
+                <outlet property="imgFb" destination="TPB-pd-UNW" id="I7l-67-zpB"/>
+                <outlet property="imgInstagram" destination="yH2-Ns-4E7" id="ool-eh-piC"/>
+                <outlet property="imgPInterest" destination="KuO-ZK-bfu" id="2EJ-Qi-Lmp"/>
+                <outlet property="imgTw" destination="qUw-sc-Pbv" id="MN9-Pv-qrb"/>
+                <outlet property="imgYoutube" destination="ydC-02-yqM" id="Rvm-wW-Gbq"/>
+                <outlet property="lblAboutUs" destination="84Z-zH-mCs" id="oxj-iT-mLL"/>
+                <outlet property="lblSeparatorLine" destination="7Dt-4D-jsO" id="d8y-Bd-pcm"/>
+                <outlet property="viContainerEmail" destination="Dhc-Da-K23" id="NMD-wx-dhb"/>
+                <outlet property="viContainerFb" destination="eRf-TW-6kN" id="CBX-Nd-Ha8"/>
+                <outlet property="viContainerInstagram" destination="J3m-Ah-ldA" id="QAx-9Q-ftY"/>
+                <outlet property="viContainerPInterest" destination="fde-pm-33a" id="Gn9-Wj-JtT"/>
+                <outlet property="viContainerShareIcons" destination="OrV-4Q-t7i" id="f8M-qg-1ym"/>
+                <outlet property="viContainerSocial" destination="SQg-mK-5Y9" id="gCz-S2-Ekd"/>
+                <outlet property="viContainerTw" destination="WSS-Pr-Eeo" id="wOJ-jY-fGT"/>
+                <outlet property="viContainerYoutube" destination="GKN-ln-fha" id="3sv-MO-aYX"/>
+            </connections>
+            <point key="canvasLocation" x="-100" y="-98"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="email_share.png" width="57" height="57"/>
+        <image name="facebook_icon.png" width="57" height="57"/>
+        <image name="instagram_icon.png" width="58" height="58"/>
+        <image name="pinterest_icon.png" width="56" height="56"/>
+        <image name="twitter_icon.png" width="56" height="56"/>
+        <image name="youtube_icon.png" width="56" height="56"/>
+    </resources>
+</document>

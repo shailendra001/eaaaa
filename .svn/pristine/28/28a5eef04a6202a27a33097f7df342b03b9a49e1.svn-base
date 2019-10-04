@@ -1,0 +1,25 @@
+//
+//  DashboardViewController.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 13/06/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+//#import "MSSTabbedPageViewController.h"
+//#import "TabControllerStyle.h"
+
+@interface DashboardViewController : UIViewController
+
+@property (nonatomic) NSInteger selectedIndex;
+@property (strong, nonatomic) NSString* titleString;
+@property (strong, nonatomic) NSString* from;
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerTitleBar;
+@property (strong, nonatomic) IBOutlet UIImageView *imgViTitle;
+@property (strong, nonatomic) IBOutlet UILabel *lblTitle;
+
+
+
+@end

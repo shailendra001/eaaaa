@@ -1,0 +1,243 @@
+//
+//  Constant.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 11/05/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#ifndef Constant_h
+#define Constant_h
+
+
+#endif /* Constant_h */
+
+#define ILog(...) do { NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__]); } while(0)
+
+
+#define IS_IPHONE_5  (fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON)
+
+#define IS_IPHONE_4  (fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON)
+
+#define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+
+#define IS_EMPTY(value)        (([value isEqualToString:@"NULL"] || [value isEqualToString:@""]|| (value == nil) || (value == (id)[NSNull null])) ? 1 :0)
+
+#define REQUEST_PARAM_FACEBOOK          @"me?fields=id,name,email,picture,first_name,last_name"
+#define SCOPE_FACEBOOK                  @[@"public_profile",@"email",@"user_friends"]
+
+//Google Plus
+static NSString * const kClientId = @"201488398408-q0ondng29q90mg3c9cvaur5n98l9rj88.apps.googleusercontent.com";
+
+//Twitter
+
+#define TWITTER_CONSUMER_KEY    @"PdLBPYUXlhQpt4AguShUIw"
+#define TWITTER_SECRET_KEY      @"drdhGuKSingTbsDLtYpob4m5b5dn1abf9XXYyZKQzk"
+
+#define DATABASE_NAME   @"EastonArtGalleries.db"
+
+#define SHADOW_ENABLE   1
+
+
+//****************Web Service**************//
+
+#define REQUEST_METHOD_TYPE_POST        @"POST"
+#define REQUEST_METHOD_TYPE_GET         @"GET"
+
+//************** PayPal Id STATIC *************************
+
+#define PAYPAL_SANDBOX_CLIENT_ID   @"AczXhjJrC_PA1hTrEIDHAoUuvDcVBJxAs9gZ2j5nNzh9IV_aFvE7bP6k4QXrQTfJQAS4oy-CjJuIcWq7"
+#define PAYPAL_SANDBOX_SECRET_ID   @"EHpjy-hGIpVlOVKDWULus5xIrG0zVPp0nSzX3ss_fzSrRVVFuuQmY9k5Ut-Nm8xq36JNDh8xKdU4eKGk"
+
+#define isTRANSACTION           @"Transaction"
+#define TRANSACTION_DETAIL      @"Transaction_Detail"
+#define TRANSACTION_STATUS      @"Transaction_Status"
+#define isYES                   @"Yes"
+#define isNO                    @"No"
+
+//****************
+
+#define UNSELECT_RADIO  @"unselected_radio.png"
+#define SELECT_RADIO    @"selected_radio.png"
+
+#define UNSELECT_TICK   @"unselected_tick.png"
+#define SELECT_TICK     @"selected_tick.png"
+
+
+//*******
+
+#define MENU_IMAGE      @"menu_icon.png"
+#define LOGO_IMAGE      @"header_logo.png"
+
+#define ICON_SEARCH     @"search_icon.png"
+#define ICON_USER       @"user_icon.png"
+#define ICON_CARD       @"cart_icon.png"
+
+#define FONT_DOSIS_LIGHT                @"Dosis-Light"
+#define FONT_DOSIS_REGULAR              @"Dosis-Regular"
+#define FONT_MONTSERRAT_SEMIBOLD        @"Montserrat-SemiBold"
+
+#define DEVICE_TYPE             @"iOS"
+#define LOGIN_FACEBOOK          @"Facebook"
+#define LOGIN_GOOGLE_PLUS       @"Google_Plus"
+
+#define COLOR_SUBSCIBE          @"#3C6732"
+#define COLOR_BUTTTON           @"#D35E2B"
+
+#define COUNTRY_LIST           @"countries"
+
+
+typedef NS_ENUM(NSInteger, LoginType)
+{
+        Default=0,
+        Facebook ,
+        Twitter,
+        GooglePlus,
+        EmailId
+};
+
+typedef NS_ENUM(NSInteger, UserRoleType)
+{
+        NormalUser=0,
+        BecomeAnArtistPending ,
+        BecomeAnArtist
+};
+
+/****   Enable/Disable Virtual Gallery code****/
+
+#define IS_UNITY_USE    0
+
+//
+
+//************** Login *************************
+
+#define LOGIN_MEMBER_ID         @"member_id"
+#define LOGIN_ID                @"id"
+#define LOGIN_REGISTERED_ON     @"registered_on"
+#define LOGIN_ADDED_ON          @"added_on"
+#define LOGIN_TYPE              @"type"
+#define LOGIN_NAME              @"name"
+#define LOGIN_NICK_NAME         @"nickname"
+#define LOGIN_USER_NAME         @"username"
+#define LOGIN_EMAIL             @"email"
+#define LOGIN_COUNTRY           @"countryname"
+#define LOGIN_PHONE             @"phone"
+#define LOGIN_IS                @"islogin"
+#define LOGIN_ROLE_TYPE         @"sellerStatus"
+#define LOGIN_PROFILE_IMAGE     @"profileImage"
+#define LOGIN_COVER_IMAGE       @"coverImage"
+#define LOGIN_BIO               @"bio"
+
+
+//************** Local Server URL *************************
+
+static NSString *const kPrefixUrl               =@"http://www.eastonartgalleries.com";
+static NSString *const kURL_Slider              = @"/services/home/manageHome";
+static NSString *const kURL_NewArt              = @"/services/home/newArt";
+static NSString *const kURL_Artist              = @"/services/home/artist";
+static NSString *const kURL_ArtCategory         = @"/services/home/artCategory";
+static NSString *const kURL_ArtDetail           = @"/services/user/artdetails";
+static NSString *const kURL_ArtistDetail        = @"/services/user/profile";
+static NSString *const kURL_AboutUs             = @"/services/pages/pages";
+static NSString *const kURL_ContactUs           = @"/services/pages/contactaddress";
+static NSString *const kURL_FeedBack            = @"/services/pages/saveContact";
+static NSString *const kURL_Register            = @"/services/user/register";
+static NSString *const kURL_Login               = @"/services/user/login";
+static NSString *const kURL_LoginViaSocial      = @"/services/user/socialLogin";
+static NSString *const kURL_Blog                = @"/services/home/getBlog";
+static NSString *const kURL_Subscribe           = @"/services/home/addSubscribe";
+static NSString *const kURL_UpdateProfile       = @"/services/user/update";
+static NSString *const kURL_MyAccount           = @"/services/user/dashboard";
+static NSString *const kURL_ReviewStatus        = @"/services/user/changeReviewStatus";
+static NSString *const kURL_ReviewDelete        = @"/services/user/deleteReview";
+static NSString *const kURL_ChangePassword      = @"/services/user/changepassword";
+static NSString *const kURL_CountryList         = @"/services/user/countrylist";
+static NSString *const kURL_ValidateOrderList   = @"/services/user/validateArt";
+static NSString *const kURL_Checkout            = @"/services/checkout/checkout";
+static NSString *const kURL_PaymentForOrder     = @"/services/checkout/successPayment";
+static NSString *const kURL_CategorySearch      = @"/services/user/catSearchParameter";
+static NSString *const kURL_ArtFilter           = @"/services/home/artFilter";
+static NSString *const kURL_OrderAll            = @"/services/user/order";
+static NSString *const kURL_OrderDetail         = @"/services/user/orderdetails";
+static NSString *const kURL_ArtistAdd           = @"/services/user/artistAdd";
+static NSString *const kURL_AddArt              = @"/services/user/addArt";
+static NSString *const kURL_ManageArt           = @"/services/user/manageArt";
+static NSString *const kURL_RateArt             = @"/services/user/rateArt";
+static NSString *const kURL_ArtistList          = @"/services/user/artist_list";
+static NSString *const kURL_ValidateCouponCode  = @"/services/user/validateCoupon";
+static NSString *const kURL_DeleteArt           = @"/services/user/deleteArt";
+static NSString *const kURL_EditArt             = @"/services/user/editart";
+static NSString *const kURL_RemoveImage         = @"/services/user/removeImage";
+static NSString *const kURL_RemoveVideo         = @"/services/user/removeyoutube";
+static NSString *const kURL_UpdateArt           = @"/services/user/updateArt";
+static NSString *const kURL_AddToWishList       = @"/services/home/addtowishlist";
+static NSString *const kURL_WishList            = @"/services/user/wishlistitem";
+static NSString *const kURL_DeleteToWishList    = @"/services/user/deletewishlist";
+
+
+//************** ViewControllers Identifiers *************************
+static NSString *const kLeftMenuTableViewController                   = @"LeftMenuTableViewController";
+static NSString *const kViewController                                = @"ViewController";
+static NSString *const kArtCollectionViewController                   = @"ArtCollectionViewController";
+static NSString *const kBestSellingArtistsViewController              = @"BestSellingArtistsViewController";
+static NSString *const kArtCategoryViewController                     = @"ArtCategoryViewController";
+static NSString *const kArtDetailViewController                       = @"ArtDetailViewController";
+static NSString *const kArtistDetailViewController                    = @"ArtistDetailViewController";
+static NSString *const kAboutUsViewController                         = @"AboutUsViewController";
+static NSString *const kContactUsViewController                       = @"ContactUsViewController";
+static NSString *const kWebViewController                             = @"WebViewController";
+static NSString *const kReviewViewController                          = @"ReviewViewController";
+static NSString *const kRegistrationViewController                    = @"RegistrationViewController";
+static NSString *const kLoginViewController                           = @"LoginViewController";
+static NSString *const kPOPTableController                            = @"POPTableController";
+static NSString *const kBlogViewController                            = @"BlogViewController";
+static NSString *const kContentAboutViewController                    = @"ContentAboutViewController";
+static NSString *const kDashboardViewController                       = @"DashboardViewController";
+static NSString *const kTabViewController                             = @"TabViewController";
+static NSString *const kMyAccountViewController                       = @"MyAccountViewController";
+static NSString *const kUpdateProfileViewController                   = @"UpdateProfileViewController";
+static NSString *const kCustomDatePickerViewController                = @"CustomDatePickerViewController";
+static NSString *const kTHSegmentedPager                              = @"THSegmentedPager";
+static NSString *const kBecomeASellerViewController                   = @"BecomeASellerViewController";
+static NSString *const kBlankViewController                           = @"BlankViewController";
+static NSString *const kChangePasswordViewController                  = @"ChangePasswordViewController";
+static NSString *const kCardDetailViewController                      = @"CardDetailViewController";
+static NSString *const kAddAddressViewController                      = @"AddAddressViewController";
+static NSString *const kMyOrderViewController                         = @"MyOrderViewController";
+static NSString *const kOrderDetailViewController                     = @"OrderDetailViewController";
+static NSString *const kAddArtViewController                          = @"AddArtViewController";
+static NSString *const kManageArtViewController                       = @"ManageArtViewController";
+static NSString *const kWishListViewController                        = @"WishListViewController";
+
+
+//************** Navigation ViewControllers Identifiers *************************
+
+static NSString *const kTabViewControllerNav                          = @"TabViewControllerNav";
+
+//************** Custom Medthods for ViewControllers  *************************
+
+
+#define GET_VIEW_CONTROLLER(viewController) [self.storyboard instantiateViewControllerWithIdentifier:viewController]
+
+#define GET_VIEW_CONTROLLER_STORYBOARD(viewController) [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:viewController]
+
+#define MOVE_VIEW_CONTROLLER(viewController,animation)    [self.navigationController pushViewController:viewController animated:animation];
+
+#define MOVE_VIEW_CONTROLLER_VIEW_DECK(viewController)    [self.viewDeckController rightViewPushViewControllerOverCenterController:viewController];
+
+#define PRESENT_VIEW_CONTOLLER(viewController,animation) [self.navigationController presentViewController:viewController animated:animation completion:nil];
+
+#define DISMISS_VIEW_CONTROLLER             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+
+#define JOIN_STRING(str1,str2)      [str1 stringByAppendingString:str2]
+
+#define IS_NULL(value)              [value isEqual:[NSNull null]]
+
+#define IS_IPHONE_4s ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
+
+
+//**************  Custom Notification for Handle Unity app activity      *************************
+
+#define AppDelegate_SendNotificationWithArg(name, arg) [[NSNotificationCenter defaultCenter] postNotificationName:name object:nil userInfo:arg];
+

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Dosis-Regular.otf">
+            <string>Dosis-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="169" id="3Xh-Qs-Ydi" customClass="WishListViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="169"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Xh-Qs-Ydi" id="YeK-lG-j3W">
+                <frame key="frameInset" width="320" height="168"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qf-gB-UJG">
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="DSd-Cq-RJ0">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Avj-jr-Lul"/>
+                                    <constraint firstAttribute="height" constant="100" id="Qyh-vk-lY9"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Art Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7OZ-zD-jzF">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="dOJ-rH-pCc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="11"/>
+                                <color key="textColor" red="0.1960784314" green="0.18039215689999999" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Art Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4q-9Y-SZs">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="GSl-HP-yPX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="11"/>
+                                <color key="textColor" red="0.42745098040000001" green="0.40784313729999999" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Art Category and Artist name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifz-fy-o1o">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="TuF-he-t9V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="11"/>
+                                <color key="textColor" red="0.42745098040000001" green="0.40784313729999999" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$3,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEK-2D-rVg">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8Vy-KJ-VRy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="15"/>
+                                <color key="textColor" red="0.18039215689999999" green="0.42745098040000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gDV-mY-eaT">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UK7-oT-Sqv" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="13"/>
+                                        <state key="normal" title="Remove">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.32156862749999998" green="0.46666666670000001" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="N6m-X0-r5N"/>
+                                    <constraint firstAttribute="width" constant="100" id="XAt-vn-2Dn"/>
+                                    <constraint firstAttribute="bottom" secondItem="UK7-oT-Sqv" secondAttribute="bottom" id="jCS-dN-cac"/>
+                                    <constraint firstItem="UK7-oT-Sqv" firstAttribute="top" secondItem="gDV-mY-eaT" secondAttribute="top" id="t9X-Y4-l46"/>
+                                    <constraint firstAttribute="trailing" secondItem="UK7-oT-Sqv" secondAttribute="trailing" id="xzN-ms-sqv"/>
+                                    <constraint firstItem="UK7-oT-Sqv" firstAttribute="leading" secondItem="gDV-mY-eaT" secondAttribute="leading" id="yBl-P8-6vC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7OZ-zD-jzF" firstAttribute="top" secondItem="0qf-gB-UJG" secondAttribute="top" constant="8" id="29B-gZ-CVQ"/>
+                            <constraint firstItem="ifz-fy-o1o" firstAttribute="leading" secondItem="DSd-Cq-RJ0" secondAttribute="trailing" constant="8" id="2CD-fP-6Rn"/>
+                            <constraint firstItem="DSd-Cq-RJ0" firstAttribute="top" secondItem="0qf-gB-UJG" secondAttribute="top" constant="8" id="CDi-dG-rhH"/>
+                            <constraint firstAttribute="trailing" secondItem="7OZ-zD-jzF" secondAttribute="trailing" constant="8" id="GAI-T5-Vzj"/>
+                            <constraint firstItem="HEK-2D-rVg" firstAttribute="leading" secondItem="DSd-Cq-RJ0" secondAttribute="trailing" constant="8" id="NH6-ze-43o"/>
+                            <constraint firstAttribute="trailing" secondItem="ifz-fy-o1o" secondAttribute="trailing" constant="8" id="O5l-1a-5lZ"/>
+                            <constraint firstAttribute="trailing" secondItem="HEK-2D-rVg" secondAttribute="trailing" constant="8" id="TAI-ZV-7V9"/>
+                            <constraint firstAttribute="trailing" secondItem="H4q-9Y-SZs" secondAttribute="trailing" constant="8" id="YKg-ot-W1z"/>
+                            <constraint firstItem="HEK-2D-rVg" firstAttribute="top" secondItem="ifz-fy-o1o" secondAttribute="bottom" id="Z7z-gP-8s1"/>
+                            <constraint firstItem="H4q-9Y-SZs" firstAttribute="leading" secondItem="DSd-Cq-RJ0" secondAttribute="trailing" constant="8" id="ZlT-1g-C22"/>
+                            <constraint firstAttribute="bottom" secondItem="gDV-mY-eaT" secondAttribute="bottom" constant="12" id="de5-4F-Rcb"/>
+                            <constraint firstItem="DSd-Cq-RJ0" firstAttribute="leading" secondItem="0qf-gB-UJG" secondAttribute="leading" constant="8" id="eRF-uv-r8e"/>
+                            <constraint firstItem="H4q-9Y-SZs" firstAttribute="top" secondItem="7OZ-zD-jzF" secondAttribute="bottom" constant="2" id="jlA-h8-aaE"/>
+                            <constraint firstItem="ifz-fy-o1o" firstAttribute="top" secondItem="7OZ-zD-jzF" secondAttribute="bottom" constant="19" id="jts-5l-lIy"/>
+                            <constraint firstAttribute="trailing" secondItem="gDV-mY-eaT" secondAttribute="trailing" constant="8" id="pWH-vF-qDE"/>
+                            <constraint firstItem="7OZ-zD-jzF" firstAttribute="leading" secondItem="DSd-Cq-RJ0" secondAttribute="trailing" constant="8" id="vEz-DR-jJV"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="0qf-gB-UJG" secondAttribute="bottom" constant="8" id="E3t-4X-WsE"/>
+                    <constraint firstItem="0qf-gB-UJG" firstAttribute="top" secondItem="YeK-lG-j3W" secondAttribute="top" constant="8" id="Kbx-cH-70J"/>
+                    <constraint firstAttribute="trailing" secondItem="0qf-gB-UJG" secondAttribute="trailing" constant="8" id="O1M-g8-o7V"/>
+                    <constraint firstItem="0qf-gB-UJG" firstAttribute="leading" secondItem="YeK-lG-j3W" secondAttribute="leading" constant="8" id="nQj-hN-dKE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnRemove" destination="UK7-oT-Sqv" id="Mu3-y7-J9g"/>
+                <outlet property="imgPic" destination="DSd-Cq-RJ0" id="d63-tO-5pH"/>
+                <outlet property="lblName" destination="7OZ-zD-jzF" id="gv3-75-hIK"/>
+                <outlet property="lblPrice" destination="HEK-2D-rVg" id="v3x-mV-rbY"/>
+                <outlet property="lblSize" destination="H4q-9Y-SZs" id="fcS-zE-elN"/>
+                <outlet property="lblType" destination="ifz-fy-o1o" id="aOO-HS-g3d"/>
+                <outlet property="viContainerCell" destination="0qf-gB-UJG" id="tK3-Kh-EFB"/>
+                <outlet property="viContainerRemove" destination="gDV-mY-eaT" id="ytx-gP-7iQ"/>
+            </connections>
+            <point key="canvasLocation" x="239" y="168.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="no_image.png" width="492" height="498"/>
+    </resources>
+</document>

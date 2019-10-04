@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="92" id="KGk-i7-Jjw" customClass="ContactUsViewCell4">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="92"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="91.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHu-Nz-CnX">
+                        <rect key="frame" x="15" y="8" width="289" height="75"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor" translatesAutoresizingMaskIntoConstraints="NO" id="VU5-Fi-Kk4">
+                                <rect key="frame" x="8" y="8" width="273" height="59"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VU5-Fi-Kk4" secondAttribute="trailing" constant="8" id="IWH-fO-N0z"/>
+                            <constraint firstAttribute="bottom" secondItem="VU5-Fi-Kk4" secondAttribute="bottom" constant="8" id="YS1-Lb-LTu"/>
+                            <constraint firstItem="VU5-Fi-Kk4" firstAttribute="top" secondItem="gHu-Nz-CnX" secondAttribute="top" constant="8" id="aZD-pA-WEE"/>
+                            <constraint firstItem="VU5-Fi-Kk4" firstAttribute="leading" secondItem="gHu-Nz-CnX" secondAttribute="leading" constant="8" id="ycr-ZD-j9w"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="gHu-Nz-CnX" secondAttribute="bottom" constant="8" id="0yI-fw-zRs"/>
+                    <constraint firstAttribute="trailing" secondItem="gHu-Nz-CnX" secondAttribute="trailing" constant="16" id="2Ty-VJ-zgJ"/>
+                    <constraint firstItem="gHu-Nz-CnX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="gVI-ud-jC4"/>
+                    <constraint firstItem="gHu-Nz-CnX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="uSm-DK-cOU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="txtviMessage" destination="VU5-Fi-Kk4" id="hES-vv-yAj"/>
+                <outlet property="viContainerMessage" destination="gHu-Nz-CnX" id="MtF-M2-Za2"/>
+            </connections>
+            <point key="canvasLocation" x="157" y="232"/>
+        </tableViewCell>
+    </objects>
+</document>

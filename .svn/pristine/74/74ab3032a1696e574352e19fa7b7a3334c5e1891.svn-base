@@ -1,0 +1,338 @@
+//
+//  AppDelegate.m
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 11/05/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import "AppDelegate.h"
+#import "LeftMenuTableViewController.h"
+#import "ViewController.h"
+#import "UILoadingView.h"
+#import "Alert.h"
+
+
+
+@interface AppDelegate ()
+
+@end
+
+@implementation AppDelegate
+
+#if IS_UNITY_USE
+
+
+-(UIWindow*)unityWindow{
+        
+        return UnityGetMainWindow();
+}
+-(UIView*)unityView{
+        
+        return UnityGetGLView();
+}
+
+-(UIViewController*)unityRootViewController{
+        
+        return UnityGetGLViewController();
+}
+-(ScreenOrientation)unityScreenOrientation{
+        
+        return UnityCurrentOrientation();
+        
+}
+
+-(void)startUnityApp{
+        
+        if(self.unityAppController==nil){
+                self.unityAppController=[[UnityAppController alloc]init];
+                [self.unityAppController application:[UIApplication sharedApplication] didFinishLaunchingWithOptions:nil];
+        }
+        //
+        
+        //
+        [self.unityAppController applicationWillEnterForeground:[UIApplication sharedApplication]];
+        
+        [self.unityAppController applicationDidBecomeActive:[UIApplication sharedApplication]];
+        
+}
+
+-(void)closeUnityApp{
+        
+
+        [self.unityAppController applicationWillResignActive:[UIApplication sharedApplication]];
+        [self.unityAppController applicationDidEnterBackground:[UIApplication sharedApplication]];
+//        [self.unityAppController applicationWillTerminate:[UIApplication sharedApplication]];
+}
+
+#endif
+
+
++(AppDelegate*)appDelegate{
+        
+        return (AppDelegate*)[UIApplication sharedApplication].delegate;
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        // Override point for customization after application launch.
+        
+        [self validateVersionCompatibility];
+        
+        [self initViewController];
+        
+        [PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction : PAYPAL_CLIENT_ID,
+                                                               PayPalEnvironmentSandbox : PAYPAL_SANDBOX_ID}];
+        
+#if IS_UNITY_USE
+        
+        self.unityAppController=[[UnityAppController alloc]init];
+        [self.unityAppController application:application didFinishLaunchingWithOptions:launchOptions];
+//        [MyObject mute];
+//
+//        [self.unityAppController applicationWillResignActive:[UIApplication sharedApplication]];
+//        [self.unityAppController applicationDidEnterBackground:[UIApplication sharedApplication]];
+        
+#endif
+        [self hideUnityWindow];
+        
+        //Reset Database if version changed
+        [DataBaseHandler resetData:DATABASE_NAME];
+        
+        //Copy if not exist
+        [DataBaseHandler createEditableCopyOfDatabaseIfNeeded:DATABASE_NAME];
+        
+        
+        [[FBSDKApplicationDelegate sharedInstance] application:application
+                                 didFinishLaunchingWithOptions:launchOptions];
+        
+        
+        
+        return YES;
+        
+        
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+#if IS_UNITY_USE
+        [self.unityAppController applicationWillResignActive:application];
+#endif
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+#if IS_UNITY_USE
+        [self.unityAppController applicationDidEnterBackground:application];
+#endif
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+#if IS_UNITY_USE
+        [self.unityAppController applicationWillEnterForeground:application];
+#endif
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+        [FBSDKAppEvents activateApp];
+        
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+#if IS_UNITY_USE
+        [self.unityAppController applicationDidBecomeActive:application];
+#endif
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+#if IS_UNITY_USE
+        [self.unityAppController applicationWillTerminate:application];
+#endif
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+        
+        if ([[url scheme] isEqualToString:@"com.infoicon.eastonartgalleries"] == YES)
+        {
+                return [GPPURLHandler handleURL:url sourceApplication:sourceApplication annotation:annotation];
+        }
+        else
+        {
+                
+        return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                              openURL:url
+                                                    sourceApplication:sourceApplication
+                                                           annotation:annotation];
+        }
+}
+
+
+#pragma mark - Version Restriction
+
+-(void)validateVersionCompatibility{
+        
+        NSString* currentOS=[UIDevice currentDevice].systemVersion;
+        NSNumber* currentOSNumber=[NSNumber numberWithDouble:[currentOS doubleValue]];
+        NSString* currentOSValue=[Alert getOSVersionValue:currentOSNumber];
+        double oSversion=[currentOSValue doubleValue];
+        
+//        float oSversion=[[UIDevice currentDevice].systemVersion floatValue];
+        if (oSversion>=11.0)
+        {
+                NSString* msg=[NSString stringWithFormat:@"Not compatible with current OS version %@ ",currentOSValue];
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@""
+                                                             message:msg
+                                                            delegate:self
+                                                   cancelButtonTitle:@"OK"
+                                                   otherButtonTitles:nil];
+                [alert show];
+        }
+        else
+        {
+                // do nothing
+        }
+}
+
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+        
+        [NSException raise:@"Not compatible" format:@"Quit, Cancel"];
+}
+
+#pragma mark -Slider
+
+-(void)usingViewDesk{
+        UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
+        
+        UINavigationController* nav=(UINavigationController*)window.rootViewController;
+        
+        ViewController*viewController=GET_VIEW_CONTROLLER_STORYBOARD(kViewController);
+        LeftMenuTableViewController*leftMenuViewController=GET_VIEW_CONTROLLER_STORYBOARD(kLeftMenuTableViewController);
+        
+        UINavigationController * navigationControllerView  = [[UINavigationController alloc]initWithRootViewController:viewController];
+        
+        UINavigationController * navigationControllerLeftManu = [[UINavigationController alloc]initWithRootViewController:leftMenuViewController];
+        
+        IIViewDeckController* lIIViewDeckController = [[IIViewDeckController alloc]initWithCenterViewController:navigationControllerView leftViewController:navigationControllerLeftManu ];
+        
+        
+        [lIIViewDeckController setLeftLedge:60];
+        
+        [nav  setViewControllers:@[lIIViewDeckController] animated:NO];
+        
+        [window makeKeyAndVisible];
+}
+
+-(void)initViewController{
+        //Main
+        ViewController*viewController=GET_VIEW_CONTROLLER_STORYBOARD(kViewController);
+        UINavigationController * navigationControllerView  = [[UINavigationController alloc]initWithRootViewController:viewController];
+        
+        //Left Menu
+        LeftMenuTableViewController*leftMenuViewController=GET_VIEW_CONTROLLER_STORYBOARD(kLeftMenuTableViewController);
+        UINavigationController * navigationControllerLeftManu = [[UINavigationController alloc]initWithRootViewController:leftMenuViewController];
+        
+        
+        //Nav controller
+        IIViewDeckController* lIIViewDeckController = [[IIViewDeckController alloc]initWithCenterViewController:navigationControllerView leftViewController:navigationControllerLeftManu ];
+        
+        
+        
+        
+        
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        self.window.rootViewController = lIIViewDeckController;
+        //[self.window makeKeyAndVisible];
+        self.window.backgroundColor = [UIColor whiteColor];
+        [UIApplication sharedApplication].statusBarStyle = 0;
+        
+}
+
+
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+
+        
+        if (!self.isAppEastonArt) {
+                // for iPhone, you could also return UIInterfaceOrientationMaskAllButUpsideDown
+                return UIInterfaceOrientationMaskAllButUpsideDown;
+        }
+        return UIInterfaceOrientationMaskPortrait;
+}
+
+
+
+
+-(UIView*)getBackgroundView:(CGRect)bound{
+ 
+        UIView* view=[[UIView alloc]initWithFrame:bound];
+        view.backgroundColor=[UIColor blackColor];
+        return view;
+}
+
+-(void)showUnityWindow{
+//        [self.backgroundView removeFromSuperview];
+//        self.backgroundView=[self getBackgroundView:self.unityWindow.bounds];
+//        [self.window addSubview:self.backgroundView];
+        
+        
+        self.isAppEastonArt=NO;
+        
+        [self.unityWindow makeKeyAndVisible];
+}
+
+-(void)hideUnityWindow{
+//        [self.backgroundView removeFromSuperview];
+//        self.backgroundView=[self getBackgroundView:self.window.bounds];
+//        [self.unityWindow addSubview:self.backgroundView];
+        
+        self.isAppEastonArt=YES;
+        
+        [self.window makeKeyAndVisible];
+}
+
+
+
+
+#pragma mark -- Code to show loading view
+
+- (void) showLoadingView:(BOOL)show{
+        if(show)
+        {
+                if(_loadingView == nil)
+                        _loadingView = [UILoadingView loadingView];
+                [_loadingView showViewAnimated:NO onView:_window.rootViewController.view];
+        }
+        else
+        {
+                [_loadingView removeViewAnimated:NO];
+        }
+        
+}
+
+- (void) showPostToigViewControllerWithUserInfo:(InstagramUser*)userInfo{
+        PostToInstagramViewController* postToIgViewC = [[PostToInstagramViewController alloc] initWithNibName:@"PostToInstagramView" bundle:nil];
+        postToIgViewC.userInfo=userInfo;
+        postToIgViewC.shareFileName=userInfo.fileName;
+        postToIgViewC.shareImage=userInfo.shareImage;
+//        postToIgViewC.from=@"back";
+        
+        
+       UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
+
+        IIViewDeckController* vc;
+        
+        
+        if([window.rootViewController isKindOfClass:[IIViewDeckController class]])
+                vc= (IIViewDeckController *)window.rootViewController;
+
+        if(vc)  [vc rightViewPushViewControllerOverCenterController:postToIgViewC];
+}
+
+@end

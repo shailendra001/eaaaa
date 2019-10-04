@@ -1,0 +1,37 @@
+//
+//  ArtDetailViewCell2.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 27/05/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ArtDetailViewCell2 : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerDetail;
+@property (strong, nonatomic) IBOutlet UILabel *lblSeparatorLine;
+@property (strong, nonatomic) IBOutlet UILabel *lblName;
+@property (strong, nonatomic) IBOutlet UILabel *lblAutherName;
+@property (strong, nonatomic) IBOutlet UILabel *lblSize;
+@property (strong, nonatomic) IBOutlet UILabel *lblPrice;
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerFB;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnFB;
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerTW;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnTW;
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerGooglePlus;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnGooglePlus;
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerInstagram;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnInstagram;
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerEmail;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnEmail;
+
+
+
+@end

@@ -1,0 +1,149 @@
+//
+//  PrefixHeader.pch
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 11/05/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+
+#endif /* PrefixHeader_pch */
+
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+#import <XCDYouTubeKit/XCDYouTubeKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
+//#import <GoogleOpenSource/GoogleOpenSource.h>
+#import <GooglePlus/GooglePlus.h>
+#import <GoogleSignIn/GoogleSignIn.h>
+#import <STTwitter/STTwitter.h>
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
+#import <SafariServices/SFSafariViewController.h>
+#import "Reachability.h"
+#import "THSegmentedPager.h"
+#import "THSegmentedPageViewControllerDelegate.h"
+#import "TTTAttributedLabel.h"
+#import "DataBaseHandler.h"
+#import "PDFRenderer.h"
+
+
+#import "AppDelegate.h"
+#import "Constant.h"
+#import "UINavigationItem+iOS7Spacing.h"
+#import "KxMenu.h"
+#import "FPPopoverKeyboardResponsiveController.h"
+#import "DemoTableController.h"
+#import "POPTableController.h"
+
+#import "Alert.h"
+#import "UIImageView+AFNetworking.h"
+#import "EastonArtGalleries-Swift.h"
+#import "IDMPhoto.h"
+#import "IDMPhotoBrowser.h"
+#import "AMPopTip.h"
+#import "IIViewDeckController.h"
+#import "WebService.h"
+#import "SVProgressHUD.h"
+#import "SharedClass.h"
+#import "MBProgressHUD.h"
+#import "JSON.h"
+#import "EDStarRating.h"
+#import "EDStarRatings.h"
+#import "DLStarRatingControl.h"
+#import "EAGallery.h"
+#import "CardDetailModel.h"
+#import "Popup.h"
+#import "DashboardViewController.h"
+#import "LoginViewController.h"
+#import "CardDetailViewController.h"
+#import "MyObject.h"
+//#import "UINavigationController+Orientation.h"
+
+//Tab vc
+
+//#import "MSSTabBarCollectionViewCell+Private.h"
+//#import "MSSTabBarCollectionViewCell.h"
+//#import "MSSTabBarView.h"
+//#import "MSSTabNavigationBar.h"
+////#import "MSSTabNavigationBarPrivate.h"
+//#import "MSSTabSizingStyle.h"
+//#import "MSSTabStyle.h"
+//#import "MSSPageViewController.h"
+////#import "MSSPageViewControllerPrivate.h"
+//#import "MSSTabbedPageViewController.h"
+//#import "MSSCustomHeightNavigationBar.h"
+//#import "UIView+MSSAutoLayout.h"
+//#import "UIViewController+MSSUtilities.h"
+#import "CustomDatePickerViewController.h"
+#import "QMImagePicker.h"
+#import "BestSellingArtistsViewController.h"
+#import "CustomWebViewController.h"
+
+
+//Payment
+//#import "ZZFlipsideViewController.h"
+#import "PayPalMobile.h"
+
+#import "Defines.h"
+//#import "UIUtils.h"
+//#import "UIPrefix.h"
+#import "DataManager.h"
+#import "WebServiceManager.h"
+#import "InstagramUser.h"
+
+#import "SignInViewController.h"
+#import "PostToInstagramViewController.h"
+
+#import "UIDeviceHardware.h"
+#import "NIDropDown.h"
+#import "MZTimerLabel.h"
+#import "AddAmountViewController.h"
+
+#endif
+
+
+#if IS_UNITY_USE
+
+
+        /********For Unity App **********/
+        #ifdef __OBJC__
+        #import <Foundation/Foundation.h>
+        #import <UIKit/UIKit.h>
+
+        #import "AppDelegate.h"
+        //#import "UnityViewControllerBase.h"
+        #import "UnityAppController.h"
+
+        #endif
+
+        #include "Preprocessor.h"
+        #include "UnityTrampolineConfigure.h"
+        #include "UnityInterface.h"
+
+        #ifndef __OBJC__
+        #if USE_IL2CPP_PCH
+        #include "il2cpp_precompiled_header.h"
+        #endif
+        #endif
+
+        #ifndef TARGET_IPHONE_SIMULATOR
+        #define TARGET_IPHONE_SIMULATOR 0
+        #endif
+
+
+        #define printf_console printf
+
+        /********End**********/
+
+
+#endif

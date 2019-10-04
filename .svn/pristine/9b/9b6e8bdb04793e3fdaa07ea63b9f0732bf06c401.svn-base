@@ -1,0 +1,27 @@
+//
+//  CurrentBiddersViewController.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 19/06/17.
+//  Copyright © 2017 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface CurrentBiddersViewController : UIViewController
+
+@property (strong, nonatomic) NSString* titleString;
+@property (strong, nonatomic) NSString* from;
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerTitleBar;
+@property (strong, nonatomic) IBOutlet UIImageView *imgViTitle;
+@property (strong, nonatomic) IBOutlet UILabel *lblTitle;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerHeader;
+@property (strong, nonatomic) IBOutlet UIStackView *stackHeader;
+@property (strong, nonatomic) IBOutlet UILabel *lblBidderName;
+@property (strong, nonatomic) IBOutlet UILabel *lblBidderDate;
+@property (strong, nonatomic) IBOutlet UILabel *lblBidderAmount;
+
+@end

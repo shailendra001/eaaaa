@@ -1,0 +1,650 @@
+//
+//  PDFRenderer.m
+//  iOSPDFRenderer
+//
+//  Created by Tope on 24/11/2011.
+//  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+//
+
+#import "PDFRenderer.h"
+#import "CoreText/CoreText.h"
+
+@implementation PDFRenderer
+
+
++(void)drawPDF:(NSString*)fileName
+{
+    // Create the PDF context using the default page size of 612 x 792.
+    UIGraphicsBeginPDFContextToFile(fileName, CGRectZero, nil);
+    // Mark the beginning of a new page.
+    UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 800, 800), nil);
+    
+//    [self drawText:@"Hello World" inFrame:CGRectMake(0, 0, 300, 50)];
+        
+        NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+        
+        [dic setObject:@"Eastonartgalleries."                   forKey:@"title"];
+        [dic setObject:@"Art Collection Delray Beach, FL"       forKey:@"desc"];
+        
+        [dic setObject:@"Client Information"                    forKey:@"header1"];
+        [dic setObject:@"Sandeep Kumar"                         forKey:@"name"];
+        [dic setObject:@"0123456789"                            forKey:@"phone"];
+        [dic setObject:@"sandeep@infoicontechnologies.com"      forKey:@"email"];
+        
+        [dic setObject:@"Payment Details"                       forKey:@"header2"];
+        [dic setObject:@"$10"                                   forKey:@"bill"];
+        [dic setObject:@"2016-04-16 06:29:26"                   forKey:@"date"];
+        
+        [dic setObject:@"Shipping Address"                      forKey:@"header3"];
+        [dic setObject:@"India"                                 forKey:@"country"];
+        [dic setObject:@"UP"                                    forKey:@"state"];
+        [dic setObject:@"Noida"                                 forKey:@"city"];
+        [dic setObject:@"infoicon"                              forKey:@"address1"];
+        [dic setObject:@"infoicon"                              forKey:@"address2"];
+    
+        [self drawLabels:[dic mutableCopy]];
+//    [self drawLabels];
+        
+        
+//    [self drawLogo];
+        
+        
+    
+    int xOrigin = 50;
+    int yOrigin = 320;
+    
+    int rowHeight = 50;
+    int columnWidth = 140;
+    
+    int numberOfRows = 5;
+    int numberOfColumns = 5;
+        
+        
+        //Outer tables
+        [self drawTableAt:CGPointMake(30, 30) withRowHeight:70 andColumnWidth:750 andRowCount:1 andColumnCount:1];
+        
+        [self drawTableAt:CGPointMake(30, 100) withRowHeight:200 andColumnWidth:750 andRowCount:1 andColumnCount:1];
+        
+        [self drawTableAt:CGPointMake(30, 300) withRowHeight:20+(50*(numberOfRows+2))+20 andColumnWidth:750 andRowCount:1 andColumnCount:1];
+
+        
+        //Inner item table
+        [self drawTableAt:CGPointMake(xOrigin, yOrigin) withRowHeight:rowHeight andColumnWidth:columnWidth andRowCount:numberOfRows andColumnCount:numberOfColumns];
+        //Inner item data
+        {
+                
+                NSArray* headers = [NSArray arrayWithObjects:@"S. No", @"Product Name", @"Quantity",@"Unit price", @"Sub Total", nil];
+                NSArray* invoiceInfo1 = [NSArray arrayWithObjects:@"1", @"Development", @"1", @"$1000", @"$1000", nil];
+                NSArray* invoiceInfo2 = [NSArray arrayWithObjects:@"1", @"Development", @"1", @"$1000", @"$1000", nil];
+                NSArray* invoiceInfo3 = [NSArray arrayWithObjects:@"1", @"Development", @"1", @"$1000", @"$1000", nil];
+                NSArray* invoiceInfo4 = [NSArray arrayWithObjects:@"1", @"Development", @"1", @"$1000", @"$1000", nil];
+                
+                NSArray* allInfo = [NSArray arrayWithObjects:headers, invoiceInfo1, invoiceInfo2, invoiceInfo3, invoiceInfo4, nil];
+
+                [self drawTableDataAt:CGPointMake(xOrigin, yOrigin) withRowHeight:rowHeight andColumnWidth:columnWidth andRowCount:numberOfRows andColumnCount:numberOfColumns allInfo:allInfo];
+        }
+        
+        
+        //Inner amount table
+        [self drawTableAt:CGPointMake(xOrigin, yOrigin+(rowHeight*numberOfRows)) withRowHeight:rowHeight andColumnWidth:columnWidth*4 andRowCount:2 andColumnCount:1];
+        
+        [self drawTableAt:CGPointMake(xOrigin+(columnWidth*4), yOrigin+(rowHeight*numberOfRows)) withRowHeight:rowHeight andColumnWidth:columnWidth andRowCount:2 andColumnCount:1];
+        
+        
+        
+        //Inner Total Amount data fill
+        {
+                NSArray* header1 = [NSArray arrayWithObjects:@"Total Amount", nil];
+                NSArray* header2 = [NSArray arrayWithObjects: @"Bill Amount", nil];
+                NSArray* allInfo = [NSArray arrayWithObjects:header1, header2, nil];
+                
+                [self drawTableDataAt:CGPointMake(xOrigin, yOrigin+(rowHeight*numberOfRows)) withRowHeight:rowHeight andColumnWidth:columnWidth*4 andRowCount:2 andColumnCount:1 allInfo:allInfo];
+        
+        }
+        {
+                NSArray* invoiceInfo1 = [NSArray arrayWithObjects:@"$105", nil];
+                NSArray* invoiceInfo2 = [NSArray arrayWithObjects: @"$111.1", nil];
+                NSArray* allInfo = [NSArray arrayWithObjects:invoiceInfo1, invoiceInfo2, nil];
+
+                 [self drawTableDataAt:CGPointMake(xOrigin+(columnWidth*4), yOrigin+(rowHeight*numberOfRows)) withRowHeight:rowHeight andColumnWidth:columnWidth andRowCount:2 andColumnCount:1 allInfo:allInfo];
+        }
+        
+    
+    // Close the PDF context and write the contents out.
+    UIGraphicsEndPDFContext();
+}
+
++(void)drawPDF:(NSString*)fileName allInfo:(NSDictionary*)allInfo
+{
+        // Create the PDF context using the default page size of 612 x 792.
+        UIGraphicsBeginPDFContextToFile(fileName, CGRectZero, nil);
+        // Mark the beginning of a new page.
+        UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 800, 800), nil);
+        
+        //    [self drawText:@"Hello World" inFrame:CGRectMake(0, 0, 300, 50)];
+        
+       [self drawLabels:[allInfo mutableCopy]];
+        //    [self drawLabels];
+        
+        
+        //    [self drawLogo];
+        
+        NSArray* records=[allInfo objectForKey:@"record"];
+        
+        
+        int xOrigin = 50;
+        int yOrigin = 320;
+        
+        int rowHeight = 50;
+        int columnWidth = 140;
+        
+        int numberOfRows = records ? records.count : 0;
+        int numberOfColumns = 5;
+        
+        
+        //Outer tables
+        [self drawTableAt:CGPointMake(30, 30) withRowHeight:70 andColumnWidth:750 andRowCount:1 andColumnCount:1];
+        
+        [self drawTableAt:CGPointMake(30, 100) withRowHeight:200 andColumnWidth:750 andRowCount:1 andColumnCount:1];
+        
+        [self drawTableAt:CGPointMake(30, 300) withRowHeight:20+(50*(numberOfRows+2))+20 andColumnWidth:750 andRowCount:1 andColumnCount:1];
+        
+        
+        //Inner item table
+        [self drawTableAt:CGPointMake(xOrigin, yOrigin) withRowHeight:rowHeight andColumnWidth:columnWidth andRowCount:numberOfRows andColumnCount:numberOfColumns];
+        //Inner item data
+        {
+                
+                [self drawTableDataAt:CGPointMake(xOrigin, yOrigin) withRowHeight:rowHeight andColumnWidth:columnWidth andRowCount:numberOfRows andColumnCount:numberOfColumns allInfo:[allInfo objectForKey:@"record"]];
+        }
+        
+        
+        //Inner amount table
+        [self drawTableAt:CGPointMake(xOrigin, yOrigin+(rowHeight*numberOfRows)) withRowHeight:rowHeight andColumnWidth:columnWidth*4 andRowCount:2 andColumnCount:1];
+        
+        [self drawTableAt:CGPointMake(xOrigin+(columnWidth*4), yOrigin+(rowHeight*numberOfRows)) withRowHeight:rowHeight andColumnWidth:columnWidth andRowCount:2 andColumnCount:1];
+        
+        
+        
+        //Inner Total Amount data fill
+        {
+                
+                [self drawTableDataAt:CGPointMake(xOrigin, yOrigin+(rowHeight*numberOfRows)) withRowHeight:rowHeight andColumnWidth:columnWidth*4 andRowCount:2 andColumnCount:1 allInfo:[allInfo objectForKey:@"totalheader"]];
+                
+        }
+        {
+                
+                [self drawTableDataAt:CGPointMake(xOrigin+(columnWidth*4), yOrigin+(rowHeight*numberOfRows)) withRowHeight:rowHeight andColumnWidth:columnWidth andRowCount:2 andColumnCount:1 allInfo:[allInfo objectForKey:@"total"]];
+        }
+        
+        
+        // Close the PDF context and write the contents out.
+        UIGraphicsEndPDFContext();
+}
+
+
++(void)drawPDFOld:(NSString*)fileName
+{
+    // Create the PDF context using the default page size of 612 x 792.
+    UIGraphicsBeginPDFContextToFile(fileName, CGRectZero, nil);
+    // Mark the beginning of a new page.
+    UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 612, 792), nil);
+    
+    [self drawText:@"Hello World" inFrame:CGRectMake(0, 0, 300, 50)];
+    
+    CGPoint from = CGPointMake(0, 0);
+    CGPoint to = CGPointMake(200, 300);
+    [PDFRenderer drawLineFromPoint:from toPoint:to];
+    
+    UIImage* logo = [UIImage imageNamed:@"ray-logo.png"];
+    CGRect frame = CGRectMake(20, 100, 300, 60);
+    
+    [PDFRenderer drawImage:logo inRect:frame];
+    
+    [self drawLabels];
+    [self drawLogo];
+    
+    // Close the PDF context and write the contents out.
+    UIGraphicsEndPDFContext();
+}
+
++(void)drawText
+{
+    
+    NSString* textToDraw = @"Hello World";
+    CFStringRef stringRef = (__bridge CFStringRef)textToDraw;
+    // Prepare the text using a Core Text Framesetter
+    CFAttributedStringRef currentText = CFAttributedStringCreate(NULL, stringRef, NULL);
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString(currentText);
+    
+    
+    CGRect frameRect = CGRectMake(0, 0, 300, 50);
+    CGMutablePathRef framePath = CGPathCreateMutable();
+    CGPathAddRect(framePath, NULL, frameRect);
+    
+    // Get the frame that will do the rendering.
+    CFRange currentRange = CFRangeMake(0, 0);
+    CTFrameRef frameRef = CTFramesetterCreateFrame(framesetter, currentRange, framePath, NULL);
+    CGPathRelease(framePath);
+    
+    // Get the graphics context.
+    CGContextRef    currentContext = UIGraphicsGetCurrentContext();
+    
+    // Put the text matrix into a known state. This ensures
+    // that no old scaling factors are left in place.
+    CGContextSetTextMatrix(currentContext, CGAffineTransformIdentity);
+    
+    
+    // Core Text draws from the bottom-left corner up, so flip
+    // the current transform prior to drawing.
+    CGContextTranslateCTM(currentContext, 0, 100);
+    CGContextScaleCTM(currentContext, 1.0, -1.0);
+    
+    // Draw the frame.
+    CTFrameDraw(frameRef, currentContext);
+    
+    CFRelease(frameRef);
+    CFRelease(stringRef);
+    CFRelease(framesetter);
+}
+
++(void)drawLineFromPoint:(CGPoint)from toPoint:(CGPoint)to
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetLineWidth(context, 2.0);
+    
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    
+    CGFloat components[] = {0.2, 0.2, 0.2, 0.3};
+    
+    CGColorRef color = CGColorCreate(colorspace, components);
+    
+    CGContextSetStrokeColorWithColor(context, color);
+    
+    
+    CGContextMoveToPoint(context, from.x, from.y);
+    CGContextAddLineToPoint(context, to.x, to.y);
+    
+    CGContextStrokePath(context);
+    CGColorSpaceRelease(colorspace);
+    CGColorRelease(color);
+    
+}
+
+
++(void)drawImage:(UIImage*)image inRect:(CGRect)rect
+{
+
+    [image drawInRect:rect];
+
+}
+
++(void)drawText:(NSString*)textToDraw inFrame:(CGRect)frameRect
+{
+    
+    CFStringRef stringRef = (__bridge CFStringRef)textToDraw;
+    // Prepare the text using a Core Text Framesetter
+    CFAttributedStringRef currentText = CFAttributedStringCreate(NULL, stringRef, NULL);
+    CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString(currentText);
+    
+    
+    CGMutablePathRef framePath = CGPathCreateMutable();
+    CGPathAddRect(framePath, NULL, frameRect);
+    
+    // Get the frame that will do the rendering.
+    CFRange currentRange = CFRangeMake(0, 0);
+    CTFrameRef frameRef = CTFramesetterCreateFrame(framesetter, currentRange, framePath, NULL);
+    CGPathRelease(framePath);
+    
+    // Get the graphics context.
+    CGContextRef    currentContext = UIGraphicsGetCurrentContext();
+    
+    // Put the text matrix into a known state. This ensures
+    // that no old scaling factors are left in place.
+    CGContextSetTextMatrix(currentContext, CGAffineTransformIdentity);
+    
+    
+    // Core Text draws from the bottom-left corner up, so flip
+    // the current transform prior to drawing.
+    CGContextTranslateCTM(currentContext, 0, frameRect.origin.y*2);
+    CGContextScaleCTM(currentContext, 1.0, -1.0);
+    
+    // Draw the frame.
+    CTFrameDraw(frameRef, currentContext);
+    
+    CGContextScaleCTM(currentContext, 1.0, -1.0);
+    CGContextTranslateCTM(currentContext, 0, (-1)*frameRect.origin.y*2);
+    
+    
+    CFRelease(frameRef);
+    CFRelease(stringRef);
+    CFRelease(framesetter);
+}
+
+
++(void)drawLabels
+{
+    
+    NSArray* objects = [[NSBundle mainBundle] loadNibNamed:@"InvoiceView" owner:nil options:nil];
+    
+    UIView* mainView = [objects objectAtIndex:0];
+        
+        NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+        
+        [dic setObject:@"Eastonartgalleries."                   forKey:@"title"];
+        [dic setObject:@"Art Collection Delray Beach, FL"       forKey:@"desc"];
+        
+        [dic setObject:@"Client Information"                    forKey:@"header1"];
+        [dic setObject:@"Sandeep Kumar"                         forKey:@"name"];
+        [dic setObject:@"0123456789"                            forKey:@"phone"];
+        [dic setObject:@"sandeep@infoicontechnologies.com"      forKey:@"email"];
+        
+        [dic setObject:@"Payment Details"                       forKey:@"header2"];
+        [dic setObject:@"$10"                                   forKey:@"bill"];
+        [dic setObject:@"2016-04-16 06:29:26"                   forKey:@"date"];
+        
+        [dic setObject:@"Shipping Address"                      forKey:@"header3"];
+        [dic setObject:@"India"                                 forKey:@"country"];
+        [dic setObject:@"UP"                                    forKey:@"state"];
+        [dic setObject:@"Noida"                                 forKey:@"city"];
+        [dic setObject:@"infoicon"                              forKey:@"address1"];
+        [dic setObject:@"infoicon"                              forKey:@"address2"];
+        
+    
+    for (UIView* view in [mainView subviews]) {
+        if([view isKindOfClass:[UILabel class]])
+        {
+            UILabel* label = (UILabel*)view;
+            
+                switch (label.tag) {
+                        case 0:
+                                
+                                break;
+                        case 1:
+                                //Title
+                                label.text=[dic objectForKey:@"title"];
+                                break;
+                        case 2:
+                                //Titl desc
+                                label.text=[dic objectForKey:@"desc"];
+                                break;
+                        case 3:
+                                //Header 1
+                                label.text=[dic objectForKey:@"header1"];
+                                break;
+                        case 4:
+                                //Name
+                                label.text=[@"Name : "stringByAppendingString:[dic objectForKey:@"name"]];
+                                break;
+                        case 5:
+                                //Phone
+                                label.text=[@"Call : "stringByAppendingString:[dic objectForKey:@"phone"]];
+                                break;
+                        case 6:
+                                //Email
+                                label.text=[@"Email : "stringByAppendingString:[dic objectForKey:@"email"]];
+                                break;
+                        case 7:
+                                //Header 2
+                                label.text=[dic objectForKey:@"header2"];
+                                break;
+                        case 8:
+                                //Bill Amount
+                                label.text=[@"Bill Amount : "stringByAppendingString:[dic objectForKey:@"bill"]];
+                                break;
+                        case 9:
+                                //Order Date
+                                label.text=[@"Order Date : "stringByAppendingString:[dic objectForKey:@"date"]];
+                                break;
+                        case 10:
+                                //Header 3
+                                label.text=[dic objectForKey:@"header3"];
+                                break;
+                        case 11:
+                                //Country
+                                label.text=[@"Country : "stringByAppendingString:[dic objectForKey:@"country"]];
+                                break;
+                        case 12:
+                                //State
+                                label.text=[@"State : "stringByAppendingString:[dic objectForKey:@"state"]];
+                                break;
+                        case 13:
+                                //City
+                                label.text=[@"City : "stringByAppendingString:[dic objectForKey:@"city"]];
+                                break;
+                        case 14:
+                                //Address1
+                                label.text=[@"Address1 : "stringByAppendingString:[dic objectForKey:@"address1"]];
+                                break;
+                        case 15:
+                                //Address2
+                                label.text=[@"Address2 : "stringByAppendingString:[dic objectForKey:@"address2"]];
+                                break;
+                        
+                                
+                                
+                        default:
+                                break;
+                }
+
+            [self drawText:label.text inFrame:label.frame];
+        }
+    }
+    
+}
+
++(void)drawLabels:(NSDictionary*)dic
+{
+        
+        NSArray* objects = [[NSBundle mainBundle] loadNibNamed:@"InvoiceView" owner:nil options:nil];
+        
+        UIView* mainView = [objects objectAtIndex:0];
+        
+        
+        
+        
+        for (UIView* view in [mainView subviews]) {
+                if([view isKindOfClass:[UILabel class]])
+                {
+                        UILabel* label = (UILabel*)view;
+                        
+                        switch (label.tag) {
+                                case 0:
+                                        
+                                        break;
+                                case 1:
+                                        //Title
+                                        label.text=[dic objectForKey:@"title"];
+                                        break;
+                                case 2:
+                                        //Titl desc
+                                        label.text=[dic objectForKey:@"desc"];
+                                        break;
+                                case 3:
+                                        //Header 1
+                                        label.text=[dic objectForKey:@"header1"];
+                                        break;
+                                case 4:
+                                        //Name
+                                        label.text=[@"Name : "stringByAppendingString:[dic objectForKey:@"name"]];
+                                        break;
+                                case 5:
+                                        //Phone
+                                        label.text=[@"Call : "stringByAppendingString:[dic objectForKey:@"phone"]];
+                                        break;
+                                case 6:
+                                        //Email
+                                        label.text=[@"Email : "stringByAppendingString:[dic objectForKey:@"email"]];
+                                        break;
+                                case 7:
+                                        //Header 2
+                                        label.text=[dic objectForKey:@"header2"];
+                                        break;
+                                case 8:
+                                        //Bill Amount
+                                        label.text=[@"Bill Amount : "stringByAppendingString:[dic objectForKey:@"bill"]];
+                                        break;
+                                case 9:
+                                        //Order Date
+                                        label.text=[@"Order Date : "stringByAppendingString:[dic objectForKey:@"date"]];
+                                        break;
+                                case 10:
+                                        //Header 3
+                                        label.text=[dic objectForKey:@"header3"];
+                                        break;
+                                case 11:
+                                        //Country
+                                        label.text=[@"Country : "stringByAppendingString:[dic objectForKey:@"country"]];
+                                        break;
+                                case 12:
+                                        //State
+                                        label.text=[@"State : "stringByAppendingString:[dic objectForKey:@"state"]];
+                                        break;
+                                case 13:
+                                        //City
+                                        label.text=[@"City : "stringByAppendingString:[dic objectForKey:@"city"]];
+                                        break;
+                                case 14:
+                                        //Address1
+                                        label.text=[@"Address1 : "stringByAppendingString:[dic objectForKey:@"address1"]];
+                                        break;
+                                case 15:
+                                        //Address2
+                                        label.text=[@"Address2 : "stringByAppendingString:[dic objectForKey:@"address2"]];
+                                        break;
+                                        
+                                        
+                                        
+                                default:
+                                        break;
+                        }
+                        
+                        [self drawText:label.text inFrame:label.frame];
+                }
+        }
+        
+}
+
+
+
++(void)drawLogo
+{
+    
+    NSArray* objects = [[NSBundle mainBundle] loadNibNamed:@"InvoiceView" owner:nil options:nil];
+    
+    UIView* mainView = [objects objectAtIndex:0];
+    
+    for (UIView* view in [mainView subviews]) {
+        if([view isKindOfClass:[UIImageView class]])
+        {
+            
+            UIImage* logo = [UIImage imageNamed:@"ray-logo.png"];
+            [self drawImage:logo inRect:view.frame];
+        }
+    }
+    
+}
+
+
++(void)drawTableAt:(CGPoint)origin 
+    withRowHeight:(int)rowHeight 
+   andColumnWidth:(int)columnWidth 
+      andRowCount:(int)numberOfRows 
+   andColumnCount:(int)numberOfColumns
+
+{
+   
+    for (int i = 0; i <= numberOfRows; i++) {
+        
+        int newOrigin = origin.y + (rowHeight*i);
+        
+        
+        CGPoint from = CGPointMake(origin.x, newOrigin);
+        CGPoint to = CGPointMake(origin.x + (numberOfColumns*columnWidth), newOrigin);
+        
+        [self drawLineFromPoint:from toPoint:to];
+        
+        
+    }
+    
+    for (int i = 0; i <= numberOfColumns; i++) {
+        
+        int newOrigin = origin.x + (columnWidth*i);
+        
+        
+        CGPoint from = CGPointMake(newOrigin, origin.y);
+        CGPoint to = CGPointMake(newOrigin, origin.y +(numberOfRows*rowHeight));
+        
+        [self drawLineFromPoint:from toPoint:to];
+        
+        
+    }
+}
+
++(void)drawTableDataAt:(CGPoint)origin 
+    withRowHeight:(int)rowHeight 
+   andColumnWidth:(int)columnWidth 
+      andRowCount:(int)numberOfRows 
+   andColumnCount:(int)numberOfColumns
+{
+    int padding = 10; 
+    
+    NSArray* headers = [NSArray arrayWithObjects:@"S. No", @"Product Name", @"Quantity",@"Unit price", @"Sub Total", nil];
+    NSArray* invoiceInfo1 = [NSArray arrayWithObjects:@"1", @"Development", @"1", @"$1000", @"$1000", nil];
+    NSArray* invoiceInfo2 = [NSArray arrayWithObjects:@"1", @"Development", @"1", @"$1000", @"$1000", nil];
+    NSArray* invoiceInfo3 = [NSArray arrayWithObjects:@"1", @"Development", @"1", @"$1000", @"$1000", nil];
+    NSArray* invoiceInfo4 = [NSArray arrayWithObjects:@"1", @"Development", @"1", @"$1000", @"$1000", nil];
+    
+    NSArray* allInfo = [NSArray arrayWithObjects:headers, invoiceInfo1, invoiceInfo2, invoiceInfo3, invoiceInfo4, nil];
+    
+    for(int i = 0; i < [allInfo count]; i++)
+    {
+        NSArray* infoToDraw = [allInfo objectAtIndex:i];
+        
+        for (int j = 0; j < numberOfColumns; j++) 
+        {
+            
+            int newOriginX = origin.x + (j*columnWidth);
+            int newOriginY = origin.y + ((i+1)*rowHeight);
+            
+            CGRect frame = CGRectMake(newOriginX + padding, newOriginY + padding, columnWidth, rowHeight);
+            
+            
+            [self drawText:[infoToDraw objectAtIndex:j] inFrame:frame];
+        }
+        
+    }
+    
+}
+
++(void)drawTableDataAt:(CGPoint)origin
+         withRowHeight:(int)rowHeight
+        andColumnWidth:(int)columnWidth
+           andRowCount:(int)numberOfRows
+        andColumnCount:(int)numberOfColumns
+               allInfo:(NSArray*)allInfo
+{
+        int padding = 10;
+        
+        for(int i = 0; i < numberOfRows; i++)
+        {
+                NSArray* infoToDraw = [allInfo objectAtIndex:i];
+                
+                for (int j = 0; j < numberOfColumns; j++)
+                {
+                        
+                        int newOriginX = origin.x + (j*columnWidth);
+                        int newOriginY = origin.y + ((i+1)*rowHeight);
+                        
+                        CGRect frame = CGRectMake(newOriginX + padding, newOriginY + padding, columnWidth, rowHeight);
+                        
+                        
+                        [self drawText:[infoToDraw objectAtIndex:j] inFrame:frame];
+                }
+                
+        }
+        
+}
+
+@end

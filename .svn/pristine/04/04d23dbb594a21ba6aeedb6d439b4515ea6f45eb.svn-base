@@ -1,0 +1,21 @@
+//
+//  ArtistDetailViewController.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 30/05/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ArtistDetailViewController : UIViewController
+
+@property (strong, nonatomic) NSString* titleString;
+@property (strong, nonatomic) NSArray* arrArtistDetail;
+@property (strong, nonatomic) NSString* artUserName;
+@property (strong, nonatomic) NSString* from;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIView *viContainerTitleBar;
+@property (strong, nonatomic) IBOutlet UILabel *lblTitle;
+
+@end

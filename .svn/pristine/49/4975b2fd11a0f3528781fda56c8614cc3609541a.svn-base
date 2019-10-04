@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Dosis-Light.otf">
+            <string>Dosis-Light</string>
+            <string>Dosis-Light</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="BecomeASellerViewCell2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0n-Y7-HqU" customClass="TTTAttributedLabel">
+                        <rect key="frame" x="8" y="11" width="121" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="6vP-Cm-tKe"/>
+                            <constraint firstAttribute="width" constant="121" id="mnV-aT-OeS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Dosis-Light" family="Dosis" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qWh-WG-chK">
+                        <rect key="frame" x="137" y="8" width="175" height="27"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fu3-qj-X3W">
+                                <rect key="frame" x="8" y="0.0" width="159" height="27"/>
+                                <color key="textColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Dosis-Light" family="Dosis" pointSize="13"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="VwP-7j-HlV"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qWh-WG-chK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="72x-An-FE6"/>
+                    <constraint firstAttribute="trailing" secondItem="qWh-WG-chK" secondAttribute="trailing" constant="8" id="FJD-fv-aS1"/>
+                    <constraint firstItem="D0n-Y7-HqU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Sbk-8Q-qSj"/>
+                    <constraint firstItem="qWh-WG-chK" firstAttribute="leading" secondItem="D0n-Y7-HqU" secondAttribute="trailing" constant="8" id="aCW-K0-3r0"/>
+                    <constraint firstItem="D0n-Y7-HqU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="dL0-45-nHn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblTitle" destination="D0n-Y7-HqU" id="9rv-tm-jAy"/>
+                <outlet property="txtField" destination="Fu3-qj-X3W" id="pt0-Ol-8r8"/>
+                <outlet property="viContainerValue" destination="qWh-WG-chK" id="New-vj-QNi"/>
+            </connections>
+            <point key="canvasLocation" x="342" y="123"/>
+        </tableViewCell>
+    </objects>
+</document>

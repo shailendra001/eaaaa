@@ -1,0 +1,21 @@
+//
+//  MyOrderView.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 14/07/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface MyOrderView : UIView
+
+@property (strong, nonatomic) IBOutlet UIImageView *img;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblArtName;
+@property (strong, nonatomic) IBOutlet UILabel *lblTime;
+@property (strong, nonatomic) IBOutlet UILabel *lblArtSize;
+@property (strong, nonatomic) IBOutlet UILabel *lblQuantity;
+@property (strong, nonatomic) IBOutlet UILabel *lblPrice;
+
+@end

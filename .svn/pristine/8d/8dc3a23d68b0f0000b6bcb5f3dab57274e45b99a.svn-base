@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Dosis-Regular.otf">
+            <string>Dosis-Regular</string>
+        </mutableArray>
+        <mutableArray key="Montserrat-SemiBold.otf">
+            <string>Montserrat-SemiBold</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="126" id="Ig6-6C-30X" customClass="LoginViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ig6-6C-30X" id="vQK-Rp-rr7">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="125"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oqk-Py-cvV">
+                        <rect key="frame" x="8" y="8" width="304" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Or-a0-f8b" userLabel="Login">
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="40"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mel-op-Bpd" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="40"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.82745098039999998" green="0.36862745099999999" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mel-op-Bpd" firstAttribute="top" secondItem="Oqk-Py-cvV" secondAttribute="top" id="0hL-Rt-tBU"/>
+                            <constraint firstAttribute="trailing" secondItem="3Or-a0-f8b" secondAttribute="trailing" id="9pX-5u-B5J"/>
+                            <constraint firstItem="Mel-op-Bpd" firstAttribute="leading" secondItem="Oqk-Py-cvV" secondAttribute="leading" id="DfM-QF-KAV"/>
+                            <constraint firstAttribute="bottom" secondItem="3Or-a0-f8b" secondAttribute="bottom" id="Di9-3T-DkF"/>
+                            <constraint firstAttribute="trailing" secondItem="Mel-op-Bpd" secondAttribute="trailing" id="aef-uv-E4F"/>
+                            <constraint firstAttribute="height" constant="40" id="hym-Ck-Vgo"/>
+                            <constraint firstAttribute="bottom" secondItem="Mel-op-Bpd" secondAttribute="bottom" id="mBu-cR-pmM"/>
+                            <constraint firstItem="3Or-a0-f8b" firstAttribute="leading" secondItem="Oqk-Py-cvV" secondAttribute="leading" id="qVl-9l-FgQ"/>
+                            <constraint firstItem="3Or-a0-f8b" firstAttribute="top" secondItem="Oqk-Py-cvV" secondAttribute="top" id="sZt-Jc-Jdq"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6v-b7-w8E">
+                        <rect key="frame" x="8" y="76" width="129" height="40"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="kEG-Fh-l5z">
+                                <rect key="frame" x="0.0" y="0.0" width="129" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Eja-0o-Fk1"/>
+                                    <constraint firstAttribute="width" constant="129" id="cxe-tN-gpg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEH-8b-eIF" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="4" width="129" height="32"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qEH-8b-eIF" secondAttribute="bottom" constant="4" id="2Xv-JB-yHK"/>
+                            <constraint firstAttribute="height" constant="40" id="38m-p5-0EM"/>
+                            <constraint firstItem="kEG-Fh-l5z" firstAttribute="centerY" secondItem="h6v-b7-w8E" secondAttribute="centerY" id="6eV-sw-bbd"/>
+                            <constraint firstAttribute="trailing" secondItem="qEH-8b-eIF" secondAttribute="trailing" id="F9i-uD-ElH"/>
+                            <constraint firstItem="qEH-8b-eIF" firstAttribute="leading" secondItem="h6v-b7-w8E" secondAttribute="leading" id="ixF-Ob-jeJ"/>
+                            <constraint firstItem="kEG-Fh-l5z" firstAttribute="centerX" secondItem="h6v-b7-w8E" secondAttribute="centerX" id="nG1-hg-5Qh"/>
+                            <constraint firstItem="qEH-8b-eIF" firstAttribute="top" secondItem="h6v-b7-w8E" secondAttribute="top" constant="4" id="nXa-dC-HOF"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0xg-uz-g9O">
+                        <rect key="frame" x="183" y="76" width="129" height="40"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_google.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ay4-b8-9rF">
+                                <rect key="frame" x="0.0" y="0.0" width="129" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="129" id="TWb-hg-DRU"/>
+                                    <constraint firstAttribute="height" constant="40" id="v31-SG-1rH"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8w9-zd-EDf" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="4" width="129" height="32"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8w9-zd-EDf" firstAttribute="top" secondItem="0xg-uz-g9O" secondAttribute="top" constant="4" id="7F2-DF-Pab"/>
+                            <constraint firstAttribute="trailing" secondItem="8w9-zd-EDf" secondAttribute="trailing" id="BkK-8w-JWX"/>
+                            <constraint firstItem="Ay4-b8-9rF" firstAttribute="centerY" secondItem="0xg-uz-g9O" secondAttribute="centerY" id="Vdv-vW-xuu"/>
+                            <constraint firstAttribute="bottom" secondItem="8w9-zd-EDf" secondAttribute="bottom" constant="4" id="ay0-8j-3Qx"/>
+                            <constraint firstItem="8w9-zd-EDf" firstAttribute="leading" secondItem="0xg-uz-g9O" secondAttribute="leading" id="bKr-cR-BsZ"/>
+                            <constraint firstAttribute="height" constant="40" id="hUc-Y0-cAR"/>
+                            <constraint firstItem="Ay4-b8-9rF" firstAttribute="centerX" secondItem="0xg-uz-g9O" secondAttribute="centerX" id="iZP-4U-o9u"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Idq-d0-mdj">
+                        <rect key="frame" x="145" y="76" width="30" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="f0r-Ug-zAW"/>
+                            <constraint firstAttribute="width" constant="30" id="pVK-YC-0HA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="13"/>
+                        <color key="textColor" red="0.44705882349999998" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuG-hx-Ucp">
+                        <rect key="frame" x="0.0" y="124" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.47450980390000003" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="byk-HL-iYV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="ZuG-hx-Ucp" firstAttribute="top" secondItem="Idq-d0-mdj" secondAttribute="bottom" constant="8" id="1Wv-Iz-KpU"/>
+                    <constraint firstItem="Oqk-Py-cvV" firstAttribute="top" secondItem="vQK-Rp-rr7" secondAttribute="top" constant="8" id="4oa-Vo-k7q"/>
+                    <constraint firstAttribute="trailing" secondItem="ZuG-hx-Ucp" secondAttribute="trailing" id="Iph-Rc-0Ax"/>
+                    <constraint firstAttribute="bottom" secondItem="ZuG-hx-Ucp" secondAttribute="bottom" id="Pe4-Bf-17t"/>
+                    <constraint firstAttribute="trailing" secondItem="0xg-uz-g9O" secondAttribute="trailing" constant="8" id="QD0-Ab-S77"/>
+                    <constraint firstItem="Idq-d0-mdj" firstAttribute="leading" secondItem="h6v-b7-w8E" secondAttribute="trailing" constant="8" id="VAH-88-50W"/>
+                    <constraint firstItem="ZuG-hx-Ucp" firstAttribute="top" secondItem="h6v-b7-w8E" secondAttribute="bottom" constant="8" id="W2a-oe-WLV"/>
+                    <constraint firstItem="ZuG-hx-Ucp" firstAttribute="top" secondItem="0xg-uz-g9O" secondAttribute="bottom" constant="8" id="Y7S-HI-2av"/>
+                    <constraint firstItem="Oqk-Py-cvV" firstAttribute="leading" secondItem="vQK-Rp-rr7" secondAttribute="leading" constant="8" id="Zvt-ih-8xM"/>
+                    <constraint firstItem="h6v-b7-w8E" firstAttribute="leading" secondItem="vQK-Rp-rr7" secondAttribute="leading" constant="8" id="a1F-d8-Q0f"/>
+                    <constraint firstAttribute="trailing" secondItem="Oqk-Py-cvV" secondAttribute="trailing" constant="8" id="bfH-WC-SOk"/>
+                    <constraint firstItem="0xg-uz-g9O" firstAttribute="leading" secondItem="Idq-d0-mdj" secondAttribute="trailing" constant="8" id="pEI-ny-vgl"/>
+                    <constraint firstItem="ZuG-hx-Ucp" firstAttribute="leading" secondItem="vQK-Rp-rr7" secondAttribute="leading" id="qUV-gQ-XEh"/>
+                    <constraint firstItem="Idq-d0-mdj" firstAttribute="centerX" secondItem="vQK-Rp-rr7" secondAttribute="centerX" id="vWl-t6-BBv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnFacebook" destination="qEH-8b-eIF" id="mis-Rs-co8"/>
+                <outlet property="btnGoogle" destination="8w9-zd-EDf" id="pog-Cz-JgH"/>
+                <outlet property="btnLogin" destination="Mel-op-Bpd" id="QU4-FH-abJ"/>
+                <outlet property="lblFacebook" destination="kEG-Fh-l5z" id="WgB-iz-elF"/>
+                <outlet property="lblGoogle" destination="Ay4-b8-9rF" id="hEb-rp-Q7w"/>
+                <outlet property="lblLogin" destination="3Or-a0-f8b" id="wtW-FR-Gk0"/>
+                <outlet property="lblSeparatorLine" destination="ZuG-hx-Ucp" id="Fy0-gd-f3y"/>
+                <outlet property="viContainerFacebook" destination="h6v-b7-w8E" id="Isa-zh-u2Z"/>
+                <outlet property="viContainerGoogle" destination="0xg-uz-g9O" id="CeN-PJ-DLG"/>
+                <outlet property="viContainerLogin" destination="Oqk-Py-cvV" id="A87-fN-7se"/>
+            </connections>
+            <point key="canvasLocation" x="390" y="343"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="login-facebook.png" width="206" height="54"/>
+        <image name="login_google.png" width="244" height="65"/>
+    </resources>
+</document>

@@ -1,0 +1,72 @@
+//
+//  DataBaseHandler.h
+//  Talk2Good
+//
+//  Created by Sandeep Kumar on 19/11/15.
+//  Copyright © 2015 InfoiconTechnologies. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+
+
+@interface DataBaseHandler : NSObject
+
++ (BOOL)createEditableCopyOfDatabaseIfNeeded:(NSString*)dbName;
++ (void)removeFile:(NSString *)fileName;
++ (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL;
++ (unsigned long long int)folderSize:(NSString *)folderPath;
++ (void)clearTmpDirectory;
+
+- (BOOL)executeQuery:(NSString *)query;
+- (id)initWithDB:(NSString*)dbName;
+
++ (void)resetData:(NSString*)dbName;
+
+
+- (BOOL)createTableWithName:(NSString*)tableName;
+- (void)deleteAllDataFromTableName:(NSString*)tableName;
+- (NSString*)getCreationDate:(NSString *)query;
+- (int)getUnreadCount:(NSString *)query;
+- (BOOL)tableExistOrNot:(NSString *)tableName;
+- (BOOL)recordExistOrNot:(NSString *)query;
+- (int)maxBookmark;
+
+//CardDetail
+- (NSArray*)getCardDetails;
+- (NSArray*)getCardDetailsWithID:(NSString*)ID;
+- (NSInteger)getCardSortMax;
+
+/*
+- (NSString*)getParent_label_1_ID:(NSString*)mainID;
+- (NSString*)getParent_label_2_ID:(NSString*)mainID;
+- (NSArray*)getSetting;
+- (NSArray*)getLanguages;
+- (NSArray*)getLanguagesWithID:(NSString*)ID;
+- (NSArray*)getMediaGalleryWithID:(NSString*)ID;
+- (NSArray*)getTheme;
+- (NSArray*)getLinksWithMainID:(NSString*)Main_ID;
+- (NSArray*)getHotel;
+- (NSArray*)getContent:(NSString*)ID;
+- (NSArray*)getContentWithCondition:(NSString*)condition;
+- (NSArray*)getContentLocationWithMainId:(NSString*)MainId;
+- (NSArray*)getMapLocationWithMainId:(NSString*)MainIds;
+- (NSArray*)getContentsLang:(NSString*)language_ID  mainID:(NSString*)Main_ID;
+- (NSArray*)getAllBookmarkMapData:(NSString*)language_ID;
+- (NSArray*)getAllContentsMapTravelGuideData:(NSString*)language_ID;
+- (NSArray*)getContentsParentMap:(NSString*)language_ID  isPinCondition:(NSString*)isPinCondition;
+- (NSArray*)getAllContentsMap:(NSString*)language_ID  isPinCondition:(NSString*)isPinCondition;
+- (NSArray*)getChildContentsMap:(NSString*)language_ID  parentID:(NSString*)parentID;
+- (NSArray*)getAllContentsData:(NSString*)language_ID  mainID:(NSString*)Main_ID;
+- (NSArray*)getChildContentsLang:(NSString*)language_ID  mainID:(NSString*)Main_ID;
+- (NSArray*)getContentsChildWithParentID:(NSString*)parentID;
+- (NSArray*)getAllBookmarkContentsData:(NSString*)language_ID;
+*/
+
+-(void)insertAndUpdateCardDetailWithArrayUsingTrasaction:(NSArray*)arr;
+-(void)updateSettingWithArray:(NSArray*)arr;
+-(void)updateBookmarkWithArray:(NSArray*)arr Main_ID:(NSString*)Main_ID;
+
+
+
+@end

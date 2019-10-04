@@ -1,0 +1,8 @@
+#import <UIKit/UIKit.h>
+
+#import "THSegmentedPager.h"
+#import "THSegmentedPageViewControllerDelegate.h"
+
+FOUNDATION_EXPORT double THSegmentedPagerVersionNumber;
+FOUNDATION_EXPORT const unsigned char THSegmentedPagerVersionString[];
+

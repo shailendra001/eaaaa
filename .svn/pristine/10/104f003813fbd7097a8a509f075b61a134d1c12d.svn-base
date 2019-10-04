@@ -1,0 +1,33 @@
+//
+//  BecomeASellerViewCell5.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 16/07/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface BecomeASellerViewCell5 : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet TTTAttributedLabel *lblTitle;
+@property (strong, nonatomic) IBOutlet UILabel *lblSeparatorVirticalLine;
+@property (strong, nonatomic) IBOutlet UIView *viContainerTrial;
+@property (strong, nonatomic) IBOutlet UILabel *lblTrial;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnTrial;
+
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerPaid;
+@property (strong, nonatomic) IBOutlet UILabel *lblPaid;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnPaid;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblTrialDesc;
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerGo;
+@property (strong, nonatomic) IBOutlet UILabel *lblGo;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnGo;
+
+
+
+
+@end

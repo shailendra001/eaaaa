@@ -1,0 +1,13 @@
+//
+//  CartViewCell4.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 01/07/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface CartViewCell4 : UITableViewCell
+
+@end

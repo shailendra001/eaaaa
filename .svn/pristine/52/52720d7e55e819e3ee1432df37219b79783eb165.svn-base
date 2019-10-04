@@ -1,0 +1,39 @@
+//
+//  MyObject.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 03/08/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+#import "MyObjective-C-Interface.h"
+
+// An Objective-C class that needs to be accessed from C++
+
+@interface MyObject : NSObject
+
+// The Objective-C member function you want to call from C++
++(void)hideUnity;
+
++(void)changeToPortrait;
+
++(void)changeToLandscapeRight;
+
+
++(void)changeToPortraitLocaly;
++(void)changeToLandscapeRightLocaly;
+
++(void)mute;
++(void)unMute;
+
+
++(void)setArtistList:(NSString*)string;
++(void)setArtistName:(NSString*)name;
+
++(void)navigationButtonTapped;
+
+//+(void)setArtistList:(NSString*)string name:(NSString*)name;
+
+@end

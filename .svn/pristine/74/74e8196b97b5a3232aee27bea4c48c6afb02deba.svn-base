@@ -1,0 +1,50 @@
+//
+//  TermsOfUseBecomeAsellerVC.m
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 18/09/17.
+//  Copyright © 2017 infoicon. All rights reserved.
+//
+
+#import "TermsOfUseBecomeAsellerVC.h"
+
+@interface TermsOfUseBecomeAsellerVC ()
+
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
+
+@end
+
+@implementation TermsOfUseBecomeAsellerVC
+
+- (void)viewDidLoad {
+        
+    [super viewDidLoad];
+        [self setNav];
+        
+        
+        NSString *address = @"https://www.eastonartgalleries.com/artist-agreement";
+        
+        // Build the url and loadRequest
+        NSString *urlString = [NSString stringWithFormat:@"%@",address];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+}
+
+-(void)setNav{
+        
+        self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+        [self.navigationController.navigationBar
+         setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+        self.navigationController.navigationBar.translucent = NO;
+        self.navigationItem.leftBarButtonItem.title = @"Back";
+
+}
+
+- (void)didReceiveMemoryWarning {
+        
+    [super didReceiveMemoryWarning];
+   
+}
+
+
+@end

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Dosis-Light.otf">
+            <string>Dosis-Light</string>
+            <string>Dosis-Light</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="151" id="OQY-kC-f5k" customClass="ArtistDetailViewCell1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OQY-kC-f5k" id="ujx-p4-nSd">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="134"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C41-0g-Bge">
+                        <rect key="frame" x="0.0" y="132" width="320" height="2"/>
+                        <color key="backgroundColor" red="0.68627450980000004" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="mPB-e2-08z"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="11" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4i-SD-Zns" customClass="TTTAttributedLabel">
+                        <rect key="frame" x="8" y="0.0" width="304" height="75"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="75" id="PdN-k8-jQX"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit amet, nulla apeirian theophrastus sea in, quo eu facilisi delicatissimi. Ludus praesent definiebas pri at, duo et illud delicata salutandi, ea mel nisl augue. At ius invenire intellegat definitiones, at pri purto evertitur, vix altera dissentiet et. Ne duo alii quodsi corpora, novum nonumy pertinacia vel ad. Usu ut assum solet accumsan.</string>
+                        <fontDescription key="fontDescription" name="Dosis-Light" family="Dosis" pointSize="11"/>
+                        <color key="textColor" red="0.25490196079999999" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lDt-ZZ-7X8">
+                        <rect key="frame" x="85" y="83" width="150" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Virtual Gallery" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clr-6f-5NB">
+                                <rect key="frame" x="22" y="10" width="115" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="urq-fj-yHi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Light" family="Dosis" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBw-ek-FA5" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="40"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29803921570000003" green="0.43137254899999999" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="clr-6f-5NB" firstAttribute="leading" secondItem="lDt-ZZ-7X8" secondAttribute="leading" constant="22" id="152-cj-Kab"/>
+                            <constraint firstAttribute="height" constant="40" id="1nK-Il-VMo"/>
+                            <constraint firstAttribute="width" constant="150" id="ICW-wP-CY4"/>
+                            <constraint firstItem="clr-6f-5NB" firstAttribute="top" secondItem="lDt-ZZ-7X8" secondAttribute="top" constant="10" id="aZw-ac-4Zl"/>
+                            <constraint firstItem="PBw-ek-FA5" firstAttribute="leading" secondItem="lDt-ZZ-7X8" secondAttribute="leading" id="cxF-jr-x2A"/>
+                            <constraint firstAttribute="bottom" secondItem="PBw-ek-FA5" secondAttribute="bottom" id="hsI-ti-lOy"/>
+                            <constraint firstItem="PBw-ek-FA5" firstAttribute="top" secondItem="lDt-ZZ-7X8" secondAttribute="top" id="jJw-wU-QwW"/>
+                            <constraint firstAttribute="trailing" secondItem="clr-6f-5NB" secondAttribute="trailing" constant="13" id="nCI-fW-8On"/>
+                            <constraint firstAttribute="trailing" secondItem="PBw-ek-FA5" secondAttribute="trailing" id="yVR-ry-9nc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="C41-0g-Bge" secondAttribute="trailing" id="1TC-7d-rpH"/>
+                    <constraint firstItem="C41-0g-Bge" firstAttribute="top" secondItem="lDt-ZZ-7X8" secondAttribute="bottom" constant="9" id="3o9-E9-FQO"/>
+                    <constraint firstItem="v4i-SD-Zns" firstAttribute="leading" secondItem="ujx-p4-nSd" secondAttribute="leading" constant="8" id="Bhf-ul-tJR"/>
+                    <constraint firstAttribute="bottom" secondItem="C41-0g-Bge" secondAttribute="bottom" id="DVB-pe-cTs"/>
+                    <constraint firstItem="C41-0g-Bge" firstAttribute="leading" secondItem="ujx-p4-nSd" secondAttribute="leading" id="Dgo-2k-Lt0"/>
+                    <constraint firstAttribute="trailing" secondItem="v4i-SD-Zns" secondAttribute="trailing" constant="8" id="M0W-vf-6oa"/>
+                    <constraint firstItem="v4i-SD-Zns" firstAttribute="top" secondItem="ujx-p4-nSd" secondAttribute="top" constant="8" id="OV8-Ml-Vj7"/>
+                    <constraint firstItem="lDt-ZZ-7X8" firstAttribute="centerX" secondItem="ujx-p4-nSd" secondAttribute="centerX" id="sFv-lR-zgT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnVirtualGallery" destination="PBw-ek-FA5" id="WP6-5I-x33"/>
+                <outlet property="lblDesc" destination="v4i-SD-Zns" id="rem-2s-Y4w"/>
+                <outlet property="lblSeparatorLine" destination="C41-0g-Bge" id="5Io-M0-HqC"/>
+                <outlet property="viContainerGallery" destination="lDt-ZZ-7X8" id="B7P-t4-AIi"/>
+            </connections>
+            <point key="canvasLocation" x="256" y="160.5"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="113" id="KGk-i7-Jjw" customClass="ArtistDetailViewCell4">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WF8-LS-dGy">
+                        <rect key="frame" x="85" y="13" width="150" height="113"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vUd-5X-nja">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="113"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_play.png" translatesAutoresizingMaskIntoConstraints="NO" id="BOI-4N-PhD">
+                                <rect key="frame" x="55" y="36" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Acn-pr-CTW"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZmV-r7-OMb"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZE-l9-vC2">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="113"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8ZE-l9-vC2" secondAttribute="trailing" id="2eJ-qm-kjR"/>
+                            <constraint firstItem="8ZE-l9-vC2" firstAttribute="top" secondItem="WF8-LS-dGy" secondAttribute="top" id="IWN-7X-CGi"/>
+                            <constraint firstItem="vUd-5X-nja" firstAttribute="top" secondItem="WF8-LS-dGy" secondAttribute="top" id="J2X-if-EGc"/>
+                            <constraint firstItem="vUd-5X-nja" firstAttribute="leading" secondItem="WF8-LS-dGy" secondAttribute="leading" id="Ue1-9J-uIN"/>
+                            <constraint firstAttribute="height" constant="113" id="YLs-Mk-KP3"/>
+                            <constraint firstAttribute="bottom" secondItem="8ZE-l9-vC2" secondAttribute="bottom" id="bZW-eJ-TAg"/>
+                            <constraint firstAttribute="bottom" secondItem="vUd-5X-nja" secondAttribute="bottom" id="esM-2y-xB3"/>
+                            <constraint firstAttribute="trailing" secondItem="vUd-5X-nja" secondAttribute="trailing" id="fuB-Bl-gbG"/>
+                            <constraint firstAttribute="width" constant="150" id="qDV-R6-eJA"/>
+                            <constraint firstItem="BOI-4N-PhD" firstAttribute="centerY" secondItem="WF8-LS-dGy" secondAttribute="centerY" id="tI8-eX-Xo4"/>
+                            <constraint firstItem="8ZE-l9-vC2" firstAttribute="leading" secondItem="WF8-LS-dGy" secondAttribute="leading" id="tOL-eR-oVE"/>
+                            <constraint firstItem="BOI-4N-PhD" firstAttribute="centerX" secondItem="WF8-LS-dGy" secondAttribute="centerX" id="w8s-f6-Efy"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dto-Nl-uoK">
+                        <rect key="frame" x="0.0" y="137" width="320" height="2"/>
+                        <color key="backgroundColor" red="0.68627450980000004" green="0.6705882353" blue="0.6705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="X47-Lt-pBQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="WF8-LS-dGy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="JbT-c1-Eqj"/>
+                    <constraint firstAttribute="bottom" secondItem="dto-Nl-uoK" secondAttribute="bottom" id="Kqb-Ns-ZPE"/>
+                    <constraint firstItem="WF8-LS-dGy" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="iqK-fS-CXK"/>
+                    <constraint firstItem="dto-Nl-uoK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vJe-8O-6KV"/>
+                    <constraint firstAttribute="trailing" secondItem="dto-Nl-uoK" secondAttribute="trailing" id="zeX-tP-iKr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnVideoPlay" destination="8ZE-l9-vC2" id="cZ0-Au-39p"/>
+                <outlet property="imgThumbnail" destination="vUd-5X-nja" id="I6T-V0-Abp"/>
+                <outlet property="imgVideo" destination="BOI-4N-PhD" id="qRR-CX-F22"/>
+                <outlet property="lblSeparatorLine" destination="dto-Nl-uoK" id="QaH-WP-7Qe"/>
+                <outlet property="viContainerImage" destination="WF8-LS-dGy" id="jZd-2J-EgQ"/>
+            </connections>
+            <point key="canvasLocation" x="-129" y="-38"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="video_play.png" width="64" height="64"/>
+    </resources>
+</document>

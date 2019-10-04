@@ -1,0 +1,308 @@
+//
+//  LeftMenuTableViewController.m
+//  Talk2Good
+//
+//  Created by Infoicon on 13/08/15.
+//  Copyright (c) 2015 InfoiconTechnologies. All rights reserved.
+//
+
+#import "LeftMenuTableViewController.h"
+#import "Alert.h"
+#import "LeftMenuCell1.h"
+#import "LeftMenuCell2.h"
+#import "ArtCollectionViewController.h"
+#import "BestSellingArtistsViewController.h"
+#import "ArtCategoryViewController.h"
+#import "ContactUsViewController.h"
+#import "BlogViewController.h"
+
+static NSString *CellIdentifier = @"Cell1";
+
+static NSString *CellIdentifier1 = @"Cell2";
+
+
+
+@interface LeftMenuTableViewController ()<WebServiceDelegate>
+{
+        NSArray * menuItems;
+//        DataBaseHandler* dataManager;
+        BOOL isLogout;
+}
+
+@end
+
+@implementation LeftMenuTableViewController
+
+#pragma mark -
+#pragma mark  App delegate
+
+- (AppDelegate *)appDelegate {
+        return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+
+#pragma mark - View controller
+
+- (void)awakeFromNib{
+        [super awakeFromNib];
+        // here comes the magic - call self.view and view will load as expected
+        
+}
+
+- (void)viewDidLoad {
+        [super viewDidLoad];
+        
+        
+        
+        self.navigationController.navigationBarHidden =YES;
+        
+        menuItems = @[
+                      @"",
+                      @"Dashboard",
+                      @"New Art",
+                      @"Art Medium",
+                      @"Artist",
+                      @"Contact Us",
+                      @"Blog",
+                      @"Delivery Information",
+                      @"Privacy Policy",
+                      @"Terms & Conditions"];
+        
+        self.tableView.tableFooterView = [[UIView alloc]init];
+        [self registerCell];
+        
+        
+        
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+        [super viewWillAppear:animated];
+        
+        [self.tableView reloadData];
+}
+
+- (void)didReceiveMemoryWarning {
+        [super didReceiveMemoryWarning];
+        // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Custom methods
+
+
+-(void)registerCell{
+        UINib *contantsCellNib1 = [UINib nibWithNibName:@"LeftMenuCell1" bundle:nil];
+        UINib *contantsCellNib2 = [UINib nibWithNibName:@"LeftMenuCell2" bundle:nil];
+        
+        [self.tableView registerNib:contantsCellNib1 forCellReuseIdentifier:CellIdentifier];
+        [self.tableView registerNib:contantsCellNib2 forCellReuseIdentifier:CellIdentifier1];
+        
+        
+        
+}
+
+
+-(void)alertWithMessage:(NSString*)msg{
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil
+                                                        message:msg
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil,nil];
+        [alert  show];
+
+}
+
+-(void)webServiceCalled{
+        
+        NSString *urlString = @"http://104.131.112.76/leservice/services/providers/getMyServices";
+        NSString *postString = [NSString stringWithFormat:@"{\"provider_id\":\"%@\"}",[[NSUserDefaults standardUserDefaults] stringForKey:@"userID"]];
+        NSString *tempURL = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@" tempURL :%@  --postStr--- %@",tempURL,postString);
+        if ([[SharedClass sharedObject] connected]) {
+                NSLog(@"connected");
+                WebService *webService = [[WebService alloc] initWithObject:self];
+                webService.postString = postString;
+                webService.methodname=@"getMyServices";
+                webService.delegate = self;
+                [webService setPostReqURL:tempURL];
+                [webService getDataFromUrl];
+                [[SharedClass sharedObject] addProgressHud:self.view];
+                
+        }else{
+                
+        }
+}
+
+-(void) webServiceFail:(NSError *) error{
+        [[SharedClass sharedObject] hudeHide];
+        [self alertWithMessage:@"Network connection lost"];
+        
+}
+
+-(void) getdataFormWebService:(NSMutableDictionary *) webServiceDic methodnameIs:(NSString *)methodName{
+        [[SharedClass sharedObject]hudeHide];
+        if([methodName isEqualToString:@"deleteService"]) {
+                [[SharedClass sharedObject] hudeHide];
+                
+        }
+        
+}
+
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+        return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+        return 10;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+        
+        if (indexPath.row == 0)
+        {
+                return 86.0f;
+        }
+        
+        return 44.0f;
+        
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+        
+        NSString *menuItem = [menuItems objectAtIndex:indexPath.row];
+        
+        if(indexPath.row==0){
+                LeftMenuCell1 *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                return cell;
+        }
+        else{
+                LeftMenuCell2 *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPath];
+                
+                cell.lblName.text=menuItem;
+                return cell;
+        }
+        return nil;
+        
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        switch (indexPath.row)
+        {
+                case 0:
+                {
+                        //                        HomeViewController *homeViewController;
+                        //                        homeViewController =[[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
+                        
+                        
+                }
+                        break;
+                case 1:
+                {
+                        [self.viewDeckController rightViewPushViewControllerOverCenterController:GET_VIEW_CONTROLLER(kViewController)];
+                        
+                        
+                        
+                }
+                        break;
+                case 2:
+                {
+                        NSString *urlString = JOIN_STRING(kPrefixUrl, kURL_NewArt);
+                        NSMutableDictionary* data=[NSMutableDictionary dictionary];
+                        [data setObject:@"15" forKey:@"limit"];
+                        
+                        
+                        ArtCollectionViewController* vc=GET_VIEW_CONTROLLER(kArtCollectionViewController);
+                        
+                        vc.titleString=[menuItems objectAtIndex:indexPath.row];
+                        vc.urlString=urlString;
+                        vc.urlData=[data mutableCopy];
+                        vc.dataAccesskey=@"getLatestArt";
+                        [self.viewDeckController rightViewPushViewControllerOverCenterController:vc];
+
+                }
+                        break;
+                case 3:
+                {
+                        NSString *urlString = JOIN_STRING(kPrefixUrl, kURL_ArtCategory);
+                        NSMutableDictionary* data=[NSMutableDictionary dictionary];
+                        [data setObject:@"category" forKey:@"page"];
+                        
+                        ArtCategoryViewController* vc=GET_VIEW_CONTROLLER(kArtCategoryViewController);
+                        
+                        vc.titleString=[menuItems objectAtIndex:indexPath.row];
+                        vc.urlString=urlString;
+                        vc.urlData=[data mutableCopy];
+                        vc.dataAccesskey=@"categoryList";
+                        [self.viewDeckController rightViewPushViewControllerOverCenterController:vc];
+                }
+                        break;
+                        
+                case 4:
+                {
+                        
+                        NSString *urlString = JOIN_STRING(kPrefixUrl, kURL_Artist);
+                        NSMutableDictionary* data=[NSMutableDictionary dictionary];
+                        [data setObject:@"artist" forKey:@"page"];
+                        
+                        BestSellingArtistsViewController* vc=GET_VIEW_CONTROLLER(kBestSellingArtistsViewController);
+                        
+                        vc.titleString=[menuItems objectAtIndex:indexPath.row];
+                        vc.urlString=urlString;
+                        vc.urlData=[data mutableCopy];
+                        vc.dataAccesskey=@"Artist";
+                        [self.viewDeckController rightViewPushViewControllerOverCenterController:vc];
+
+                        
+                }
+                        break;
+                case 5:
+                {
+                        
+                        ContactUsViewController* vc=GET_VIEW_CONTROLLER(kContactUsViewController);
+                        vc.titleString=[menuItems objectAtIndex:indexPath.row];
+//                        vc.from=@"back";
+                        [self.viewDeckController rightViewPushViewControllerOverCenterController:vc];
+                        
+                }
+                        break;
+                case 6:
+                {
+                        
+                        BlogViewController* vc=GET_VIEW_CONTROLLER(kBlogViewController);
+                        vc.titleString=[menuItems objectAtIndex:indexPath.row];
+                        //                        vc.from=@"back";
+                        [self.viewDeckController rightViewPushViewControllerOverCenterController:vc];
+                        
+                }
+                        break;
+                case 7:
+                {
+                        
+                        //[self.viewDeckController rightViewPushViewControllerOverCenterController:GET_VIEW_CONTROLLER(kAboutTalk2GoodViewController)];                }
+                        break;
+                        
+                case 8:
+                {
+//                        NSMutableDictionary* userData=[[NSUserDefaults standardUserDefaults] objectForKey:@"info"];
+//                        NSMutableDictionary* data=[NSMutableDictionary dictionary];
+//                        [data setObject:[userData objectForKey:USER_DATA_MEMBER_ID] forKey:@"member"];
+//                        [self logoutWS:data];
+                }
+                        break;
+                default:
+                        break;
+        }
+        
+}
+        
+}
+
+
+
+@end

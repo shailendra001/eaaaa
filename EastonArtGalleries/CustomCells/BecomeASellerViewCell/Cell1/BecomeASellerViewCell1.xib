@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="81" id="KGk-i7-Jjw" customClass="BecomeASellerViewCell1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="80.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you selling signed and numbered limited edition photography or digitally created artworks?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjp-rV-XfR" customClass="TTTAttributedLabel">
+                        <rect key="frame" x="8" y="8" width="304" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="29" id="SS2-Ks-iJK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SgI-Lw-UsZ">
+                        <rect key="frame" x="8" y="38" width="173" height="34"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1cw-zM-d5O">
+                                <rect key="frame" x="7" y="1" width="75" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unselected_radio.png" translatesAutoresizingMaskIntoConstraints="NO" id="DjZ-Q9-ftH">
+                                        <rect key="frame" x="8" y="7" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZC8-93-Sgz">
+                                        <rect key="frame" x="36" y="7" width="30" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYB-iE-NW9">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sl5-HE-Rw3">
+                                <rect key="frame" x="90" y="0.0" width="75" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="unselected_radio.png" translatesAutoresizingMaskIntoConstraints="NO" id="tlR-k0-1Fo">
+                                        <rect key="frame" x="8" y="7" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyv-uz-Zhc">
+                                        <rect key="frame" x="36" y="7" width="30" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X89-bD-5Nf">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="Wjv-Eg-E9X"/>
+                            <constraint firstAttribute="width" constant="173" id="jJs-Pi-Vgh"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="SgI-Lw-UsZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="AvL-FZ-JtT"/>
+                    <constraint firstItem="cjp-rV-XfR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="PfD-1q-aQk"/>
+                    <constraint firstAttribute="bottom" secondItem="SgI-Lw-UsZ" secondAttribute="bottom" constant="8" id="bEW-k9-hZO"/>
+                    <constraint firstItem="cjp-rV-XfR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="gXQ-rH-GUP"/>
+                    <constraint firstAttribute="trailing" secondItem="cjp-rV-XfR" secondAttribute="trailing" constant="8" id="hYn-dO-ZS8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnNo" destination="X89-bD-5Nf" id="gif-zz-JOq"/>
+                <outlet property="btnYes" destination="xYB-iE-NW9" id="2Zo-Wv-QVg"/>
+                <outlet property="imgNo" destination="tlR-k0-1Fo" id="8au-6b-dar"/>
+                <outlet property="imgYes" destination="DjZ-Q9-ftH" id="BJ0-8R-OO4"/>
+                <outlet property="lblName" destination="cjp-rV-XfR" id="ngC-yn-UQG"/>
+                <outlet property="lblNo" destination="Jyv-uz-Zhc" id="2Gm-VY-hd3"/>
+                <outlet property="lblYes" destination="ZC8-93-Sgz" id="quQ-bB-apd"/>
+                <outlet property="viContainerNo" destination="Sl5-HE-Rw3" id="FII-ot-xEh"/>
+                <outlet property="viContainerOption" destination="SgI-Lw-UsZ" id="qOz-aD-xwm"/>
+                <outlet property="viContainerYes" destination="1cw-zM-d5O" id="rg1-hc-jKC"/>
+            </connections>
+            <point key="canvasLocation" x="249" y="150.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="unselected_radio.png" width="32" height="32"/>
+    </resources>
+</document>

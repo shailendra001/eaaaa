@@ -1,0 +1,18 @@
+//
+//  UpdateProfileViewCell1.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 14/06/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface UpdateProfileViewCell1 : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIView *viContainerDetail;
+@property (strong, nonatomic) IBOutlet TTTAttributedLabel *lblTitle;
+@property (strong, nonatomic) IBOutlet TTTAttributedLabel *lblName;
+@property (strong, nonatomic) IBOutlet UIImageView *img;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnSelect;
+@property (strong, nonatomic) IBOutlet UILabel *lblSeparatorLine;
+@end

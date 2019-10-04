@@ -1,0 +1,200 @@
+//
+//  CustomDatePickerViewController.m
+//  Talk2Good
+//
+//  Created by Sandeep Kumar on 08/09/15.
+//  Copyright (c) 2015 InfoiconTechnologies. All rights reserved.
+//
+
+#import "CustomDatePickerViewController.h"
+
+@interface CustomDatePickerViewController ()
+<
+UIPickerViewDataSource,
+UIPickerViewDelegate
+>
+{
+    UIDatePicker* datePicker;
+    UIPickerView *picker;
+
+    
+    NSString* selectedItem;
+}
+
+
+@end
+
+@implementation CustomDatePickerViewController
+@synthesize pickerView;
+@synthesize isCustomList;
+@synthesize isCurrentDate,isDate;
+@synthesize datePickerMode;
+
+#pragma mark - View controller
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+//    
+//    [self config];
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    
+}
+
+
+#pragma mark - Custom Methods
+
+-(void)setPickerList{
+    [self config];
+    
+    if(isCustomList)
+       [self loadCustomList];
+    else
+        [self loadDatePicker];
+}
+
+-(void)config{
+    
+    float new_x_position = 0;
+    float new_y_position = [UIScreen mainScreen].bounds.size.height-264;
+        self.view.frame = CGRectMake(new_x_position,
+                                            new_y_position,
+                                            CGRectGetWidth(self.view.frame),
+                                            CGRectGetHeight(self.view.frame));
+}
+
+-(void)loadDatePicker{
+    
+    pickerView.hidden = NO;
+    pickerView.backgroundColor=[UIColor grayColor];
+    
+    datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 44, 0, 0)];
+        if(datePickerMode)
+                datePicker.datePickerMode=datePickerMode;
+        else
+                datePicker.datePickerMode = isDate ? UIDatePickerModeDate : UIDatePickerModeTime;
+    datePicker.hidden = NO;
+    [datePicker setValue:[UIColor whiteColor] forKeyPath:@"textColor"];
+    
+    NSDate *now = [NSDate date];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    
+        if(!isCurrentDate)
+    [comps setYear:-18];
+    
+    NSDate *threeHoursAgo = [calendar dateByAddingComponents:comps toDate:now options:0];
+    //  NSDate *currntDate = [NSDate date];
+    
+
+    datePicker.date =self.setDate ? self.setDate :  threeHoursAgo;
+    
+    
+    //    [pickerViewPopup addSubview:pickerToolbar];
+    [pickerView addSubview:datePicker];
+        
+//        datePicker.frame=CGRectMake(
+//                                    CGRectGetWidth([UIScreen mainScreen].bounds)/2-CGRectGetWidth(datePicker.bounds)/2,
+//                                    0,
+//                                    CGRectGetWidth(datePicker.bounds),
+//                                    CGRectGetHeight(datePicker.bounds));
+    // [pickerViewPopup showInView:[UIApplication sharedApplication].keyWindow];
+    //[pickerViewPopup setBounds:CGRectMake(0,0,320, 464)];
+}
+
+-(void)loadCustomList{
+    pickerView.hidden = NO;
+    pickerView.backgroundColor=[UIColor grayColor];
+    
+    
+    picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 44, 0, 0)];
+    
+    [pickerView addSubview:picker];
+    
+    picker.delegate = self;
+    picker.dataSource = self;
+    picker.showsSelectionIndicator = YES;
+}
+
+
+
+#pragma mark Date Picker Delegate Methods
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+-(NSInteger)pickerView:pickerView numberOfRowsInComponent:(NSInteger)component{
+    
+    return self.arrItems.count;
+}
+
+-(void)pickerView:pickerView1 didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    selectedItem = [self.arrItems objectAtIndex:[pickerView1 selectedRowInComponent:0]];
+    NSLog(@"Selected Item->%@", selectedItem);
+    
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return  [self.arrItems objectAtIndex:row];
+    
+}
+
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    NSString *title;
+
+    title = [self.arrItems objectAtIndex:row];
+    
+    NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title
+                                                                    attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    return attString;
+    
+}
+
+
+-(NSString*)getSelectedItem{
+    
+    if(!selectedItem){
+        selectedItem = [self.arrItems objectAtIndex:0];
+        
+    }
+    return selectedItem;
+}
+
+- (IBAction)done:(id)sender {
+    pickerView.hidden = YES;
+    
+    if(isCustomList){
+        [picker removeFromSuperview];
+        if([self.delegate respondsToSelector:@selector(selectItemFromList:sender:)])
+            [self.delegate selectItemFromList:[self getSelectedItem] sender:self.sender];
+        
+    }
+    else{
+        if([self.delegate respondsToSelector:@selector(selectDateFromDatePicker:sender:)])
+            [self.delegate selectDateFromDatePicker:datePicker.date sender:self.sender];
+    }
+    
+}
+
+- (IBAction)cancel:(id)sender {
+    if(isCustomList){
+        [picker removeFromSuperview];
+        if([self.delegate respondsToSelector:@selector(cancelItemFromCustomList:)])
+            [self.delegate cancelItemFromCustomList:self.sender];
+        
+    }
+    else{
+        if([self.delegate respondsToSelector:@selector(cancelDateFromDatePicker:)])
+            [self.delegate cancelDateFromDatePicker:self.sender];
+    }
+    
+}
+
+
+
+@end

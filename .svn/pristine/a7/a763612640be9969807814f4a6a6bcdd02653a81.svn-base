@@ -1,0 +1,154 @@
+//
+//  Alert.h
+//  Q-municate
+//
+//  Created by Sandeep Kumar on 18/07/15.
+//  Copyright (c) 2015 Quickblox. All rights reserved.
+//
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+//#import "BLMultiColorLoader.h"
+
+@interface Alert : NSObject
+
++(void)alertWithMessage:(NSString*)message navigation:(UINavigationController*)navigation gotoBack:(BOOL)goBack animation:(BOOL)animation;
++(void)alertWithMessage:(NSString*)message navigation:(UINavigationController*)navigation gotoBack:(BOOL)goBack animation:(BOOL)animation second:(int)second;
+
++(void)performBlockWithInterval:(double)interval completion:(void(^)(void))completion;
+
++(BOOL)validationName:(NSString *)checkString;
++(BOOL)validationString:(NSString*)checkString;
+
++(BOOL)validationEmail:(NSString *)checkString;
+
++ (BOOL)validateMobileNumber:(NSString*)number;
+
++ (BOOL)validateNumber:(NSString*)number;
+
++ (BOOL)validatePinCode:(NSString*)number;
+
++ (UIColor *)colorFromHexString:(NSString *)hexString ;
+
+
++(void)setProgessView:(UIView*)view strloading:(NSString*)strloading;
++(void)CloseProgress:(UIView*)ViewProg;
+
+
++(UIImage *)scaleAndRotateImage:(UIImage *)image;
+
+
++(BOOL)networkStatus;
+
++(NSString*)getFirstName:(NSString*)name;
+
++(NSString*)getLastName:(NSString*)name;
+
++(NSDateFormatter*)getDateFormatWithString:(NSString*)string;
+
++(NSDate*)getDateWithDateString:(NSString*)dateString setFormat:(NSString*)format;
+
++(NSString*)getDateWithString:(NSString*)string getFormat:(NSString*)format1 setFormat:(NSString*)format2;
+
++ (int)calculateAge:(NSDate*)date;
+
++(NSDictionary*)getAllCountryNameWithCodeList;
+
++(NSDictionary*)getCountryFromServerData;
+
++(NSString*)getSelectedCountryKeyWithValue:(NSString*)value;
+
++(NSString*)getSelectedCountryValueWithKey:(NSString*)key;
+
++(NSArray*)getAllValuesFromDictionary:(NSDictionary*)data;
+
++(NSString*)getSelectedLanguageKeyWithValue:(NSString*)value data:(NSDictionary*)data;
+
++(NSArray*)getLanguageNamelist;
+
++(NSMutableArray *)removeViewControllFromNavArray:(int)number navigation:(UINavigationController*)class;
+
++(NSString*) bv_jsonStringWithDictionary:(NSDictionary*)dictionary;
+
++(NSString*)jsonStringWithDictionary:(NSDictionary*)data;
+
++(NSDictionary*)getDictionaryWithJsonString:(NSString*)string;
+
++(NSString*)getDeviceToken:(NSData*)deviceToken;
+
+
+
+//+(UIViewController*)getNavRoot;
+
++(void)viewButtonCALayer:(UIColor *)yourColor viewButton:(UIButton *)yourButton;
+
++(void)viewButtonCALayerClear:(UIButton *)yourButton;
+
++(void)shadowAtBottom:(id)sender;
++(void)shadowAtBottom1:(id)sender;
++(void)shadowOnButtons:(UIButton*)sender;
+
++(NSString*)getTableNameWithUsername:(NSString*)name;
+
++(void)setShadowOnView:(UIView*)view;
+
++(NSString*)getRandomStringWithLength:(int)length;
+
+
++ (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock;
+
+/*
++(BLMultiColorLoader*)getLoaderWith:(CGRect)frame center:(CGPoint)center colors:(NSArray*)colors;
+*/
++(NSString*)getNameForImage;
+
++(NSString*)trimString:(NSString*)string;
+
++(UIImage*)imageFromColor:(UIColor*)color;
+
++(UIImage*)imageResize:(CGRect)size image:(UIImage*)image;
+
++(UIImage*)imageResizeScale:(CGSize)size image:(UIImage*)image;
+
++(void)changeImageColor:(UIImage* )image imageView:(UIImageView*)imageView andColor:(UIColor *)yourColor;
+
++ (CGFloat)getLabelHeight:(UILabel*)label;
+
++ (CGFloat)getLabelLines:(UILabel*)label;
+
++ (CGFloat)getTextViewHeight:(UITextView*)label;
+
++(NSString *)removeHTMLTags:(NSString*)text ;
+
++(NSArray*)getSortedList:(NSArray*)list key:(NSString*)key ascending:(BOOL)ascending;
+
+//+(void)addAlertView:(UIViewController*)vc;
+//+(void)addAlertViewWithMessage:(NSString*)msg view:(UIViewController*)vc;
+
+//+(void)removeAlertView:(UIViewController*)vc;
+
++(void)openMapWithSourceName:(NSString*)source destinationName:(NSString*)destination;
++(void)openMapWithSource:(NSString*)sourceName
+             destination:(NSString*)destinationName
+                    sLat:(float)sLat
+                   sLong:(float)sLong
+                    dLat:(float)dLat
+                   dLong:(float)dLong;
+
++(NSIndexPath*)getIndexPath:(NSInteger)index section:(NSInteger)section;
+
++(NSString*)getYoutubeVideoThumbnail:(NSString*)youTubeVideoId;
+
++(void)attributedString:(UITextField*)txt msg:(NSString*)msg color:(UIColor*)color;
+
++(UIImage *)thumbnailFromVideoAtURL:(NSURL *)contentURL;
+
++ (NSDictionary *) dictionaryByReplacingNullsWithString:(NSString*)string  dic:(NSDictionary*)dic;
+
++(NSMutableURLRequest*)getRequestUploadImageWithPostString:(NSString*)postString
+                                                 urlString:(NSString*)urlString
+                                                    images:(NSArray*)images;
++(NSString*)getClassNameFromObject:(id)obj;
+
++(NSString*)getFormatedNumber:(NSString*)number;
+
+@end

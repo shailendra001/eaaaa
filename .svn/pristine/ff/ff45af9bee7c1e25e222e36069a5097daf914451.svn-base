@@ -1,0 +1,24 @@
+//
+//  WebViewController.h
+//  Hotel Stay
+//
+//  Created by Sandeep Kumar on 22/02/16.
+//  Copyright © 2016 Ambreesh kumar. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface WebViewController : UIViewController
+
+@property (strong, nonatomic) NSString* titleString;
+@property (strong, nonatomic) NSString* from;
+
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerTitleBar;
+@property (strong, nonatomic) IBOutlet UIImageView *imgViTitle;
+@property (strong, nonatomic) IBOutlet UILabel *lblTitle;
+
+@property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) NSString* urlString;
+@property (strong, nonatomic) NSString* htmlString;
+@end

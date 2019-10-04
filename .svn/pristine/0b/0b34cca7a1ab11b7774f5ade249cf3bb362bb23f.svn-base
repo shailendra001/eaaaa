@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Dosis-Regular.otf">
+            <string>Dosis-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="UpdateProfileViewCell1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37h-H0-Hvm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="globe.png" translatesAutoresizingMaskIntoConstraints="NO" id="ukM-7L-tE1">
+                                <rect key="frame" x="302" y="16" width="10" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="If1-oI-J22"/>
+                                    <constraint firstAttribute="width" constant="10" id="ujE-TU-QvB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cU3-ZZ-2vy" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="15" y="0.0" width="90" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="WeH-hI-oyv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deM-yF-P1c">
+                                <rect key="frame" x="115" y="0.0" width="179" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="HHF-OZ-8SP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKj-lk-DFa" customClass="ZFRippleButton" customModule="EastonArtGalleries" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="CKj-lk-DFa" secondAttribute="bottom" id="045-LG-3dE"/>
+                            <constraint firstItem="ukM-7L-tE1" firstAttribute="leading" secondItem="deM-yF-P1c" secondAttribute="trailing" constant="8" id="3hd-pm-epA"/>
+                            <constraint firstItem="CKj-lk-DFa" firstAttribute="leading" secondItem="37h-H0-Hvm" secondAttribute="leading" id="5vY-a1-1ec"/>
+                            <constraint firstItem="cU3-ZZ-2vy" firstAttribute="leading" secondItem="37h-H0-Hvm" secondAttribute="leading" constant="15" id="8v2-V8-Fty"/>
+                            <constraint firstAttribute="trailing" secondItem="CKj-lk-DFa" secondAttribute="trailing" id="AFz-AH-zGg"/>
+                            <constraint firstItem="CKj-lk-DFa" firstAttribute="top" secondItem="37h-H0-Hvm" secondAttribute="top" id="CPN-bC-bbi"/>
+                            <constraint firstItem="deM-yF-P1c" firstAttribute="leading" secondItem="cU3-ZZ-2vy" secondAttribute="trailing" constant="10" id="Hwf-EE-dmc"/>
+                            <constraint firstItem="ukM-7L-tE1" firstAttribute="centerY" secondItem="37h-H0-Hvm" secondAttribute="centerY" id="cCT-41-IvD"/>
+                            <constraint firstAttribute="trailing" secondItem="ukM-7L-tE1" secondAttribute="trailing" constant="8" id="odj-6t-7Ct"/>
+                            <constraint firstItem="cU3-ZZ-2vy" firstAttribute="top" secondItem="37h-H0-Hvm" secondAttribute="top" id="pgw-56-CW7"/>
+                            <constraint firstAttribute="bottom" secondItem="cU3-ZZ-2vy" secondAttribute="bottom" id="tyZ-zl-l29"/>
+                            <constraint firstItem="deM-yF-P1c" firstAttribute="top" secondItem="37h-H0-Hvm" secondAttribute="top" id="uku-rO-cfg"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Se4-ev-dQv">
+                        <rect key="frame" x="15" y="42" width="297" height="1"/>
+                        <color key="backgroundColor" red="0.47450980390000003" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="zqy-Hu-3v6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="37h-H0-Hvm" secondAttribute="bottom" id="83S-6Y-gwz"/>
+                    <constraint firstItem="37h-H0-Hvm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="DgU-Km-gRy"/>
+                    <constraint firstAttribute="bottom" secondItem="Se4-ev-dQv" secondAttribute="bottom" id="OYJ-Ie-Wri"/>
+                    <constraint firstItem="Se4-ev-dQv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Sbn-ga-25c"/>
+                    <constraint firstAttribute="trailing" secondItem="Se4-ev-dQv" secondAttribute="trailing" constant="8" id="gJj-Pq-xXA"/>
+                    <constraint firstAttribute="trailing" secondItem="37h-H0-Hvm" secondAttribute="trailing" id="iz0-Ko-bk6"/>
+                    <constraint firstItem="37h-H0-Hvm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="k6g-dG-ZTI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnSelect" destination="CKj-lk-DFa" id="Kfp-Jd-rnp"/>
+                <outlet property="img" destination="ukM-7L-tE1" id="qOW-gC-ZgK"/>
+                <outlet property="lblName" destination="deM-yF-P1c" id="E97-r4-4cf"/>
+                <outlet property="lblSeparatorLine" destination="Se4-ev-dQv" id="hRZ-e9-nk8"/>
+                <outlet property="lblTitle" destination="cU3-ZZ-2vy" id="8TX-lG-7LY"/>
+                <outlet property="viContainerDetail" destination="37h-H0-Hvm" id="1h3-ct-1g4"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="globe.png" width="24" height="24"/>
+    </resources>
+</document>

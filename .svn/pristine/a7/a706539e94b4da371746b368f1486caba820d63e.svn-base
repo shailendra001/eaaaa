@@ -1,0 +1,34 @@
+//
+//  BecomeASellerViewCell5.m
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 16/07/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import "BecomeASellerViewCell5.h"
+
+@implementation BecomeASellerViewCell5
+
+- (void)awakeFromNib {
+        [super awakeFromNib];
+        [self config];
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+-(void)config{
+        self.viContainerPaid.layer.borderWidth=1.0;
+        self.viContainerPaid.layer.borderColor=[UIColor grayColor].CGColor;
+        self.viContainerPaid.layer.masksToBounds=YES;
+        
+        self.viContainerGo.layer.borderWidth=1.0;
+        self.viContainerGo.layer.borderColor=[UIColor grayColor].CGColor;
+        self.viContainerGo.layer.masksToBounds=YES;
+}
+
+@end

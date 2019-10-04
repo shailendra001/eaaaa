@@ -1,0 +1,24 @@
+//
+//  AddArtViewController.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 16/07/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface AddArtViewController : UIViewController<THSegmentedPageViewControllerDelegate>
+
+@property(nonatomic,strong)NSString *viewTitle;
+
+@property (strong, nonatomic) NSString* titleString;
+@property (strong, nonatomic) NSString* from;
+@property (strong, nonatomic) NSString* fromVC;
+@property (strong, nonatomic) NSMutableDictionary* response;
+@property (strong, nonatomic) NSString* artID;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UIImageView *imgStep;
+
+@end

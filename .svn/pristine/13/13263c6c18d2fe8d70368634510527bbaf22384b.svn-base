@@ -1,0 +1,18 @@
+//
+//  LeftMenuCell1.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 19/05/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface LeftMenuCell1 : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIView *viContainerImage;
+@property (strong, nonatomic) IBOutlet UIImageView *img;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnImage;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblWelcome;
+@property (strong, nonatomic) IBOutlet UILabel *lblName;
+@end

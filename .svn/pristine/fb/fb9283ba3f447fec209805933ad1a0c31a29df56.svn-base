@@ -1,0 +1,168 @@
+//
+//  Constant.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 11/05/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#ifndef Constant_h
+#define Constant_h
+
+
+#endif /* Constant_h */
+
+#define ILog(...) do { NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__]); } while(0)
+
+
+#define IS_IPHONE_5  (fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON)
+
+#define IS_IPHONE_4  (fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON)
+
+#define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+
+#define IS_EMPTY(value)        (([value isEqualToString:@"NULL"] || [value isEqualToString:@""]|| (value == nil) || (value == (id)[NSNull null])) ? 1 :0)
+
+#define REQUEST_PARAM_FACEBOOK          @"me?fields=id,name,email,picture,first_name,last_name"
+#define SCOPE_FACEBOOK                  @[@"public_profile",@"email",@"user_friends"]
+
+//Google Plus
+static NSString * const kClientId = @"201488398408-q0ondng29q90mg3c9cvaur5n98l9rj88.apps.googleusercontent.com";
+
+#define DATABASE_NAME   @"EastonArtGalleries.db"
+
+
+#define MENU_IMAGE      @"menu_icon.png"
+#define LOGO_IMAGE      @"header_logo.png"
+
+#define ICON_SEARCH     @"search_icon.png"
+#define ICON_USER       @"user_icon.png"
+#define ICON_CARD       @"cart_icon.png"
+
+#define FONT_DOSIS_LIGHT                @"Dosis-Light"
+#define FONT_DOSIS_REGULAR              @"Dosis-Regular"
+#define FONT_MONTSERRAT_SEMIBOLD        @"Montserrat-SemiBold"
+
+#define DEVICE_TYPE             @"iOS"
+#define LOGIN_FACEBOOK          @"Facebook"
+#define LOGIN_GOOGLE_PLUS       @"Google_Plus"
+
+#define COLOR_SUBSCIBE          @"#3C6732"
+#define COLOR_BUTTTON           @"#D35E2B"
+
+#define COUNTRY_LIST           @"countries"
+
+
+typedef NS_ENUM(NSInteger, LoginType)
+{
+        Default=0,
+        Facebook ,
+        Twitter,
+        EmailId
+};
+
+typedef NS_ENUM(NSInteger, UserRoleType)
+{
+        NormalUser=0,
+        BecomeAnArtistPending ,
+        BecomeAnArtist
+};
+
+//************** Login *************************
+
+#define LOGIN_MEMBER_ID         @"member_id"
+#define LOGIN_ID                @"id"
+#define LOGIN_REGISTERED_ON     @"registered_on"
+#define LOGIN_ADDED_ON          @"added_on"
+#define LOGIN_TYPE              @"type"
+#define LOGIN_NAME              @"name"
+#define LOGIN_NICK_NAME         @"nickname"
+#define LOGIN_USER_NAME         @"username"
+#define LOGIN_EMAIL             @"email"
+#define LOGIN_COUNTRY           @"countryname"
+#define LOGIN_PHONE             @"phone"
+#define LOGIN_IS                @"islogin"
+#define LOGIN_ROLE_TYPE         @"sellerStatus"
+#define LOGIN_PROFILE_IMAGE     @"profileImage"
+#define LOGIN_COVER_IMAGE       @"coverImage"
+#define LOGIN_BIO               @"bio"
+
+
+//************** Local Server URL *************************
+
+static NSString *const kPrefixUrl=@"http://www.eastonartgalleries.com";
+static NSString *const kURL_Slider              = @"/services/home/manageHome";
+static NSString *const kURL_NewArt              = @"/services/home/newArt";
+static NSString *const kURL_Artist              = @"/services/home/artist";
+static NSString *const kURL_ArtCategory         = @"/services/home/artCategory";
+static NSString *const kURL_ArtDetail           = @"/services/user/artdetails";
+static NSString *const kURL_ArtistDetail        = @"/services/user/profile";
+static NSString *const kURL_AboutUs             = @"/services/pages/pages";
+static NSString *const kURL_ContactUs           = @"/services/pages/contactaddress";
+static NSString *const kURL_FeedBack            = @"/services/pages/saveContact";
+static NSString *const kURL_Register            = @"/services/user/register";
+static NSString *const kURL_Login               = @"/services/user/login";
+static NSString *const kURL_LoginViaSocial      = @"/services/user/socialLogin";
+static NSString *const kURL_Blog                = @"/services/home/getBlog";
+static NSString *const kURL_Subscribe           = @"/services/home/addSubscribe";
+static NSString *const kURL_UpdateProfile       = @"/services/user/update";
+static NSString *const kURL_MyAccount           = @"/services/user/dashboard";
+static NSString *const kURL_ReviewStatus        = @"/services/user/changeReviewStatus";
+static NSString *const kURL_ReviewDelete        = @"/services/user/deleteReview";
+static NSString *const kURL_ChangePassword      = @"/services/user/changepassword";
+
+
+
+//************** ViewControllers Identifiers *************************
+static NSString *const kLeftMenuTableViewController                   = @"LeftMenuTableViewController";
+static NSString *const kViewController                                = @"ViewController";
+static NSString *const kArtCollectionViewController                   = @"ArtCollectionViewController";
+static NSString *const kBestSellingArtistsViewController              = @"BestSellingArtistsViewController";
+static NSString *const kArtCategoryViewController                     = @"ArtCategoryViewController";
+static NSString *const kArtDetailViewController                       = @"ArtDetailViewController";
+static NSString *const kArtistDetailViewController                    = @"ArtistDetailViewController";
+static NSString *const kAboutUsViewController                         = @"AboutUsViewController";
+static NSString *const kContactUsViewController                       = @"ContactUsViewController";
+static NSString *const kWebViewController                             = @"WebViewController";
+static NSString *const kReviewViewController                          = @"ReviewViewController";
+static NSString *const kRegistrationViewController                    = @"RegistrationViewController";
+static NSString *const kLoginViewController                           = @"LoginViewController";
+static NSString *const kPOPTableController                            = @"POPTableController";
+static NSString *const kBlogViewController                            = @"BlogViewController";
+static NSString *const kContentAboutViewController                    = @"ContentAboutViewController";
+static NSString *const kDashboardViewController                       = @"DashboardViewController";
+static NSString *const kTabViewController                             = @"TabViewController";
+static NSString *const kMyAccountViewController                       = @"MyAccountViewController";
+static NSString *const kUpdateProfileViewController                   = @"UpdateProfileViewController";
+static NSString *const kCustomDatePickerViewController                = @"CustomDatePickerViewController";
+static NSString *const kTHSegmentedPager                              = @"THSegmentedPager";
+static NSString *const kBecomeASellerViewController                   = @"BecomeASellerViewController";
+static NSString *const kBlankViewController                           = @"BlankViewController";
+static NSString *const kChangePasswordViewController                  = @"ChangePasswordViewController";
+
+
+//************** Navigation ViewControllers Identifiers *************************
+
+static NSString *const kTabViewControllerNav                          = @"TabViewControllerNav";
+
+//************** Custom Medthods for ViewControllers  *************************
+
+
+#define GET_VIEW_CONTROLLER(viewController) [self.storyboard instantiateViewControllerWithIdentifier:viewController]
+
+#define GET_VIEW_CONTROLLER_STORYBOARD(viewController) [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:viewController]
+
+#define MOVE_VIEW_CONTROLLER(viewController,animation)    [self.navigationController pushViewController:viewController animated:animation];
+
+#define MOVE_VIEW_CONTROLLER_VIEW_DECK(viewController)    [self.viewDeckController rightViewPushViewControllerOverCenterController:viewController];
+
+#define PRESENT_VIEW_CONTOLLER(viewController,animation) [self.navigationController presentViewController:viewController animated:animation completion:nil];
+
+#define DISMISS_VIEW_CONTROLLER             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+
+#define JOIN_STRING(str1,str2)      [str1 stringByAppendingString:str2]
+
+#define IS_NULL(value)              [value isEqual:[NSNull null]]
+
+#define IS_IPHONE_4s ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )

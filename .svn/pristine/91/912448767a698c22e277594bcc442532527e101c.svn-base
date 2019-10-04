@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Dosis-Regular.otf">
+            <string>Dosis-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="KGk-i7-Jjw" customClass="CurrentBidderTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="39.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dT1-B3-4e2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ynL-e6-kmy">
+                                <rect key="frame" x="15" y="0.0" width="305" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bidder Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcB-nj-X6y">
+                                        <rect key="frame" x="0.0" y="0.0" width="101.5" height="40"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="12"/>
+                                        <color key="textColor" red="0.20586785669999999" green="0.18145102260000001" blue="0.1801944375" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bidder Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhT-KX-7mL">
+                                        <rect key="frame" x="101.5" y="0.0" width="102" height="40"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="12"/>
+                                        <color key="textColor" red="0.20586785669999999" green="0.18145102260000001" blue="0.1801944375" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bidder Amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUK-Fa-1DG">
+                                        <rect key="frame" x="203.5" y="0.0" width="101.5" height="40"/>
+                                        <fontDescription key="fontDescription" name="Dosis-Regular" family="Dosis" pointSize="12"/>
+                                        <color key="textColor" red="0.20586785669999999" green="0.18145102260000001" blue="0.1801944375" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ynL-e6-kmy" firstAttribute="top" secondItem="dT1-B3-4e2" secondAttribute="top" id="EQM-QR-QPV"/>
+                            <constraint firstItem="ynL-e6-kmy" firstAttribute="leading" secondItem="dT1-B3-4e2" secondAttribute="leading" constant="15" id="GIY-kF-ryf"/>
+                            <constraint firstAttribute="bottom" secondItem="ynL-e6-kmy" secondAttribute="bottom" id="Xyw-UC-hjH"/>
+                            <constraint firstAttribute="height" constant="40" id="dIE-Nt-0DI"/>
+                            <constraint firstAttribute="trailing" secondItem="ynL-e6-kmy" secondAttribute="trailing" id="kNA-zM-gGw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="dT1-B3-4e2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8fz-ma-IYd"/>
+                    <constraint firstItem="dT1-B3-4e2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="d99-i3-eL7"/>
+                    <constraint firstAttribute="trailing" secondItem="dT1-B3-4e2" secondAttribute="trailing" id="hmc-hV-pdx"/>
+                    <constraint firstAttribute="bottom" secondItem="dT1-B3-4e2" secondAttribute="bottom" constant="-0.5" id="jzV-b3-YHK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="lblBidderAmount" destination="TUK-Fa-1DG" id="YQ1-yn-ZNC"/>
+                <outlet property="lblBidderDate" destination="LhT-KX-7mL" id="NKb-bJ-ILf"/>
+                <outlet property="lblBidderName" destination="ZcB-nj-X6y" id="oYj-AB-Dxn"/>
+                <outlet property="stackHeader" destination="ynL-e6-kmy" id="pk7-N7-Pbf"/>
+                <outlet property="viContainerHeader" destination="dT1-B3-4e2" id="qBw-9x-7Bb"/>
+            </connections>
+            <point key="canvasLocation" x="-336" y="-124"/>
+        </tableViewCell>
+    </objects>
+</document>

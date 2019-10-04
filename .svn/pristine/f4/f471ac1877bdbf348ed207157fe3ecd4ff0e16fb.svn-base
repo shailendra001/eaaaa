@@ -1,0 +1,32 @@
+//
+//  AuctionDetailViewController.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 17/06/17.
+//  Copyright © 2017 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface AuctionDetailViewController : UIViewController
+
+@property (strong, nonatomic) NSString* artID;
+@property (strong, nonatomic) NSString* from;
+@property (strong, nonatomic) NSString* artUserName;
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerCurrentBidders;
+@property (strong, nonatomic) IBOutlet UILabel *lblCurrentBidders;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnCurrentBidders;
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerPlaceBid;
+@property (strong, nonatomic) IBOutlet UILabel *lblPlaceBid;
+@property (strong, nonatomic) IBOutlet ZFRippleButton *btnPlaceBid;
+
+
+- (IBAction)currentBidders:(id)sender;
+- (IBAction)placeBid:(id)sender;
+
+@end

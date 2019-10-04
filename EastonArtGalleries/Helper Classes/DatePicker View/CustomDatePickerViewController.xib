@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomDatePickerViewController">
+            <connections>
+                <outlet property="btnCancel" destination="2pH-fg-h2J" id="d71-Sb-77m"/>
+                <outlet property="btnDone" destination="acH-Vo-r3x" id="3hI-OG-dTW"/>
+                <outlet property="pickerView" destination="cxn-L6-FlT" id="1pR-ym-301"/>
+                <outlet property="viContainerButtons" destination="rzS-Ze-dWf" id="rXz-Mr-brC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="e49-WB-DfR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="264"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxn-L6-FlT">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="264"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzS-Ze-dWf">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pH-fg-h2J">
+                                    <rect key="frame" x="8" y="6" width="56" height="34"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="34" id="COa-sn-aYY"/>
+                                        <constraint firstAttribute="width" constant="56" id="mIh-Iy-h8G"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="Cancel">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="cancel:" destination="-1" eventType="touchUpInside" id="5bn-He-EGn"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acH-Vo-r3x">
+                                    <rect key="frame" x="253" y="6" width="56" height="34"/>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="56" id="SDp-78-S9E"/>
+                                        <constraint firstAttribute="height" constant="34" id="nTf-Cf-GgL"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <state key="normal" title="Done">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="done:" destination="-1" eventType="touchUpInside" id="8uI-ZY-YNY"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <animations/>
+                            <color key="backgroundColor" red="0.5490196078431373" green="0.5490196078431373" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="2pH-fg-h2J" secondAttribute="bottom" constant="5" id="6Fw-Rg-R83"/>
+                                <constraint firstAttribute="height" constant="45" id="Gv3-1g-lLE"/>
+                                <constraint firstAttribute="bottom" secondItem="acH-Vo-r3x" secondAttribute="bottom" constant="5" id="LJy-fh-0Kx"/>
+                                <constraint firstAttribute="trailing" secondItem="acH-Vo-r3x" secondAttribute="trailing" constant="11" id="OTH-Bs-7yi"/>
+                                <constraint firstItem="2pH-fg-h2J" firstAttribute="leading" secondItem="rzS-Ze-dWf" secondAttribute="leading" constant="8" id="fTZ-GS-xoP"/>
+                                <constraint firstItem="acH-Vo-r3x" firstAttribute="top" secondItem="rzS-Ze-dWf" secondAttribute="top" constant="6" id="itr-MQ-dUP"/>
+                                <constraint firstItem="2pH-fg-h2J" firstAttribute="top" secondItem="rzS-Ze-dWf" secondAttribute="top" constant="6" id="mnR-Jw-c1O"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="rzS-Ze-dWf" secondAttribute="trailing" id="20z-Di-Mfd"/>
+                        <constraint firstAttribute="centerX" secondItem="rzS-Ze-dWf" secondAttribute="centerX" id="Ngx-Mr-h6F"/>
+                        <constraint firstItem="rzS-Ze-dWf" firstAttribute="leading" secondItem="cxn-L6-FlT" secondAttribute="leading" id="cdR-K3-psr"/>
+                        <constraint firstItem="rzS-Ze-dWf" firstAttribute="top" secondItem="cxn-L6-FlT" secondAttribute="top" id="tFg-X0-mWJ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <animations/>
+            <constraints>
+                <constraint firstItem="cxn-L6-FlT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0jv-KY-wyt"/>
+                <constraint firstAttribute="bottom" secondItem="cxn-L6-FlT" secondAttribute="bottom" id="5Lh-Xp-nVT"/>
+                <constraint firstAttribute="centerX" secondItem="cxn-L6-FlT" secondAttribute="centerX" id="Mje-qU-1S3"/>
+                <constraint firstAttribute="centerY" secondItem="cxn-L6-FlT" secondAttribute="centerY" id="gyt-yw-58r"/>
+                <constraint firstItem="cxn-L6-FlT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jiD-lG-eXA"/>
+                <constraint firstAttribute="trailing" secondItem="cxn-L6-FlT" secondAttribute="trailing" id="vZf-bb-mAW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="633" y="333"/>
+        </view>
+    </objects>
+</document>

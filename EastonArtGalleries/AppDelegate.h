@@ -1,0 +1,65 @@
+//
+//  AppDelegate.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 11/05/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@class UnityAppController;
+@class UILoadingView;
+@class InstagramUser;
+
+
+@protocol TransactionDeletgate <NSObject>
+
+-(void)transactionUpdate:(BOOL)status;
+
+@end
+
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+        UILoadingView*	_loadingView;
+}
+
+@property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) UIView *backgroundView;
+
+
+@property (strong, nonatomic) UIWindow *unityWindow;
+
+@property (strong, nonatomic) UnityAppController* unityAppController;
+
+@property BOOL isAppEastonArt;
+
++(AppDelegate*)appDelegate;
+-(void)showUnityWindow;
+-(void)hideUnityWindow;
+
+
+-(UIView*)unityView;
+-(UIViewController*)unityRootViewController;
+
+
+-(void)startUnityApp;
+-(void)closeUnityApp;
+
+
+- (void) showLoadingView:(BOOL)show;
+- (void) showPostToigViewControllerWithUserInfo:(InstagramUser*)userInfo;
+
+
+@property (nonatomic, strong) id<TransactionDeletgate> transactionDelegate;
+-(void)callUpdateTransactionDetailWS;
+
+
+
+@end
+
+
+#define _gAppDelegate (AppDelegate*)[[UIApplication sharedApplication] delegate]
+

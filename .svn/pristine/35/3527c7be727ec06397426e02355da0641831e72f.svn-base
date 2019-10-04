@@ -1,0 +1,23 @@
+//
+//  ArtCollectionViewCell.h
+//  EastonArtGalleries
+//
+//  Created by Sandeep Kumar on 25/05/16.
+//  Copyright © 2016 infoicon. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ArtCollectionViewCell : UICollectionViewCell
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerImage;
+@property (strong, nonatomic) IBOutlet UIImageView *imgView;
+@property (strong, nonatomic) IBOutlet UIImageView *imgSold;
+
+
+@property (strong, nonatomic) IBOutlet UIView *viContainerDetail;
+@property (strong, nonatomic) IBOutlet UILabel *lblName;
+@property (strong, nonatomic) IBOutlet UILabel *lblAutherName;
+@property (strong, nonatomic) IBOutlet UILabel *lblSize;
+@property (strong, nonatomic) IBOutlet UILabel *lblPrice;
+@end
