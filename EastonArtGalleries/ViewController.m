@@ -18,6 +18,7 @@
 #import "ArtServicesViewController.h"
 #import "ArtCategoryViewController.h"
 #import "CustomTableViewCell.h"
+#import "ApplicationAndSubmittingVC.h"
 
 
 
@@ -157,17 +158,24 @@ static NSString * const reuseIdentifier = @"Cell";
 //                     @"About Us",
 //                     @"Contact Us"];
     
+  
+    
             arrItems = @[
-                         @{@"title" : @"New Join",
-                           @"icon"  : @"newspaper.png",
-                           @"bg"    : @"new_art_text.png"},
-    
+                         
                          @{@"title" : @"Artist Gallery",
-                           @"icon"  : @"MAGNIFIER.png",
+                           @"icon"  : @"VisitHeader_960@2x copy11.jpg",
                            @"bg"    : @"search_text.png"},
-    
-                         @{@"title" : @"Contact us",
-                           @"icon"  : @"contact_icon.png",
+                         @{@"title" : @"New Art",
+                           //@"icon"  : @"new_art_icon.png",
+                           @"icon"  : @"mona_lisalouvre copy11.jpeg",
+                           @"bg"    : @"new_art.png"},
+                        
+                         @{@"title" : @"Join EAG",
+                           @"icon"  : @"Unknown-2 copy11.jpg",
+                           @"bg"    : @"new_art_text.png"},
+                        
+                         @{@"title" : @"Contact Us",
+                           @"icon"  : @"Unknown-3 copy12.jpg",
                            @"bg"    : @"contact_text.png"}];
     
     
@@ -190,7 +198,8 @@ static NSString * const reuseIdentifier = @"Cell";
         self.tableView.dataSource=self;
         
         self.tableView.tableFooterView=[[UIView alloc]init];
-        self.tableView.backgroundColor=[Alert colorFromHexString:COLOR_CELL_BACKGROUND];
+      //  self.tableView.backgroundColor=[Alert colorFromHexString:COLOR_CELL_BACKGROUND];
+     // _tableView.backgroundColor = [UIColor whiteColor];
         [self.tableView reloadData];
 #else
     
@@ -1112,58 +1121,71 @@ static NSString * const reuseIdentifier = @"Cell";
         {
                 case 0:
                 {
-                        ArtCollectionViewController* vc=GET_VIEW_CONTROLLER(kArtCollectionViewController);
-                       NSArray* arr=[resPonsedataArray objectForKey:[arrItemsData objectAtIndex:indexPath.row]];
-                        vc.arrArtCollectionList=[arr mutableCopy];
-                        vc.titleString=[[arrItems objectAtIndex:indexPath.row] valueForKey:@"title"];
-                        vc.from=@"back";
-                        if(arr.count)
-                                MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+                    
+                    BestSellingArtistsViewController* vc=GET_VIEW_CONTROLLER(kBestSellingArtistsViewController);
+                    NSArray* arr=[resPonsedataArray objectForKey:[arrItemsData objectAtIndex:indexPath.row]];
+                   // vc.arrArtCollectionList=[arr mutableCopy];
+                    vc.titleString=[[arrItems objectAtIndex:indexPath.row] valueForKey:@"title"];
+                    vc.from=@"back";
+                    if(arr.count)
+                        MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
                 }
                         break;
                 case 1:
                 {
                         
-                        
-                        ArtCollectionViewController* vc=GET_VIEW_CONTROLLER(kArtCollectionViewController);
-                        NSArray* arr=[resPonsedataArray objectForKey:[arrItemsData objectAtIndex:indexPath.row]];
-                        vc.arrArtCollectionList=[arr mutableCopy];
-                       vc.titleString=[[arrItems objectAtIndex:indexPath.row] valueForKey:@"title"];
-                        vc.from=@"back";
-                        if(arr.count)
-                                MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+//                    CustomWebViewController* vc=GET_VIEW_CONTROLLER(kWebViewController);
+//                    vc.titleString=[arrItemsData objectAtIndex:indexPath.row];
+//                    vc.isWebService=YES;
+//                    vc.urlString=JOIN_STRING(kPrefixUrl, kURL_AboutUs);
+//
+//                    NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+//                    [dic setObject:@"terms-of-sale" forKey:@"page_url"];
+//                    vc.webServiceData=[dic mutableCopy];
+//                    MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+
+                    ArtCollectionViewController* vc=GET_VIEW_CONTROLLER(kArtCollectionViewController);
+                    NSArray* arr=[resPonsedataArray objectForKey:[arrItemsData objectAtIndex:indexPath.row]];
+                    vc.arrArtCollectionList=[arr mutableCopy];
+                    vc.titleString=[[arrItems objectAtIndex:indexPath.row] valueForKey:@"title"];
+                    vc.from=@"back";
+                    if(arr.count)
+                        MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+                    
                 }
                         break;
                 case 2:
                 {
                     
-                    ContactUsViewController* vc=GET_VIEW_CONTROLLER(kContactUsViewController);
-//                    vc.titleString=[arrItems objectAtIndex:indexPath.row];
+                    CustomWebViewController* vc=GET_VIEW_CONTROLLER(kWebViewController);
                     vc.titleString=[[arrItems objectAtIndex:indexPath.row] valueForKey:@"title"];
-
+                    vc.isWebService=NO;
+                    vc.urlString=JOIN_STRING(kPrefixUrl,@"/user/subscription");
                     vc.from=@"back";
+                   // vc.htmlString = JOIN_STRING(kPrefixUrl,@"/user/subscription");
+                    NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+                    [dic setObject:@"join-EAG" forKey:@"page_url"];
+                    vc.webServiceData=[dic mutableCopy];
                     MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
-                    
-//                        ArtCollectionViewController* vc=GET_VIEW_CONTROLLER(kArtCollectionViewController);
-//                        NSArray* arr=[resPonsedataArray objectForKey:[arrItemsData objectAtIndex:indexPath.row]];
-//                        vc.arrArtCollectionList=[arr mutableCopy];
-//                        vc.titleString=[arrItems objectAtIndex:indexPath.row];
-//
-//
-//                        vc.from=@"back";
-//                        if(arr.count)
-//                                MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+         
                 }
                         break;
                 case 3:
                 {
-                        BestSellingArtistsViewController* vc=GET_VIEW_CONTROLLER(kBestSellingArtistsViewController);
-                        //NSArray* arr=[resPonsedataArray objectForKey:[arrItemsData objectAtIndex:indexPath.row]];
-                        //vc.arrBestSellingArtistsList=arr;
-                        vc.titleString=[arrItems objectAtIndex:indexPath.row];
-                        vc.from=@"back";
-                        //                        if(arr.count)
-                        MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+//                        BestSellingArtistsViewController* vc=GET_VIEW_CONTROLLER(kBestSellingArtistsViewController);
+//                        //NSArray* arr=[resPonsedataArray objectForKey:[arrItemsData objectAtIndex:indexPath.row]];
+//                        //vc.arrBestSellingArtistsList=arr;
+//                        vc.titleString=[arrItems objectAtIndex:indexPath.row];
+//                        vc.from=@"back";
+//                        //                        if(arr.count)
+//                        MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+                    
+                    ContactUsViewController* vc=GET_VIEW_CONTROLLER(kContactUsViewController);
+                    //                    vc.titleString=[arrItems objectAtIndex:indexPath.row];
+                    vc.titleString=[[arrItems objectAtIndex:indexPath.row] valueForKey:@"title"];
+                    
+                    vc.from=@"back";
+                    MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
                         
                         
                         

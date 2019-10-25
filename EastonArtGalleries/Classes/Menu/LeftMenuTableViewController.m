@@ -20,6 +20,7 @@
 #import "MediaLecturesAndPublicationVC.h"
 #import "ValuationOfArtViewController.h"
 #import "ArtRegistrationViewController.h"
+#import "AboutUsViewController.h"
 
 
 static NSString *CellIdentifier = @"Cell1";
@@ -134,13 +135,15 @@ NSMutableSet * expandsection ;
 //
 //}
 menuItems = @[
-              @"Home page",
-              @"New art",
+              @"",
+              @"About",
+              @"New Art",
               @"Art medium",
               @"Artist",
-              @"Services",
-              @"About"];
+              @"Services"
+             ];
     subAboutItems = @[
+                  @"About us",
                   @"Contact",
                   @"Media",
                   @"Blog"];
@@ -244,17 +247,17 @@ menuItems = @[
     
     BOOL isexpand = [expandsection containsObject:[NSString stringWithFormat:@"%ld",(long)section]];
     if( isexpand){
-        if (section == 4){
-            return  subservicesItems.count;
+        if (section == 1){
+            return  subAboutItems.count;
         }else if (section == 5){
-            return subAboutItems.count;
+            return subservicesItems.count;
     }else{
         return  0;
     }
     }else{
          return  0;
     }
-        NSInteger rows= menuItems.count;
+       // NSInteger rows= menuItems.count;
 //        switch (section) {
 //                case 0:
 //                       // rows=1; // did change
@@ -267,7 +270,7 @@ menuItems = @[
 //                default:
 //                        break;
 //        }
-        return rows;
+       // return rows;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -278,6 +281,13 @@ menuItems = @[
   //  lbl.backgroundColor = UIColor.greenColor;
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, headerview.frame.size.height-2, headerview.frame.size.width, 1)];
     line.backgroundColor = UIColor.lightGrayColor;
+  //
+    UIImageView* imgview = [[UIImageView alloc] initWithFrame:CGRectMake(10,10, 30, 30)];
+    [imgview setImage:[UIImage imageNamed:@"Streamline-18-512"]];
+    if (section == 0){
+        [headerview addSubview:imgview];
+    }
+  
     lbl.text = menuItems[section];
     UIButton *btnAdd = [[UIButton alloc] initWithFrame:CGRectMake(lbl.frame.origin.x+lbl.frame.size.width, 15, 30, 30)];
   //  btnAdd.backgroundColor = UIColor.redColor;
@@ -286,9 +296,9 @@ menuItems = @[
     }else{
          [btnAdd setImage:[UIImage imageNamed:@"plus"] forState:UIControlStateNormal];
     }
-    btnAdd.tag = section;
+   // btnAdd.tag = section;
    
-  //  [btnAdd addTarget:self action:@selector(collapsebutton:) forControlEvents:UIControlEventTouchUpInside];
+    //[btnAdd addTarget:self action:@selector(collapsebutton:) forControlEvents:UIControlEventTouchUpInside];
     
     UITapGestureRecognizer * gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionheaderTouched:)];
     [gesture setNumberOfTapsRequired:1];
@@ -297,7 +307,7 @@ menuItems = @[
     [headerview addGestureRecognizer:gesture];
   
   //  btnAdd.backgroundColor = [UIColor redColor];
-    if (section == 4 || section == 5){
+    if (section == 1 || section == 5){
         [headerview addSubview:btnAdd];
     }
     [headerview addSubview:lbl];
@@ -310,7 +320,7 @@ menuItems = @[
     
     UIView *headerView = (UIView *)sender.view;
     NSInteger section = headerView.tag;
-    if (section == 4 || section == 5){
+    if (section == 1 || section == 5){
         BOOL  iscolapse = [expandsection containsObject:[NSString stringWithFormat:@"%ld",(long)section]];
         if (iscolapse == true){
             [expandsection removeObject:[NSString stringWithFormat:@"%ld",(long)section]];
@@ -321,7 +331,7 @@ menuItems = @[
 
     }else{
         [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathWithIndex:section]];
-       // [self.ta]
+      
     }
   
     
@@ -355,10 +365,10 @@ menuItems = @[
     
     LeftMenuCell2 *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1 forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    if (indexPath.section == 4){
+    if (indexPath.section == 5){
         NSString *menuItem = [subservicesItems objectAtIndex:indexPath.row];
           cell.lblName.text=menuItem;
-    }else if (indexPath.section == 5){
+    }else if (indexPath.section == 1){
         NSString *menuItem = [subAboutItems objectAtIndex:indexPath.row];
           cell.lblName.text=menuItem;
     }
@@ -437,14 +447,14 @@ menuItems = @[
 }
 -(void)collapsebutton:(UIButton*)sender{
     
-       // let isCollapsed = !expandsection.contains(sectiontagged)
-    BOOL  iscolapse = [expandsection containsObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
-    if (iscolapse == true){
-        [expandsection removeObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
-    }else{
-        [expandsection addObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
-    }
-    [self reloadTable];
+   // let isCollapsed = !expandsection.contains(sectiontagged)
+//    BOOL  iscolapse = [expandsection containsObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
+//    if (iscolapse == true){
+//        [expandsection removeObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
+//    }else{
+//        [expandsection addObject:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
+//    }
+//    [self reloadTable];
 
     
 }
@@ -480,63 +490,63 @@ menuItems = @[
                         
                 }
                         break;
-            case 1:
+            case 2:
             {
                 NSString *urlString = JOIN_STRING(kPrefixUrl, kURL_NewArt);
-                                                NSMutableDictionary* data=[NSMutableDictionary dictionary];
-                                                [data setObject:@"15" forKey:@"limit"];
+                NSMutableDictionary* data=[NSMutableDictionary dictionary];
+                [data setObject:@"15" forKey:@"limit"];
                 
                 
-                                                ArtCollectionViewController* vc=GET_VIEW_CONTROLLER(kArtCollectionViewController);
+                ArtCollectionViewController* vc=GET_VIEW_CONTROLLER(kArtCollectionViewController);
                 
-                                                vc.titleString=[menuItems objectAtIndex:indexPath.section];
-                                                vc.urlString=urlString;
-                                                vc.urlData=[data mutableCopy];
-                                                vc.dataAccesskey=@"getLatestArt";
-                                                MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
-            }
-                break;
-                
-            case 2:{
-                NSString *urlString = JOIN_STRING(kPrefixUrl, kURL_ArtCategory);
-                                                NSMutableDictionary* data=[NSMutableDictionary dictionary];
-                                                [data setObject:@"category" forKey:@"page"];
-                
-                                                ArtCategoryViewController* vc=GET_VIEW_CONTROLLER(kArtCategoryViewController);
-                
-                                                vc.titleString=[menuItems objectAtIndex:indexPath.section];
-                                                vc.urlString=urlString;
-                                                vc.urlData=[data mutableCopy];
-                                                vc.dataAccesskey=@"categoryList";
-                                                MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+                vc.titleString=[menuItems objectAtIndex:indexPath.section];
+                vc.urlString=urlString;
+                vc.urlData=[data mutableCopy];
+                vc.dataAccesskey=@"getLatestArt";
+                MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
             }
                 break;
                 
             case 3:{
-                                                                NSString *urlString = JOIN_STRING(kPrefixUrl, kURL_Artist);
-                                                                                                NSMutableDictionary* data=[NSMutableDictionary dictionary];
-                                                                                                [data setObject:@"artist" forKey:@"page"];
+                NSString *urlString = JOIN_STRING(kPrefixUrl, kURL_ArtCategory);
+                NSMutableDictionary* data=[NSMutableDictionary dictionary];
+                [data setObject:@"category" forKey:@"page"];
                 
-                                                BestSellingArtistsViewController* vc=GET_VIEW_CONTROLLER(kBestSellingArtistsViewController);
+                ArtCategoryViewController* vc=GET_VIEW_CONTROLLER(kArtCategoryViewController);
                 
-                                                                                                vc.titleString=[menuItems objectAtIndex:indexPath.section];
-                                                                                                vc.urlString=urlString;
-                                                                                                vc.urlData=[data mutableCopy];
-                                                                                                vc.dataAccesskey=@"Artist";
-                                                vc.titleString=@"All Artists";
-                                                MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+                vc.titleString=[menuItems objectAtIndex:indexPath.section];
+                vc.urlString=urlString;
+                vc.urlData=[data mutableCopy];
+                vc.dataAccesskey=@"categoryList";
+                MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
             }
                 break;
                 
             case 4:{
+                NSString *urlString = JOIN_STRING(kPrefixUrl, kURL_Artist);
+                NSMutableDictionary* data=[NSMutableDictionary dictionary];
+                [data setObject:@"artist" forKey:@"page"];
+                
+                BestSellingArtistsViewController* vc=GET_VIEW_CONTROLLER(kBestSellingArtistsViewController);
+                
+                vc.titleString=[menuItems objectAtIndex:indexPath.section];
+                vc.urlString=urlString;
+                vc.urlData=[data mutableCopy];
+                vc.dataAccesskey=@"Artist";
+                vc.titleString=@"All Artists";
+                MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+            }
+                break;
+                
+            case 5:{
             //    NSIndexPath *indxpath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
                 switch (indexPath.row){
                         
                     case 0:{
-                        ValuationOfArtViewController* vc=GET_VIEW_CONTROLLER(kValuationOfArtViewController);
+                    ValuationOfArtViewController* vc=GET_VIEW_CONTROLLER(kValuationOfArtViewController);
                       //  vc.from=@"back";
-                        vc.titleString=[subservicesItems objectAtIndex:indexPath.row];
-                             MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+                    vc.titleString=[subservicesItems objectAtIndex:indexPath.row];
+                    MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
                     }
                         break;
                     case 1:{
@@ -566,18 +576,27 @@ menuItems = @[
                 }
             }
                 break;
-            case 5:{
+            case 1:{
                 
                 switch (indexPath.row){
                         
                     case 0:{
+
+                        AboutUsViewController* vc=GET_VIEW_CONTROLLER(kAboutUsViewController);
+                        vc.titleString=[subAboutItems objectAtIndex:indexPath.row];
+                        //                        vc.from=@"back";
+                        MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+                        break;
+                    }
+                        
+                    case 1:{
                         ContactUsViewController* vc=GET_VIEW_CONTROLLER(kContactUsViewController);
                                                         vc.titleString=[subAboutItems objectAtIndex:indexPath.row];
                                                         //                        vc.from=@"back";
                                                         MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
                     }
                         break;
-                    case 1:{
+                    case 2:{
                         MediaLecturesAndPublicationVC* vc=GET_VIEW_CONTROLLER(kMediaLecturesAndPublicationVC);
                                                       //  vc.from=[subAboutItems objectAtIndex:indexPath.row];
                                       vc.lblTitle = [subAboutItems objectAtIndex:indexPath.row];
@@ -585,7 +604,7 @@ menuItems = @[
                     }
                         break;
                         
-                    case 2:{
+                    case 3:{
                         BlogViewController* vc=GET_VIEW_CONTROLLER(kBlogViewController);
                                                         vc.titleString=[subAboutItems objectAtIndex:indexPath.row];
                         

@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pMJ-OW-iRx">
-                                <rect key="frame" x="0.0" y="110" width="320" height="354"/>
+                                <rect key="frame" x="0.0" y="140" width="320" height="324"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomTableViewCell" rowHeight="70" id="Hjw-ke-ln3" customClass="CustomTableViewCell">
@@ -63,13 +63,13 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWv-Nm-B2J">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider_sample.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xgP-jb-dUD">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uN2-5x-e5H">
-                                        <rect key="frame" x="0.0" y="108" width="320" height="2"/>
+                                        <rect key="frame" x="0.0" y="138" width="320" height="2"/>
                                         <color key="backgroundColor" red="0.090196078430000007" green="0.21176470589999999" blue="0.38431372549999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="ja1-42-8QI"/>
@@ -79,7 +79,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="Owr-PC-vdK">
-                                        <rect key="frame" x="4" y="73" width="312" height="37"/>
+                                        <rect key="frame" x="4" y="103" width="312" height="37"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="37" id="LlY-gz-RnO"/>
@@ -93,7 +93,7 @@
                                     <constraint firstAttribute="trailing" secondItem="uN2-5x-e5H" secondAttribute="trailing" id="0y7-Q0-UVV"/>
                                     <constraint firstAttribute="trailing" secondItem="xgP-jb-dUD" secondAttribute="trailing" id="JHH-Qp-Hfi"/>
                                     <constraint firstItem="xgP-jb-dUD" firstAttribute="centerY" secondItem="aWv-Nm-B2J" secondAttribute="centerY" id="Jyq-7K-1JV"/>
-                                    <constraint firstAttribute="height" constant="110" id="LRw-MF-aVF"/>
+                                    <constraint firstAttribute="height" constant="140" id="LRw-MF-aVF"/>
                                     <constraint firstAttribute="bottom" secondItem="xgP-jb-dUD" secondAttribute="bottom" id="OV7-hK-vBl"/>
                                     <constraint firstItem="xgP-jb-dUD" firstAttribute="centerX" secondItem="aWv-Nm-B2J" secondAttribute="centerX" id="Rek-Ph-qhu"/>
                                     <constraint firstAttribute="bottom" secondItem="Owr-PC-vdK" secondAttribute="bottom" id="WNE-hi-nEp"/>
@@ -107,10 +107,10 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="29" translatesAutoresizingMaskIntoConstraints="NO" id="uQr-dr-vmY">
-                                <rect key="frame" x="0.0" y="110" width="320" height="354"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="140" width="320" height="324"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="vjI-hZ-JTX" customClass="CustomTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="vjI-hZ-JTX" customClass="CustomTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vjI-hZ-JTX" id="mBA-o2-7EJ">
@@ -125,8 +125,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPV-Wy-Drr">
-                                                    <rect key="frame" x="70" y="10" width="199" height="24"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <rect key="frame" x="70" y="12.5" width="199" height="19"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -139,7 +139,7 @@
                                                 <constraint firstItem="qPV-Wy-Drr" firstAttribute="leading" secondItem="zvg-YF-kvM" secondAttribute="trailing" constant="10" id="gwg-XO-9Nm"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="customImg" destination="zvg-YF-kvM" id="egg-fU-qso"/>
                                             <outlet property="lblTitle" destination="qPV-Wy-Drr" id="8HI-Gz-Z9J"/>
@@ -148,7 +148,7 @@
                                 </prototypes>
                             </tableView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cxP-CV-V6I">
-                                <rect key="frame" x="0.0" y="110" width="320" height="354"/>
+                                <rect key="frame" x="0.0" y="140" width="320" height="324"/>
                                 <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M50-0l-ZUH">
                                     <size key="itemSize" width="152" height="168"/>

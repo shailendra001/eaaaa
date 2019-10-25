@@ -7,7 +7,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 @class FPViewController;
-@protocol buttontitledelgate <NSObject>
+@protocol protocolbuttontitledelgate <NSObject>
 
 -(void)buttonTittle:(NSString*)title selectedIndex:(int)index;
 
@@ -17,7 +17,7 @@
     NSMutableArray *arrayMonth;
     AppDelegate *appdelegate;
 }
-@property(nonatomic)id <buttontitledelgate> btndelegate;
+@property(nonatomic)id <protocolbuttontitledelgate> btndelegate;
 @property(nonatomic,assign) FPViewController *delegate;
 @property (nonatomic,strong) NSMutableArray *selectedArray;
 @property (nonatomic, strong) NSMutableArray *selectItemValueArray;

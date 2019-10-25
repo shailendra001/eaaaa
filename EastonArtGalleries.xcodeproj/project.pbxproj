@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00714968DFF3850A89B9CB63 /* Pods_EastonArtGalleriesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F7A962C55A5397D47FABB3 /* Pods_EastonArtGalleriesTests.framework */; };
+		047E1324235C2D6C00D9082B /* home-512-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 047E1323235C2D6C00D9082B /* home-512-2.png */; };
+		047E1326235C2F5B00D9082B /* Streamline-18-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 047E1325235C2F5B00D9082B /* Streamline-18-512.png */; };
+		047E1328235C508900D9082B /* mona_lisalouvre copy11.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 047E1327235C508900D9082B /* mona_lisalouvre copy11.jpeg */; };
+		047E132B235C519400D9082B /* Unknown-2 copy11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 047E1329235C519400D9082B /* Unknown-2 copy11.jpg */; };
+		047E132C235C519400D9082B /* Unknown-3 copy12.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 047E132A235C519400D9082B /* Unknown-3 copy12.jpg */; };
+		047E132E235C51F300D9082B /* VisitHeader_960@2x copy11.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 047E132D235C51F300D9082B /* VisitHeader_960@2x copy11.jpg */; };
 		04FBE1A22346090B00CBF9A0 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FBE1A12346090B00CBF9A0 /* CustomTableViewCell.m */; };
 		314A8C1920B2D1A600785153 /* SearchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 314A8C1820B2D1A600785153 /* SearchHeaderView.m */; };
 		4DDF0A8D40B8C693BCCA9251 /* Pods_EastonArtGalleries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 188761E3A861639C615D39E9 /* Pods_EastonArtGalleries.framework */; };
@@ -656,6 +662,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		047E1323235C2D6C00D9082B /* home-512-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-512-2.png"; sourceTree = "<group>"; };
+		047E1325235C2F5B00D9082B /* Streamline-18-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Streamline-18-512.png"; sourceTree = "<group>"; };
+		047E1327235C508900D9082B /* mona_lisalouvre copy11.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mona_lisalouvre copy11.jpeg"; sourceTree = "<group>"; };
+		047E1329235C519400D9082B /* Unknown-2 copy11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Unknown-2 copy11.jpg"; sourceTree = "<group>"; };
+		047E132A235C519400D9082B /* Unknown-3 copy12.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Unknown-3 copy12.jpg"; sourceTree = "<group>"; };
+		047E132D235C51F300D9082B /* VisitHeader_960@2x copy11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "VisitHeader_960@2x copy11.jpg"; sourceTree = "<group>"; };
 		04FBE1A02346090B00CBF9A0 /* CustomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		04FBE1A12346090B00CBF9A0 /* CustomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		07D091FA3B64D06B36E70F88 /* Pods-EastonArtGalleriesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EastonArtGalleriesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EastonArtGalleriesTests/Pods-EastonArtGalleriesTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -3587,6 +3599,7 @@
 				D97790A71F4BF2C6000BECBE /* current@2x.png */,
 				D97790A81F4BF2C6000BECBE /* MAGNIFIER@2x.png */,
 				D97790A91F4BF2C6000BECBE /* new_art_text@2x.png */,
+				047E1323235C2D6C00D9082B /* home-512-2.png */,
 				D97790AA1F4BF2C6000BECBE /* newspaper@2x.png */,
 				D97790AB1F4BF2C6000BECBE /* oils@2x.png */,
 				D97790AC1F4BF2C6000BECBE /* search_text@2x.png */,
@@ -3701,9 +3714,14 @@
 				D9613F451F0E526F00DF2F71 /* about_icon.png */,
 				D9C653E21F41B3A4001DF1A4 /* dummy_certificate.png */,
 				D9613F461F0E526F00DF2F71 /* about.png */,
+				047E1327235C508900D9082B /* mona_lisalouvre copy11.jpeg */,
 				D9613F471F0E526F00DF2F71 /* all_artists_icon.png */,
 				D9613F481F0E526F00DF2F71 /* all_artists.png */,
+				047E1325235C2F5B00D9082B /* Streamline-18-512.png */,
 				D9613F491F0E526F00DF2F71 /* art_services_icon.png */,
+				047E1329235C519400D9082B /* Unknown-2 copy11.jpg */,
+				047E132D235C51F300D9082B /* VisitHeader_960@2x copy11.jpg */,
+				047E132A235C519400D9082B /* Unknown-3 copy12.jpg */,
 				D9613F4A1F0E526F00DF2F71 /* art_services.png */,
 				D9613F4B1F0E526F00DF2F71 /* auction_icon.png */,
 				D9613F4C1F0E526F00DF2F71 /* auction.png */,
@@ -4574,7 +4592,7 @@
 				TargetAttributes = {
 					D9670AAA1CE3290300BA8C2E = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 45WT6YVFPH;
+						DevelopmentTeam = 32M9V9VLQY;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -4598,6 +4616,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				de,
@@ -4681,6 +4700,7 @@
 				D993E7FD1F062A6E004F0250 /* AddArtTableViewCell.xib in Resources */,
 				D98AFBBD1F1F6BB200B90E22 /* MediaLectureTVCell.xib in Resources */,
 				D97D31F61CF2DF07006585A2 /* phone_icon.png in Resources */,
+				047E132B235C519400D9082B /* Unknown-2 copy11.jpg in Resources */,
 				D9232D521D267B2300CF2DD6 /* CartViewCell3.xib in Resources */,
 				D971B23F1D3CD6D50038A018 /* default_user1.png in Resources */,
 				D96510CF1D5DEC7600462D43 /* remove_icon@2x.png in Resources */,
@@ -4719,6 +4739,7 @@
 				D97790BD1F4BF2C6000BECBE /* services@2x.png in Resources */,
 				D97790BB1F4BF2C6000BECBE /* oils@2x.png in Resources */,
 				D96569D71D0FECC900AD6BC2 /* MyAccountViewCell1.xib in Resources */,
+				047E1326235C2F5B00D9082B /* Streamline-18-512.png in Resources */,
 				D96455851D6F0260000373AE /* EarningReportViewCell3.xib in Resources */,
 				D97790B31F4BF2C6000BECBE /* artistNew@2x.png in Resources */,
 				D96382B11D6C1BBD0087376B /* wishlist_icon@2x.png in Resources */,
@@ -4757,6 +4778,7 @@
 				D9D650BA1D3CF1D500608B2A /* AddArtViewCell4.xib in Resources */,
 				D984BDF11F6BEC7E00A03D97 /* TOCropViewControllerLocalizable.strings in Resources */,
 				D97D31E61CF2DF07006585A2 /* contact_icon.png in Resources */,
+				047E132E235C51F300D9082B /* VisitHeader_960@2x copy11.jpg in Resources */,
 				D9713B5E1CFC3D0400540DBB /* Dosis-Regular.otf in Resources */,
 				D9CE59BF1F0D17AF0026B2A8 /* ArtRegisrtationTableViewCell1.xib in Resources */,
 				D97EFA321D38B168008E5EE8 /* BecomeASellerViewCell2.xib in Resources */,
@@ -4804,6 +4826,7 @@
 				D97D31F81CF2DF07006585A2 /* search_icon.png in Resources */,
 				D95A2A211CFDACA900B971C3 /* ContactUsViewCell1.xib in Resources */,
 				D9770B151D01926A00498733 /* ArtWorksContainerCellView.xib in Resources */,
+				047E1328235C508900D9082B /* mona_lisalouvre copy11.jpeg in Resources */,
 				D95B615E1D000D0F003C998C /* instagram_icon@2x.png in Resources */,
 				D970F11D1CF873F10049B5D8 /* ArtDetailViewCell3.xib in Resources */,
 				D9613F621F0E527000DF2F71 /* search_art.png in Resources */,
@@ -4899,11 +4922,13 @@
 				D95B61591D000D0F003C998C /* slider-noimg.jpg in Resources */,
 				D96931021D054E5B003CC12C /* DefaultLine.png in Resources */,
 				D96620331D3F65E800BB691F /* send_icon.png in Resources */,
+				047E132C235C519400D9082B /* Unknown-3 copy12.jpg in Resources */,
 				D968D1341CF5AC2E00E6BFAA /* ArtCollectionViewCell.xib in Resources */,
 				D95B61581D000D0F003C998C /* menu_icon@2x.png in Resources */,
 				D9770AEC1D01591E00498733 /* video_play.png in Resources */,
 				D97D31E71CF2DF07006585A2 /* default_user.png in Resources */,
 				D913DE071D103280007C5B76 /* CustomDatePickerViewController.xib in Resources */,
+				047E1324235C2D6C00D9082B /* home-512-2.png in Resources */,
 				D96C47F11CED9E2300D4E4F8 /* LeftMenuCell1.xib in Resources */,
 				D91448E71D813D58005499C6 /* UILoadingView.xib in Resources */,
 				D963F42E1D02EB320062E26D /* star-template.png in Resources */,
@@ -5552,11 +5577,11 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Appy Pie LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Appy Pie LLC";
 				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = NO;
-				DEVELOPMENT_TEAM = 45WT6YVFPH;
+				DEVELOPMENT_TEAM = 32M9V9VLQY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5745,13 +5770,13 @@
 					"-framework",
 					"\"XCDYouTubeKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CareSnapProvider.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appypiellc.appypiellc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = provisions_provider_Dev;
+				PROVISIONING_PROFILE_SPECIFIER = Appypiellc;
 				SWIFT_OBJC_BRIDGING_HEADER = "EastonArtGalleries/Helper Classes/ZFRippleButton/EastonArtGalleries-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				UNITY_RUNTIME_VERSION = 5.3.4f1;
 				UNITY_SCRIPTING_BACKEND = il2cpp;
 			};
@@ -5775,10 +5800,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Appy Pie LLC";
 				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 32M9V9VLQY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5967,12 +5992,12 @@
 					"-framework",
 					"\"XCDYouTubeKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.CareSnapProvider.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appypiellc.appypiellc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Appypiellc;
 				SWIFT_OBJC_BRIDGING_HEADER = "EastonArtGalleries/Helper Classes/ZFRippleButton/EastonArtGalleries-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				UNITY_RUNTIME_VERSION = 5.3.4f1;
 				UNITY_SCRIPTING_BACKEND = il2cpp;
 			};

@@ -110,14 +110,14 @@ open class ZFRippleButton: UIButton {
             touchCenterLocation = nil
         }
         
-        UIView.animate(withDuration: 0.1, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: {
+        UIView.animate(withDuration: 0.1, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: {
             self.rippleBackgroundView.alpha = 1
             }, completion: nil)
         
         rippleView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         
         
-        UIView.animate(withDuration: 0.7, delay: 0, options: [UIViewAnimationOptions.curveEaseOut, UIViewAnimationOptions.allowUserInteraction],
+        UIView.animate(withDuration: 0.7, delay: 0, options: [UIView.AnimationOptions.curveEaseOut, UIView.AnimationOptions.allowUserInteraction],
             animations: {
                 self.rippleView.transform = CGAffineTransform.identity
             }, completion: nil)
@@ -134,7 +134,7 @@ open class ZFRippleButton: UIButton {
             
             let groupAnim = CAAnimationGroup()
             groupAnim.duration = 0.7
-            groupAnim.fillMode = kCAFillModeForwards
+            groupAnim.fillMode = CAMediaTimingFillMode.forwards
             groupAnim.isRemovedOnCompletion = false
             groupAnim.animations = [shadowAnim, opacityAnim]
             
@@ -154,10 +154,10 @@ open class ZFRippleButton: UIButton {
     }
     
     fileprivate func animateToNormal() {
-        UIView.animate(withDuration: 0.1, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: {
+        UIView.animate(withDuration: 0.1, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: {
             self.rippleBackgroundView.alpha = 1
             }, completion: {(success: Bool) -> () in
-                UIView.animate(withDuration: self.touchUpAnimationTime, delay: 0, options: UIViewAnimationOptions.allowUserInteraction, animations: {
+                UIView.animate(withDuration: self.touchUpAnimationTime, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: {
                     self.rippleBackgroundView.alpha = 0
                     }, completion: nil)
         })
@@ -176,7 +176,7 @@ open class ZFRippleButton: UIButton {
                 
                 let groupAnim = CAAnimationGroup()
                 groupAnim.duration = 0.7
-                groupAnim.fillMode = kCAFillModeForwards
+                groupAnim.fillMode = CAMediaTimingFillMode.forwards
                 groupAnim.isRemovedOnCompletion = false
                 groupAnim.animations = [shadowAnim, opacityAnim]
                 

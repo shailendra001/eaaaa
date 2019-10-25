@@ -11,6 +11,7 @@
 #import "LoginViewController.h"
 #import "WishListViewController.h"
 #import "BecomeASellerViewController.h"
+#import "Constant.h"
 
 @interface EAGallery ()<FPPopoverControllerDelegate,buttontitledelgate,UIPopoverPresentationControllerDelegate>
 {
@@ -461,11 +462,23 @@
                         if([item isEqualToString:kBecomeASellerViewController]){
                                 
                                 if([nav.visibleViewController isKindOfClass:[BecomeASellerViewController class]]) return;
-                                
-                                BecomeASellerViewController*vc=GET_VIEW_CONTROLLER_STORYBOARD(kBecomeASellerViewController);
-                                vc.titleString=name;
-                                vc.from=@"popup";
-                                
+                            
+                           // CustomWebViewController* vc=GET_VIEW_CONTROLLER(kWebViewController);
+                             CustomWebViewController*vc=GET_VIEW_CONTROLLER_STORYBOARD(kWebViewController);
+                            //vc.titleString=[arrItemsData objectAtIndex:indexPath.row];
+                            vc.titleString=name;
+                            vc.isWebService=NO;
+                            vc.urlString=JOIN_STRING(kPrefixUrl,@"/user/subscription");
+                            
+                            // vc.htmlString = JOIN_STRING(kPrefixUrl,@"/user/subscription");
+                            NSMutableDictionary* dic=[NSMutableDictionary dictionary];
+                            [dic setObject:@"join-EAG" forKey:@"page_url"];
+                            vc.webServiceData=[dic mutableCopy];
+                          //  MOVE_VIEW_CONTROLLER_VIEW_DECK(vc);
+//                                BecomeASellerViewController*vc=GET_VIEW_CONTROLLER_STORYBOARD(kBecomeASellerViewController);
+//                                vc.titleString=name;
+//                                vc.from=@"popup";
+//
                                 [nav.viewDeckController rightViewPushViewControllerOverCenterController:vc];
                         }
 

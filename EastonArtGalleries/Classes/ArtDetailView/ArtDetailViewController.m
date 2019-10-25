@@ -1337,21 +1337,26 @@ static NSString *CellIdentifier5 = @"Cell5";
 -(void)shareOnFB:(NSString*)title desc:(NSString*)desc link:(NSString*)link imgURL:(NSURL*)imgURL{
         
        FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
-        content.contentTitle=title;
-        content.contentDescription=desc;
-       content.contentURL = [NSURL URLWithString:link];
-     // content.contentURL = [NSURL ur]
+       // content.contentTitle=title;
+       // content.contentDescription=desc;
         content.imageURL=imgURL;
+       content.contentURL = [NSURL URLWithString:link];
+      content.hashtag = [FBSDKHashtag hashtagWithString:@"#MadeWithHackbook"];
     
+//    UIImageView *imgview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+//    //UIImage *image = info[UIImagePickerControllerOriginalImage];
+//    NSData * data = [NSData dataWithContentsOfURL:imgURL];
+//    UIImage *imageshare = [UIImage imageWithData:data];
+//    imgview.image = imageshare;
+//    FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
+//    photo.image = imageshare;
+//    photo.userGenerated = YES;
+//    FBSDKSharePhotoContent *photocontent = [[FBSDKSharePhotoContent alloc] init];
+//    photocontent.photos = @[photo];
+
         [FBSDKShareDialog showFromViewController:self
                                      withContent:content
                                         delegate:self];
-    
-//    FBSDKShareDialog * dialog = [[FBSDKShareDialog alloc] init];
-//    [dialog setFromViewController:self];
-//    [dialog setShareContent:content];
-//    [dialog setMode:FBSDKShareDialogModeWeb];
-//    [dialog show];
 }
 
 #pragma mark - FBSDKSharing Delegate
