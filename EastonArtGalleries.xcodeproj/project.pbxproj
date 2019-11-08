@@ -4592,7 +4592,7 @@
 				TargetAttributes = {
 					D9670AAA1CE3290300BA8C2E = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 32M9V9VLQY;
+						DevelopmentTeam = 45WT6YVFPH;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
@@ -5577,11 +5577,12 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Appy Pie LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Appy Pie LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Mora (N9ALL4L7BB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Eric Mora (N9ALL4L7BB)";
 				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = NO;
-				DEVELOPMENT_TEAM = 32M9V9VLQY;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 45WT6YVFPH;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5643,6 +5644,7 @@
 					"$(PROJECT_DIR)/Pods/CardIO/CardIO",
 					"$(PROJECT_DIR)/Pods/PayPal-iOS-SDK/PayPalMobile",
 				);
+				MARKETING_VERSION = 2.0;
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-DINIT_SCRIPTING_BACKEND=1",
@@ -5770,10 +5772,10 @@
 					"-framework",
 					"\"XCDYouTubeKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appypiellc.appypiellc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CareSnapProvider.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = Appypiellc;
+				PROVISIONING_PROFILE_SPECIFIER = provisions_provider_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "EastonArtGalleries/Helper Classes/ZFRippleButton/EastonArtGalleries-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -5799,11 +5801,12 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_UNREACHABLE_CODE = NO;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Appy Pie LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Mora (N9ALL4L7BB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: EASTON ART GALLERIES (KL39P2NXUD)";
 				CODE_SIGN_STYLE = Manual;
 				COMPRESS_PNG_FILES = NO;
-				DEVELOPMENT_TEAM = 32M9V9VLQY;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KL39P2NXUD;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5865,6 +5868,7 @@
 					"$(PROJECT_DIR)/Pods/CardIO/CardIO",
 					"$(PROJECT_DIR)/Pods/PayPal-iOS-SDK/PayPalMobile",
 				);
+				MARKETING_VERSION = 2.0;
 				OTHER_CFLAGS = (
 					"$(inherited)",
 					"-DINIT_SCRIPTING_BACKEND=1",
@@ -5992,10 +5996,10 @@
 					"-framework",
 					"\"XCDYouTubeKit\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.appypiellc.appypiellc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CareSnapProvider.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = Appypiellc;
+				PROVISIONING_PROFILE_SPECIFIER = "Easton Art Galleries Production";
 				SWIFT_OBJC_BRIDGING_HEADER = "EastonArtGalleries/Helper Classes/ZFRippleButton/EastonArtGalleries-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				UNITY_RUNTIME_VERSION = 5.3.4f1;
